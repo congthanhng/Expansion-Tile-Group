@@ -46,6 +46,7 @@ class _MyAppState extends State<MyApp> {
                padding: const EdgeInsets.all(8.0),
               child: ExpansionTileGroup(
                 toggleType: ToggleType.expandOnlyCurrent,
+                spaceBetweenItem: 8,
                 onExpansionItemChanged: (index, isExpanded) {
                   setState(() {
                     currentItem = index;

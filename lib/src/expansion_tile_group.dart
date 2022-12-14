@@ -6,11 +6,15 @@ class ExpansionTileGroup extends StatefulWidget {
       {Key? key,
       required this.children,
       this.toggleType = ToggleType.none,
-      this.onExpansionItemChanged})
-      : super(key: key);
+      this.onExpansionItemChanged,
+      this.spaceBetweenItem = 0.0})
+      : assert(spaceBetweenItem >= 0.0,
+            'Error: Please set the spaceBetweenItem of ExpansionTileGroup must be >= 0'),
+        super(key: key);
   final List<ExpansionTileItem> children;
   final ToggleType toggleType;
   final Function(int, bool)? onExpansionItemChanged;
+  final double spaceBetweenItem;
 
   @override
   State<ExpansionTileGroup> createState() => _ExpansionTileGroupState();
@@ -21,63 +25,6 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
   late final List<ExpansionTileItem> expansionChildren;
 
   bool _isGroupTransforming = false;
-
-  void _updateExpandedForAccordions(
-      int index, bool isExpanded, bool defaultState) {
-    switch (widget.toggleType) {
-      case ToggleType.expandOnlyCurrent:
-        _onExpandOne(index, isExpanded, defaultState);
-        break;
-      case ToggleType.collapseAll:
-        _onCollapseAll(index, isExpanded, defaultState);
-        break;
-      case ToggleType.expandAll:
-        _onExpandAll(index, isExpanded, defaultState);
-        break;
-      case ToggleType.none:
-        break;
-    }
-  }
-
-  void _onExpandOne(int index, bool isExpanded, bool defaultState) {
-    _isGroupTransforming = true;
-    if (isExpanded) {
-      expansionTileKeys[index].currentState?.expand();
-    } else {
-      expansionTileKeys[index].currentState?.collapse();
-    }
-    for (int i = 0; i < expansionTileKeys.length; i++) {
-      if (i != index) {
-        if (defaultState) {
-          expansionTileKeys[i].currentState?.expand();
-        } else {
-          expansionTileKeys[i].currentState?.collapse();
-        }
-      }
-    }
-    _isGroupTransforming = false;
-  }
-
-  void _onCollapseAll(int index, bool isExpanded, bool defaultState) {
-    _isGroupTransforming = true;
-    if (!isExpanded) {
-      for (int i = 0; i < expansionTileKeys.length; i++) {
-        expansionTileKeys[i].currentState?.collapse();
-      }
-    }
-    _isGroupTransforming = false;
-  }
-
-  //todo create abtract class to handle
-  void _onExpandAll(int index, bool isExpanded, bool defaultState) {
-    _isGroupTransforming = true;
-    if (isExpanded) {
-      for (int i = 0; i < expansionTileKeys.length; i++) {
-        expansionTileKeys[i].currentState?.expand();
-      }
-    }
-    _isGroupTransforming = false;
-  }
 
   @override
   void initState() {
@@ -99,7 +46,79 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [...expansionChildren],
+      children: [...getChildrenToShown()],
     );
+  }
+
+  List<Widget> getChildrenToShown() {
+    var result = <Widget>[];
+    for (var item in expansionChildren) {
+      result.add(item);
+      if (expansionChildren.last != item) {
+        result.add(SizedBox(
+          height: widget.spaceBetweenItem,
+        ));
+      }
+    }
+    return result;
+  }
+
+  void _updateExpandedForAccordions(
+      int index, bool isExpanded, bool defaultState) {
+    switch (widget.toggleType) {
+      case ToggleType.expandOnlyCurrent:
+        _onExpandOne(index, isExpanded, defaultState);
+        break;
+      case ToggleType.collapseAll:
+        _onCollapseAll(index, isExpanded, defaultState);
+        break;
+      case ToggleType.expandAll:
+        _onExpandAll(index, isExpanded, defaultState);
+        break;
+      case ToggleType.none:
+        break;
+    }
+  }
+
+  //todo create abstract class to handle action
+  void _onExpandOne(int index, bool isExpanded, bool defaultState) {
+    _isGroupTransforming = true;
+    if (isExpanded) {
+      expansionTileKeys[index].currentState?.expand();
+    } else {
+      expansionTileKeys[index].currentState?.collapse();
+    }
+    for (int i = 0; i < expansionTileKeys.length; i++) {
+      if (i != index) {
+        if (defaultState) {
+          expansionTileKeys[i].currentState?.expand();
+        } else {
+          expansionTileKeys[i].currentState?.collapse();
+        }
+      }
+    }
+    _isGroupTransforming = false;
+  }
+
+  //todo create abstract class to handle action
+  void _onCollapseAll(int index, bool isExpanded, bool defaultState) {
+    _isGroupTransforming = true;
+    if (!isExpanded) {
+      for (int i = 0; i < expansionTileKeys.length; i++) {
+        expansionTileKeys[i].currentState?.collapse();
+      }
+    }
+    _isGroupTransforming = false;
+  }
+
+  //todo create abstract class to handle action
+  void _onExpandAll(int index, bool isExpanded, bool defaultState) {
+    _isGroupTransforming = true;
+    if (isExpanded) {
+      for (int i = 0; i < expansionTileKeys.length; i++) {
+        expansionTileKeys[i].currentState?.expand();
+      }
+    }
+    _isGroupTransforming = false;
   }
 }
