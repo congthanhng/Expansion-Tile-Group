@@ -29,7 +29,11 @@ class ExpansionTileItem extends StatelessWidget {
       this.themeData,
       this.decoration,
       this.borderRadius,
-      this.border})
+      this.border,
+      this.clipBehavior,
+      this.boxShadow,
+      this.expendedBorderColor,
+      this.collapsedBorderColor})
       : super(key: key);
 
   /// The primary content of the list item.
@@ -243,6 +247,40 @@ class ExpansionTileItem extends StatelessWidget {
   /// right-to-left.
   final BoxBorder? border;
 
+  ///The clip behavior when Container.decoration is not null.
+  /// Defaults to Clip.none. Must be Clip.none if decoration is null.
+  /// If a clip is to be applied, the Decoration.getClipPath method for the provided decoration must return a clip path.
+  /// (This is not supported by all decorations; the default implementation of that method throws an UnsupportedError.)
+  final Clip? clipBehavior;
+
+  ///A list of shadows cast by this box behind the box.
+  /// The shadow follows the shape of the box.
+  /// See also:
+  /// kElevationToShadow, for some predefined shadows used in Material Design.
+  /// PhysicalModel, a widget for showing shadows.
+  final List<BoxShadow>? boxShadow;
+
+  /// The color to display border box when collapsed.
+  ///
+  /// If this property is null then [ExpansionTileThemeData.backgroundColor] is used. If that
+  /// is also null then Colors.transparent is used.
+  ///
+  /// See also:
+  ///
+  /// * [ExpansionTileTheme.of], which returns the nearest [ExpansionTileTheme]'s
+  ///   [ExpansionTileThemeData].
+  final Color? collapsedBorderColor;
+
+  /// The color to display border box when expanded.
+  ///
+  /// If this property is null then [ThemeData.dividerColor] is used. If that
+  /// is also null then Colors.transparent is used.
+  ///
+  /// See also:
+  ///
+  /// * [ThemeData.of], which returns the nearest [ThemeData].
+  final Color? expendedBorderColor;
+
   ExpansionTileItem copyWith(
       {Key? key,
       Widget? title,
@@ -267,71 +305,83 @@ class ExpansionTileItem extends StatelessWidget {
       Color? backgroundColor,
       Decoration? decoration,
       BorderRadiusGeometry? borderRadius,
-      BoxBorder? border}) {
+      BoxBorder? border,
+      Clip? clipBehavior,
+      ThemeData? themeData,
+      List<BoxShadow>? boxShadow,
+      Color? expendedBorderColor,
+      Color? collapsedBorderColor}) {
     return ExpansionTileItem(
-        key: key ?? this.key,
-        title: title ?? this.title,
-        expansionKey: expansionKey ?? this.expansionKey,
-        onExpansionChanged: (value) {
-          onExpansionChanged?.call(value);
-          this.onExpansionChanged?.call(value);
-        },
-        backgroundColor: backgroundColor ?? this.backgroundColor,
-        leading: leading ?? this.leading,
-        trailing: trailing ?? this.trailing,
-        childrenPadding: childrenPadding ?? childrenPadding,
-        collapsedBackgroundColor:
-            collapsedBackgroundColor ?? this.collapsedBackgroundColor,
-        collapsedTextColor: collapsedTextColor ?? this.collapsedTextColor,
-        controlAffinity: controlAffinity ?? this.controlAffinity,
-        maintainState: maintainState ?? this.maintainState,
-        subtitle: subtitle ?? this.subtitle,
-        textColor: textColor ?? this.textColor,
-        initiallyExpanded: initiallyExpanded ?? this.initiallyExpanded,
-        tilePadding: tilePadding ?? this.tilePadding,
-        iconColor: iconColor ?? this.iconColor,
-        expandedCrossAxisAlignment:
-            expandedCrossAxisAlignment ?? this.expandedCrossAxisAlignment,
-        expandedAlignment: expandedAlignment ?? this.expandedAlignment,
-        collapsedIconColor: collapsedIconColor ?? this.collapsedIconColor,
-        decoration: decoration ?? this.decoration,
-        borderRadius: borderRadius ?? this.borderRadius,
-        border: border ?? this.border,
-        children: children ?? this.children);
+      key: key ?? this.key,
+      title: title ?? this.title,
+      expansionKey: expansionKey ?? this.expansionKey,
+      onExpansionChanged: (value) {
+        onExpansionChanged?.call(value);
+        this.onExpansionChanged?.call(value);
+      },
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      leading: leading ?? this.leading,
+      trailing: trailing ?? this.trailing,
+      childrenPadding: childrenPadding ?? this.childrenPadding,
+      collapsedBackgroundColor:
+          collapsedBackgroundColor ?? this.collapsedBackgroundColor,
+      collapsedTextColor: collapsedTextColor ?? this.collapsedTextColor,
+      controlAffinity: controlAffinity ?? this.controlAffinity,
+      maintainState: maintainState ?? this.maintainState,
+      subtitle: subtitle ?? this.subtitle,
+      textColor: textColor ?? this.textColor,
+      initiallyExpanded: initiallyExpanded ?? this.initiallyExpanded,
+      tilePadding: tilePadding ?? this.tilePadding,
+      iconColor: iconColor ?? this.iconColor,
+      expandedCrossAxisAlignment:
+          expandedCrossAxisAlignment ?? this.expandedCrossAxisAlignment,
+      expandedAlignment: expandedAlignment ?? this.expandedAlignment,
+      collapsedIconColor: collapsedIconColor ?? this.collapsedIconColor,
+      decoration: decoration ?? this.decoration,
+      borderRadius: borderRadius ?? this.borderRadius,
+      border: border ?? this.border,
+      themeData: themeData ?? this.themeData,
+      clipBehavior: clipBehavior ?? this.clipBehavior,
+      boxShadow: boxShadow ?? this.boxShadow,
+      collapsedBorderColor: collapsedBorderColor ?? this.collapsedBorderColor,
+      expendedBorderColor: expendedBorderColor ?? this.expendedBorderColor,
+      children: children ?? this.children,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: decoration ??
-          BoxDecoration(
-              borderRadius: borderRadius ?? BorderRadius.circular(8),
-              border: border ?? Border.all(color: Colors.black)),
-      clipBehavior: Clip.hardEdge,
-      child: Theme(
-        data: themeData ??
-            Theme.of(context).copyWith(dividerColor: Colors.transparent),
-        child: ExpansionTileCustom(
-            key: expansionKey,
-            onExpansionChanged: onExpansionChanged,
-            initiallyExpanded: initiallyExpanded,
-            tilePadding: tilePadding,
-            expandedAlignment: expandedAlignment,
-            collapsedIconColor: collapsedIconColor,
-            expandedCrossAxisAlignment: expandedCrossAxisAlignment,
-            iconColor: iconColor,
-            title: title,
-            textColor: textColor,
-            subtitle: subtitle,
-            maintainState: maintainState,
-            controlAffinity: controlAffinity,
-            collapsedTextColor: collapsedTextColor,
-            collapsedBackgroundColor: collapsedBackgroundColor,
-            childrenPadding: childrenPadding,
-            trailing: trailing,
-            leading: leading,
-            backgroundColor: backgroundColor,
-            children: children ?? []),
+    return Theme(
+      data: themeData ?? Theme.of(context).copyWith(),
+      child: ExpansionTileCustom(
+        key: expansionKey,
+        onExpansionChanged: onExpansionChanged,
+        initiallyExpanded: initiallyExpanded,
+        tilePadding: tilePadding,
+        expandedAlignment: expandedAlignment ?? Alignment.topLeft,
+        collapsedIconColor: collapsedIconColor,
+        expandedCrossAxisAlignment: expandedCrossAxisAlignment,
+        iconColor: iconColor,
+        title: title,
+        textColor: textColor,
+        subtitle: subtitle,
+        maintainState: maintainState,
+        controlAffinity: controlAffinity,
+        collapsedTextColor: collapsedTextColor,
+        collapsedBackgroundColor: collapsedBackgroundColor,
+        childrenPadding: childrenPadding ??
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        trailing: trailing,
+        leading: leading,
+        backgroundColor: backgroundColor,
+        decoration: decoration,
+        borderRadius: borderRadius,
+        clipBehavior: clipBehavior,
+        border: border,
+        boxShadow: boxShadow,
+        expendedBorderColor: expendedBorderColor,
+        collapsedBorderColor: collapsedBorderColor,
+        children: children ?? [],
       ),
     );
   }
