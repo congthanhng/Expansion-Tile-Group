@@ -39,31 +39,42 @@ const Duration _kExpand = Duration(milliseconds: 200);
 ///  * The "Expand and collapse" section of
 ///    <https://material.io/components/lists#types>
 class ExpansionTileCustom extends StatefulWidget {
-  const ExpansionTileCustom({
-    Key? key,
-    this.leading,
-    required this.title,
-    this.subtitle,
-    this.onExpansionChanged,
-    this.children = const <Widget>[],
-    this.trailing,
-    this.initiallyExpanded = false,
-    this.maintainState = false,
-    this.tilePadding,
-    this.expandedCrossAxisAlignment,
-    this.expandedAlignment,
-    this.childrenPadding,
-    this.backgroundColor,
-    this.collapsedBackgroundColor,
-    this.textColor,
-    this.collapsedTextColor,
-    this.iconColor,
-    this.collapsedIconColor,
-    this.controlAffinity,
-  })  : assert(
-        expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
-        'CrossAxisAlignment.baseline is not supported since the expanded children '
-            'are aligned in a column, not a row. Try to use another constant.',
+  const ExpansionTileCustom(
+      {Key? key,
+      this.leading,
+      required this.title,
+      this.subtitle,
+      this.onExpansionChanged,
+      this.children = const <Widget>[],
+      this.trailing,
+      this.initiallyExpanded = false,
+      this.maintainState = false,
+      this.tilePadding,
+      this.expandedCrossAxisAlignment,
+      this.expandedAlignment,
+      this.childrenPadding,
+      this.backgroundColor,
+      this.collapsedBackgroundColor,
+      this.textColor,
+      this.collapsedTextColor,
+      this.iconColor,
+      this.collapsedIconColor,
+      this.controlAffinity,
+      this.clipBehavior,
+      this.decoration,
+      this.borderRadius,
+      this.border,
+      this.boxShadow,
+      this.collapsedBorderColor,
+      this.expendedBorderColor,
+      this.isHasTopBorder = true,
+      this.isHasBottomBorder = true,
+      this.isHasLeftBorder = false,
+      this.isHasRightBorder = false})
+      : assert(
+          expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
+          'CrossAxisAlignment.baseline is not supported since the expanded children '
+          'are aligned in a column, not a row. Try to use another constant.',
         ),
         super(key: key);
 
@@ -249,13 +260,69 @@ class ExpansionTileCustom extends StatefulWidget {
   /// which means that the expansion arrow icon will appear on the tile's trailing edge.
   final ListTileControlAffinity? controlAffinity;
 
-  // void expand(BuildContext context) {
-  //   context.findAncestorStateOfType<ExpansionTileCustomState>()?.expand();
-  // }
-  //
-  // void collapse(BuildContext context) {
-  //   context.findAncestorStateOfType<ExpansionTileCustomState>()?.collapse();
-  // }
+  ///The decoration to paint behind the child.
+  /// Use the color property to specify a simple solid color.
+  /// The child is not clipped to the decoration. To clip a child to the shape of a particular ShapeDecoration, consider using a ClipPath widget.
+  final Decoration? decoration;
+
+  /// If non-null, the corners of this box are rounded by this [BorderRadius].
+  ///
+  /// Applies only to boxes with rectangular shapes; ignored if [shape] is not
+  /// [BoxShape.rectangle].
+  ///
+  /// {@macro flutter.painting.BoxDecoration.clip}
+  final BorderRadiusGeometry? borderRadius;
+
+  /// A border to draw above the background [color], [gradient], or [image].
+  ///
+  /// Follows the [shape] and [borderRadius].
+  ///
+  /// Use [Border] objects to describe borders that do not depend on the reading
+  /// direction.
+  ///
+  /// Use [BoxBorder] objects to describe borders that should flip their left
+  /// and right edges based on whether the text is being read left-to-right or
+  /// right-to-left.
+  final BoxBorder? border;
+
+  ///The clip behavior when Container.decoration is not null.
+  /// Defaults to Clip.none. Must be Clip.none if decoration is null.
+  /// If a clip is to be applied, the Decoration.getClipPath method for the provided decoration must return a clip path.
+  /// (This is not supported by all decorations; the default implementation of that method throws an UnsupportedError.)
+  final Clip? clipBehavior;
+
+  ///A list of shadows cast by this box behind the box.
+  /// The shadow follows the shape of the box.
+  /// See also:
+  /// kElevationToShadow, for some predefined shadows used in Material Design.
+  /// PhysicalModel, a widget for showing shadows.
+  final List<BoxShadow>? boxShadow;
+
+  /// The color to display border box when collapsed.
+  ///
+  /// If this property is null then [ExpansionTileThemeData.backgroundColor] is used. If that
+  /// is also null then Colors.transparent is used.
+  ///
+  /// See also:
+  ///
+  /// * [ExpansionTileTheme.of], which returns the nearest [ExpansionTileTheme]'s
+  ///   [ExpansionTileThemeData].
+  final Color? collapsedBorderColor;
+
+  /// The color to display border box when expanded.
+  ///
+  /// If this property is null then [ThemeData.dividerColor] is used. If that
+  /// is also null then Colors.transparent is used.
+  ///
+  /// See also:
+  ///
+  /// * [ThemeData.of], which returns the nearest [ThemeData].
+  final Color? expendedBorderColor;
+
+  final bool isHasTopBorder;
+  final bool isHasBottomBorder;
+  final bool isHasLeftBorder;
+  final bool isHasRightBorder;
 
   @override
   State<ExpansionTileCustom> createState() => ExpansionTileCustomState();
@@ -264,11 +331,11 @@ class ExpansionTileCustom extends StatefulWidget {
 class ExpansionTileCustomState extends State<ExpansionTileCustom>
     with SingleTickerProviderStateMixin {
   static final Animatable<double> _easeOutTween =
-  CurveTween(curve: Curves.easeOut);
+      CurveTween(curve: Curves.easeOut);
   static final Animatable<double> _easeInTween =
-  CurveTween(curve: Curves.easeIn);
+      CurveTween(curve: Curves.easeIn);
   static final Animatable<double> _halfTween =
-  Tween<double>(begin: 0.0, end: 0.5);
+      Tween<double>(begin: 0.0, end: 0.5);
 
   final ColorTween _borderColorTween = ColorTween();
   final ColorTween _headerColorTween = ColorTween();
@@ -322,7 +389,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
     _setExpanded(!_isExpanded);
   }
 
-  void expandedChanged(bool isExpanded){
+  void expandedChanged(bool isExpanded) {
     _setExpanded(isExpanded);
   }
 
@@ -404,19 +471,33 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
 
   Widget _buildChildren(BuildContext context, Widget? child) {
     final ExpansionTileThemeData expansionTileTheme =
-    ExpansionTileTheme.of(context);
+        ExpansionTileTheme.of(context);
     final Color borderSideColor = _borderColor.value ?? Colors.transparent;
 
     return Container(
-      decoration: BoxDecoration(
-        color: _backgroundColor.value ??
-            expansionTileTheme.backgroundColor ??
-            Colors.transparent,
-        border: Border(
-          top: BorderSide(color: borderSideColor),
-          bottom: BorderSide(color: borderSideColor),
-        ),
-      ),
+      decoration: widget.decoration ??
+          BoxDecoration(
+            color: _backgroundColor.value ??
+                expansionTileTheme.backgroundColor ??
+                Colors.transparent,
+            border: (widget.border ??
+                Border(
+                    top: widget.isHasTopBorder
+                        ? BorderSide(color: borderSideColor)
+                        : const BorderSide(color: Colors.transparent),
+                    bottom: widget.isHasBottomBorder
+                        ? BorderSide(color: borderSideColor)
+                        : const BorderSide(color: Colors.transparent),
+                    right: widget.isHasRightBorder
+                        ? BorderSide(color: borderSideColor)
+                        : const BorderSide(color: Colors.transparent),
+                    left: widget.isHasLeftBorder
+                        ? BorderSide(color: borderSideColor)
+                        : const BorderSide(color: Colors.transparent))),
+            borderRadius: widget.borderRadius,
+            boxShadow: widget.boxShadow,
+          ),
+      clipBehavior: widget.clipBehavior ?? Clip.hardEdge,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -426,7 +507,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
             child: ListTile(
               onTap: _handleTap,
               contentPadding:
-              widget.tilePadding ?? expansionTileTheme.tilePadding,
+                  widget.tilePadding ?? expansionTileTheme.tilePadding,
               leading: widget.leading ?? _buildLeadingIcon(context),
               title: widget.title,
               subtitle: widget.subtitle,
@@ -451,9 +532,12 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
   void didChangeDependencies() {
     final ThemeData theme = Theme.of(context);
     final ExpansionTileThemeData expansionTileTheme =
-    ExpansionTileTheme.of(context);
+        ExpansionTileTheme.of(context);
     final ColorScheme colorScheme = theme.colorScheme;
-    _borderColorTween.end = theme.dividerColor;
+    _borderColorTween
+      ..begin =
+          widget.collapsedBorderColor ?? expansionTileTheme.backgroundColor
+      ..end = widget.expendedBorderColor ?? theme.dividerColor;
     _headerColorTween
       ..begin = widget.collapsedTextColor ??
           expansionTileTheme.collapsedTextColor ??
@@ -478,7 +562,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
   @override
   Widget build(BuildContext context) {
     final ExpansionTileThemeData expansionTileTheme =
-    ExpansionTileTheme.of(context);
+        ExpansionTileTheme.of(context);
     final bool closed = !_isExpanded && _controller.isDismissed;
     final bool shouldRemoveChildren = closed && !widget.maintainState;
 
@@ -492,7 +576,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
               EdgeInsets.zero,
           child: Column(
             crossAxisAlignment:
-            widget.expandedCrossAxisAlignment ?? CrossAxisAlignment.center,
+                widget.expandedCrossAxisAlignment ?? CrossAxisAlignment.center,
             children: widget.children,
           ),
         ),

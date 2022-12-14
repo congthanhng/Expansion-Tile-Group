@@ -1,8 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExpansionTileBorderItem extends ExpansionTileItem {
-  ExpansionTileBorderItem({
+class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
+  const ExpansionTileWithoutBorderItem({
     Key? key,
     required Widget title,
     required List<Widget> children,
@@ -41,8 +41,8 @@ class ExpansionTileBorderItem extends ExpansionTileItem {
           title: title,
           children: children,
           decoration: decoration,
-          border: border,
-          borderRadius: borderRadius ?? BorderRadius.circular(8),
+          border: border ?? const Border(),
+          borderRadius: borderRadius,
           backgroundColor: backgroundColor,
           childrenPadding: childrenPadding ??
               const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -65,11 +65,11 @@ class ExpansionTileBorderItem extends ExpansionTileItem {
           trailing: trailing,
           boxShadow: boxShadow,
           clipBehavior: clipBehavior,
-          collapsedBorderColor: collapsedBorderColor ?? Colors.grey,
-          expendedBorderColor: expendedBorderColor ?? Colors.blue,
-          isHasBottomBorder: isHasBottomBorder = true,
-          isHasLeftBorder: isHasLeftBorder = true,
-          isHasRightBorder: isHasRightBorder = true,
-          isHasTopBorder: isHasTopBorder = true,
+          collapsedBorderColor: collapsedBorderColor,
+          expendedBorderColor: expendedBorderColor,
+          isHasBottomBorder: isHasBottomBorder,
+          isHasLeftBorder: isHasLeftBorder,
+          isHasRightBorder: isHasRightBorder,
+          isHasTopBorder: isHasTopBorder,
         );
 }
