@@ -360,7 +360,8 @@ class ExpansionTileItem extends StatelessWidget {
         tilePadding: tilePadding,
         expandedAlignment: expandedAlignment ?? Alignment.topLeft,
         collapsedIconColor: collapsedIconColor,
-        expandedCrossAxisAlignment: expandedCrossAxisAlignment,
+        expandedCrossAxisAlignment:
+            expandedCrossAxisAlignment ?? CrossAxisAlignment.start,
         iconColor: iconColor,
         title: title,
         textColor: textColor,

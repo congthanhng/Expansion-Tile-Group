@@ -62,5 +62,5 @@ class ExpansionTileBorderItem extends ExpansionTileItem {
             boxShadow: boxShadow,
             clipBehavior: clipBehavior,
             collapsedBorderColor: collapsedBorderColor,
-            expendedBorderColor: expendedBorderColor ?? Colors.blue);
+            expendedBorderColor: expendedBorderColor);
 }

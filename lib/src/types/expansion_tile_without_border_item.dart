@@ -2,7 +2,7 @@ import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
-  ExpansionTileWithoutBorderItem(
+  const ExpansionTileWithoutBorderItem(
       {Key? key,
       required Widget title,
       required List<Widget> children,
@@ -38,7 +38,7 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
             children: children,
             decoration: decoration,
             border: border ?? const Border(),
-            borderRadius: borderRadius ?? BorderRadius.circular(8),
+            borderRadius: borderRadius,
             backgroundColor: backgroundColor,
             childrenPadding: childrenPadding ??
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
