@@ -66,7 +66,11 @@ class ExpansionTileCustom extends StatefulWidget {
       this.border,
       this.boxShadow,
       this.collapsedBorderColor,
-      this.expendedBorderColor})
+      this.expendedBorderColor,
+      this.isHasTopBorder = true,
+      this.isHasBottomBorder = true,
+      this.isHasLeftBorder = false,
+      this.isHasRightBorder = false})
       : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
@@ -315,6 +319,11 @@ class ExpansionTileCustom extends StatefulWidget {
   /// * [ThemeData.of], which returns the nearest [ThemeData].
   final Color? expendedBorderColor;
 
+  final bool isHasTopBorder;
+  final bool isHasBottomBorder;
+  final bool isHasLeftBorder;
+  final bool isHasRightBorder;
+
   @override
   State<ExpansionTileCustom> createState() => ExpansionTileCustomState();
 }
@@ -471,11 +480,20 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
             color: _backgroundColor.value ??
                 expansionTileTheme.backgroundColor ??
                 Colors.transparent,
-            border: widget.border ??
+            border: (widget.border ??
                 Border(
-                  top: BorderSide(color: borderSideColor),
-                  bottom: BorderSide(color: borderSideColor),
-                ),
+                    top: widget.isHasTopBorder
+                        ? BorderSide(color: borderSideColor)
+                        : const BorderSide(color: Colors.transparent),
+                    bottom: widget.isHasBottomBorder
+                        ? BorderSide(color: borderSideColor)
+                        : const BorderSide(color: Colors.transparent),
+                    right: widget.isHasRightBorder
+                        ? BorderSide(color: borderSideColor)
+                        : const BorderSide(color: Colors.transparent),
+                    left: widget.isHasLeftBorder
+                        ? BorderSide(color: borderSideColor)
+                        : const BorderSide(color: Colors.transparent))),
             borderRadius: widget.borderRadius,
             boxShadow: widget.boxShadow,
           ),
