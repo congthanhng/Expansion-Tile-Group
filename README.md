@@ -328,3 +328,24 @@ You can check this post here [uniform borders](https://stackoverflow.com/questio
 
 ### Adding shadow to item box
 When you want to adding shadow into item box, you need to add the `backgroundColor` and `collapsedBackgroundColor` into item, because they are using `transparent` by default 
+
+## FAQ
+
+You can read the FAQ here: [FAQ](https://github.com/congthanhng/Expansion-Tile-Group/wiki/FAQ)
+
+## Sponsoring
+
+If this package or any other package I created is helping you, please consider to sponsor me so that I can take time to update this packages.
+
+<a href="https://www.buymeacoffee.com/congthanhng" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+OR
+
+![7ezgif-5-20a8a8001a](https://user-images.githubusercontent.com/15138747/207929534-6ca20aea-62ae-405a-81a4-0f0139f69467.png)
+
+## Contributions
+
+Feel free to contribute to this project.
+
+If you find a bug or want a feature, but don't know how to fix/implement it, please fill an [issue](https://github.com/congthanhng/Expansion-Tile-Group/issues).  
+If you fixed a bug or implemented a feature, please send a [pull request](https://github.com/congthanhng/Expansion-Tile-Group/pulls).
