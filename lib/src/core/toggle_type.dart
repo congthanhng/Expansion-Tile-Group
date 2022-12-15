@@ -1,4 +1,5 @@
 enum ToggleType {
+  expandAllAndCollapseALl,
   expandOnlyCurrent,
   collapseAll,
   expandAll,
