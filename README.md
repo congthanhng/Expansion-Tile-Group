@@ -27,6 +27,9 @@ A Flutter widget that can be manager group of custom expansion tile
     - [Hot reload not affect immediately](#Hot-reload-not-affect-immediately)
     - [Adding border radius](#Adding-border-radius)
     - [Adding shadow to item box](#Adding-shadow-to-item-box)
+- [FAQ](#FAQ)
+- [Sponsoring](#Sponsoring)
+- [Contributions](#Contributions)
     
 ## Features
 
