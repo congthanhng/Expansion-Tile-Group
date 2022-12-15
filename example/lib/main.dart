@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ExpansionTileGroup(
-                  toggleType: ToggleType.expandOnlyCurrent,
+                  toggleType: ToggleType.expandAll,
                   spaceBetweenItem: 8,
                   onExpansionItemChanged: (index, isExpanded) {
                     setState(() {
@@ -59,11 +59,17 @@ class _MyAppState extends State<MyApp> {
                       initiallyExpanded: true,
                       title: Text('ExpansionTile 0'),
                       expansionKey: key1,
+                      // childrenPadding: EdgeInsets.zero,
                       children: [
-                        Text(
-                            ''' Donec pharetra, turpis non vehicula dignissim, diam arcu sodales augue, nec euismod augue orci at diam. Vivamus fringilla molestie augue, sed malesuada velit cursus in. Cras egestas tortor commodo arcu interdum, sit amet dignissim magna faucibus. Praesent in erat erat. Integer ac nunc ut dui viverra aliquam. Suspendisse neque velit, ultricies at lacinia vel, venenatis nec tellus. Pellentesque mauris risus, dignissim dignissim turpis pretium, accumsan cursus leo. Donec semper ligula velit, id malesuada odio consectetur eget. Nulla suscipit id erat id cursus. Ut posuere urna a leo maximus viverra. Duis eget leo ullamcorper, venenatis mauris ut, scelerisque enim. Quisque posuere cursus ultricies. Aenean pharetra sodales massa non mattis.
+                        Material(
+                          child: InkWell(
+                            onTap: (){},
+                            child: Text(
+                                ''' Donec pharetra, turpis non vehicula dignissim, diam arcu sodales augue, nec euismod augue orci at diam. Vivamus fringilla molestie augue, sed malesuada velit cursus in. Cras egestas tortor commodo arcu interdum, sit amet dignissim magna faucibus. Praesent in erat erat. Integer ac nunc ut dui viverra aliquam. Suspendisse neque velit, ultricies at lacinia vel, venenatis nec tellus. Pellentesque mauris risus, dignissim dignissim turpis pretium, accumsan cursus leo. Donec semper ligula velit, id malesuada odio consectetur eget. Nulla suscipit id erat id cursus. Ut posuere urna a leo maximus viverra. Duis eget leo ullamcorper, venenatis mauris ut, scelerisque enim. Quisque posuere cursus ultricies. Aenean pharetra sodales massa non mattis.
 
 Aenean condimentum faucibus blandit. Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
+                          ),
+                        ),
                       ],
                     ),
                     ExpansionTileBorderItem(
