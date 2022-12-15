@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/three');
               },
-              color: Colors.grey,
+              color: Colors.pink,
               child: const Text('Example for Custom Expansion Item'),
             ),
             MaterialButton(
