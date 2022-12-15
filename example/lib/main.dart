@@ -1,4 +1,12 @@
-import 'package:expansion_tile_group/expansion_tile_group.dart';
+import 'package:expansion_tile_group_example/cases/example_border_item_page.dart';
+import 'package:expansion_tile_group_example/cases/example_collapse_all_item.dart';
+import 'package:expansion_tile_group_example/cases/example_expand_all_and_collapse_all.dart';
+import 'package:expansion_tile_group_example/cases/example_expand_all_item.dart';
+import 'package:expansion_tile_group_example/cases/example_expand_from_anywhere_page.dart';
+import 'package:expansion_tile_group_example/cases/example_expand_only_one.dart';
+import 'package:expansion_tile_group_example/cases/example_item_change_in_group.dart';
+import 'package:expansion_tile_group_example/cases/example_normal_item_page.dart';
+import 'package:expansion_tile_group_example/cases/example_without_border_item_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,117 +26,127 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
-  final GlobalKey<ExpansionTileCustomState> key1 = GlobalKey();
-
-  int currentItem = 0;
-  bool isCurrentExpanded = false;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Expansion Tile Group Demo'),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                  height: 50,
-                  width: double.infinity,
-                  color: Colors.green,
-                  child: Center(
-                    child: Text(
-                      'current INDEX: $currentItem \nisExpanded: $isCurrentExpanded',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  )),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ExpansionTileGroup(
-                  toggleType: ToggleType.expandAll,
-                  spaceBetweenItem: 8,
-                  onExpansionItemChanged: (index, isExpanded) {
-                    setState(() {
-                      currentItem = index;
-                      isCurrentExpanded = isExpanded;
-                    });
-                  },
-                  children: [
-                    ExpansionTileBorderItem(
-                      initiallyExpanded: true,
-                      title: Text('ExpansionTile 0'),
-                      expansionKey: key1,
-                      // childrenPadding: EdgeInsets.zero,
-                      children: [
-                        Material(
-                          child: InkWell(
-                            onTap: (){},
-                            child: Text(
-                                ''' Donec pharetra, turpis non vehicula dignissim, diam arcu sodales augue, nec euismod augue orci at diam. Vivamus fringilla molestie augue, sed malesuada velit cursus in. Cras egestas tortor commodo arcu interdum, sit amet dignissim magna faucibus. Praesent in erat erat. Integer ac nunc ut dui viverra aliquam. Suspendisse neque velit, ultricies at lacinia vel, venenatis nec tellus. Pellentesque mauris risus, dignissim dignissim turpis pretium, accumsan cursus leo. Donec semper ligula velit, id malesuada odio consectetur eget. Nulla suscipit id erat id cursus. Ut posuere urna a leo maximus viverra. Duis eget leo ullamcorper, venenatis mauris ut, scelerisque enim. Quisque posuere cursus ultricies. Aenean pharetra sodales massa non mattis.
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/':
+            return MaterialPageRoute(builder: (context) => const HomePage());
+          case '/one':
+            return MaterialPageRoute(
+                builder: (context) => const ExampleBorderItemPage());
+          case '/two':
+            return MaterialPageRoute(
+                builder: (context) => const ExampleWithoutBorderItemPage());
+          case '/three':
+            return MaterialPageRoute(
+                builder: (context) => const ExampleNormalItemPage());
+          case '/four':
+            return MaterialPageRoute(
+                builder: (context) => ExampleExpandFromAnywherePage());
+          case '/five':
+            return MaterialPageRoute(
+                builder: (context) => const ExampleItemChangeInGroupPage());
 
-Aenean condimentum faucibus blandit. Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-                          ),
-                        ),
-                      ],
-                    ),
-                    ExpansionTileBorderItem(
-                      initiallyExpanded: true,
-                      title: Text('ExpansionTile 0'),
-                      expendedBorderColor: Colors.red,
-                      children: [
-                        Text(
-                            '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at nibh quis arcu vestibulum gravida nec et elit. Etiam luctus tortor lectus, ut varius nibh porttitor eget. Vivamus volutpat ac est commodo consequat. Cras dignissim commodo erat ut tristique. Curabitur urna sapien, posuere vel dolor non, hendrerit tempus quam. Nullam molestie vehicula augue, dapibus viverra orci blandit eget. Quisque scelerisque nulla mattis mattis tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer quis sapien lorem.
+          case '/six':
+            return MaterialPageRoute(
+                builder: (context) => const ExampleOnlyCurrentItemPage());
 
-Morbi molestie venenatis nisl sed consequat Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-                      ],
-                    ),
-                    ExpansionTileItem(
-                      title: Text('ExpansionTile 1'),
-                      expendedBorderColor: Colors.red,
-                      expandedAlignment: Alignment.topLeft,
-                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ListTile(
-                          title: Text('ListTile'),
-                          trailing: Icon(Icons.access_alarm),
-                        ),
-                        ListTile(
-                          title: Text('ListTile'),
-                          trailing: Icon(Icons.add_chart_outlined),
-                        ),
-                        ListTile(
-                          title: Text('ListTile'),
-                          trailing: Icon(Icons.calendar_month),
-                        ),
-                        Text('adfaffadfafaf'),
-                        Text('adfaffadfafaf'),
-                        Text('adfaffadfafaf'),
-                        Text('adfaffadfafaf')
-                      ],
-                    ),
-                    ExpansionTileWithoutBorderItem(
-                      title: Text('ExpansionTile 1'),
-                      children: [
-                        Text('adfaffadfafaf'),
-                        Text('adfaffadfafaf'),
-                        Text('adfaffadfafaf'),
-                        Text('adfaffadfafaf'),
-                        Text('adfaffadfafaf')
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              MaterialButton(
-                onPressed: (){
-                  key1.currentState?.expand();
-                },
-                child: Text('Expand item 1'),
-                color: Colors.grey,
-              )
-            ],
-          ),
+          case '/seven':
+            return MaterialPageRoute(
+                builder: (context) => const ExampleCollapseAllItemPage());
+
+          case '/eight':
+            return MaterialPageRoute(
+                builder: (context) => const ExampleExpandAllItemPage());
+          case '/nine':
+            return MaterialPageRoute(
+                builder: (context) =>
+                    const ExampleExpandAllAndCollapseAllItemPage());
+        }
+      },
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Expansion Tile Group Demo'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/one');
+              },
+              color: Colors.grey,
+              child: const Text('Example for Expansion Border Item'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/two');
+              },
+              color: Colors.grey,
+              child: const Text('Example for Expansion Without Border Item'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/three');
+              },
+              color: Colors.grey,
+              child: const Text('Example for Custom Expansion Item'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/four');
+              },
+              color: Colors.blueGrey,
+              child: const Text('Example for Can expand any item in any where'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/five');
+              },
+              color: Colors.blueGrey,
+              child: const Text('Example for Listen the group item changed'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/six');
+              },
+              color: Colors.blue,
+              child: const Text('Example Expand only current'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/seven');
+              },
+              color: Colors.blue,
+              child: const Text('Example Collapse all item'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/eight');
+              },
+              color: Colors.blue,
+              child: const Text('Example for Expand All item'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/nine');
+              },
+              color: Colors.blue,
+              child: const Text('Example for Expand All and Collapse ALl item'),
+            ),
+          ],
         ),
       ),
     );
