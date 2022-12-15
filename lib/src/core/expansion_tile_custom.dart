@@ -271,7 +271,7 @@ class ExpansionTileCustom extends StatefulWidget {
   /// [BoxShape.rectangle].
   ///
   /// {@macro flutter.painting.BoxDecoration.clip}
-  final BorderRadiusGeometry? borderRadius;
+  final BorderRadius? borderRadius;
 
   /// A border to draw above the background [color], [gradient], or [image].
   ///
@@ -504,14 +504,17 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
           ListTileTheme.merge(
             iconColor: _iconColor.value ?? expansionTileTheme.iconColor,
             textColor: _headerColor.value,
-            child: ListTile(
+            child: InkWell(
+              borderRadius: widget.borderRadius,
               onTap: _handleTap,
-              contentPadding:
-                  widget.tilePadding ?? expansionTileTheme.tilePadding,
-              leading: widget.leading ?? _buildLeadingIcon(context),
-              title: widget.title,
-              subtitle: widget.subtitle,
-              trailing: widget.trailing ?? _buildTrailingIcon(context),
+              child: ListTile(
+                contentPadding:
+                    widget.tilePadding ?? expansionTileTheme.tilePadding,
+                leading: widget.leading ?? _buildLeadingIcon(context),
+                title: widget.title,
+                subtitle: widget.subtitle,
+                trailing: widget.trailing ?? _buildTrailingIcon(context),
+              ),
             ),
           ),
           ClipRect(

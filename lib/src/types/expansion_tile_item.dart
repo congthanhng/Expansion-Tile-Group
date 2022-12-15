@@ -1,6 +1,6 @@
 // Originally based on ExpansionTile from Flutter.
 
-import 'package:expansion_tile_group/src/expansion_tile_custom.dart';
+import 'package:expansion_tile_group/src/core/expansion_tile_custom.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionTileItem extends StatelessWidget {
@@ -237,7 +237,7 @@ class ExpansionTileItem extends StatelessWidget {
   /// [BoxShape.rectangle].
   ///
   /// {@macro flutter.painting.BoxDecoration.clip}
-  final BorderRadiusGeometry? borderRadius;
+  final BorderRadius? borderRadius;
 
   /// A border to draw above the background [color], [gradient], or [image].
   ///
@@ -313,7 +313,7 @@ class ExpansionTileItem extends StatelessWidget {
     Widget? leading,
     Color? backgroundColor,
     Decoration? decoration,
-    BorderRadiusGeometry? borderRadius,
+    BorderRadius? borderRadius,
     BoxBorder? border,
     Clip? clipBehavior,
     ThemeData? themeData,

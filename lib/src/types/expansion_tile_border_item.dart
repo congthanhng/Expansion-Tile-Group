@@ -25,7 +25,7 @@ class ExpansionTileBorderItem extends ExpansionTileItem {
     Widget? leading,
     Color? backgroundColor,
     Decoration? decoration,
-    BorderRadiusGeometry? borderRadius,
+    BorderRadius? borderRadius,
     BoxBorder? border,
     ThemeData? themeData,
     List<BoxShadow>? boxShadow,
