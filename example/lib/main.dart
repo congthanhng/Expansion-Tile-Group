@@ -1,4 +1,3 @@
-import 'package:expansion_tile_group_example/cases/example_border_item_page.dart';
 import 'package:expansion_tile_group_example/cases/example_collapse_all_item.dart';
 import 'package:expansion_tile_group_example/cases/example_expand_all_and_collapse_all.dart';
 import 'package:expansion_tile_group_example/cases/example_expand_all_item.dart';
@@ -6,7 +5,6 @@ import 'package:expansion_tile_group_example/cases/example_expand_from_anywhere_
 import 'package:expansion_tile_group_example/cases/example_expand_only_one.dart';
 import 'package:expansion_tile_group_example/cases/example_item_change_in_group.dart';
 import 'package:expansion_tile_group_example/cases/example_normal_item_page.dart';
-import 'package:expansion_tile_group_example/cases/example_without_border_item_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,12 +31,6 @@ class _MyAppState extends State<MyApp> {
         switch (settings.name) {
           case '/':
             return MaterialPageRoute(builder: (context) => const HomePage());
-          case '/one':
-            return MaterialPageRoute(
-                builder: (context) => const ExampleBorderItemPage());
-          case '/two':
-            return MaterialPageRoute(
-                builder: (context) => const ExampleWithoutBorderItemPage());
           case '/three':
             return MaterialPageRoute(
                 builder: (context) => const ExampleNormalItemPage());
@@ -83,20 +75,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/one');
-              },
-              color: Colors.grey,
-              child: const Text('Example for Expansion Border Item'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/two');
-              },
-              color: Colors.grey,
-              child: const Text('Example for Expansion Without Border Item'),
-            ),
+
             MaterialButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/three');
