@@ -56,6 +56,7 @@ class _MyAppState extends State<MyApp> {
             return MaterialPageRoute(
                 builder: (context) =>
                     const ExampleExpandAllAndCollapseAllItemPage());
+          default: return MaterialPageRoute(builder: (context) => const HomePage());
         }
       },
     );
