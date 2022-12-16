@@ -1,8 +1,12 @@
 name: expansion_tile_group
-description: A new Flutter package.
-version: 0.0.1
-homepage:
+description: A Flutter widget that can be manager group of custom expansion tile.
+homepage: https://github.com/congthanhng/Expansion-Tile-Group
+repository: https://github.com/congthanhng/Expansion-Tile-Group
+issue_tracker: https://github.com/congthanhng/Expansion-Tile-Group/issues
+funding:
+  - https://www.buymeacoffee.com/congthanhng
 
+version: 0.0.1
 environment:
   sdk: '>=2.18.0 <3.0.0'
   flutter: ">=1.17.0"
@@ -52,3 +56,4 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+

@@ -2,6 +2,8 @@
 
 A Flutter widget that can be manager group of custom expansion tile
 
+![Flutter type](https://img.shields.io/badge/Flutter-Widgets-blue) <a href="https://github.com/congthanhng/Expansion-Tile-Group" target="_blank"><img src="https://img.shields.io/badge/Github-Expansion--Tile--Group-black" ></a>
+
 ## Overview
 ![Custom expansion](https://user-images.githubusercontent.com/15138747/207923692-ebb70b23-7067-4fdf-af5c-09f3c1a537be.gif)  ![Collapse all](https://user-images.githubusercontent.com/15138747/207909729-c63537c7-75d1-4b55-9617-821976e3dabf.gif)
 ![Expand only current](https://user-images.githubusercontent.com/15138747/207908164-142a69d1-bc84-4d72-b1f9-a5f6f8d4fb9e.gif) ![Control behavior anywhere](https://user-images.githubusercontent.com/15138747/207922434-83d06656-2c35-4e03-8b7e-40643fc2357b.gif) ![Expand All](https://user-images.githubusercontent.com/15138747/207911159-b4f51b68-2b7b-4e67-9623-3cb6fbe09dd2.gif) ![Expand all and collapse all](https://user-images.githubusercontent.com/15138747/207912107-6c55d590-47c5-42b0-92be-2edbbab8738e.gif)
