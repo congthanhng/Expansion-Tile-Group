@@ -41,6 +41,7 @@ A Flutter widget that can be manager group of custom expansion tile
 * Can add the `Gap` space between items
 * Easy control behaviors of `ExpansionTileItem` from anywhere
 * Can easy custom or add decoration into `ExpansionTileItem` like `Border`, `BorderRadius`, `Shadow`, or `BoxDecoration`
+* Can remove completely the `trailing` included: area, arrow icon. So that the `title` can be extended the width. Just using `isHasTrailing`
 
 ## Install
 
