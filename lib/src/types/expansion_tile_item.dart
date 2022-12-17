@@ -37,7 +37,8 @@ class ExpansionTileItem extends StatelessWidget {
       this.isHasTopBorder,
       this.isHasLeftBorder,
       this.isHasBottomBorder,
-      this.isHasRightBorder})
+      this.isHasRightBorder,
+      this.isHasTrailing})
       : super(key: key);
 
   /// The primary content of the list item.
@@ -290,41 +291,43 @@ class ExpansionTileItem extends StatelessWidget {
   final bool? isHasLeftBorder;
   final bool? isHasRightBorder;
 
-  ExpansionTileItem copyWith({
-    Key? key,
-    Widget? title,
-    List<Widget>? children,
-    ValueChanged<bool>? onExpansionChanged,
-    GlobalKey<ExpansionTileCustomState>? expansionKey,
-    bool? initiallyExpanded,
-    EdgeInsetsGeometry? tilePadding,
-    Alignment? expandedAlignment,
-    Color? collapsedIconColor,
-    CrossAxisAlignment? expandedCrossAxisAlignment,
-    Color? iconColor,
-    Color? textColor,
-    Widget? subtitle,
-    bool? maintainState,
-    ListTileControlAffinity? controlAffinity,
-    Color? collapsedTextColor,
-    Color? collapsedBackgroundColor,
-    EdgeInsetsGeometry? childrenPadding,
-    Widget? trailing,
-    Widget? leading,
-    Color? backgroundColor,
-    Decoration? decoration,
-    BorderRadius? borderRadius,
-    BoxBorder? border,
-    Clip? clipBehavior,
-    ThemeData? themeData,
-    List<BoxShadow>? boxShadow,
-    Color? expendedBorderColor,
-    Color? collapsedBorderColor,
-    bool? isHasTopBorder,
-    bool? isHasBottomBorder,
-    bool? isHasLeftBorder,
-    bool? isHasRightBorder,
-  }) {
+  final bool? isHasTrailing;
+
+  ExpansionTileItem copyWith(
+      {Key? key,
+      Widget? title,
+      List<Widget>? children,
+      ValueChanged<bool>? onExpansionChanged,
+      GlobalKey<ExpansionTileCustomState>? expansionKey,
+      bool? initiallyExpanded,
+      EdgeInsetsGeometry? tilePadding,
+      Alignment? expandedAlignment,
+      Color? collapsedIconColor,
+      CrossAxisAlignment? expandedCrossAxisAlignment,
+      Color? iconColor,
+      Color? textColor,
+      Widget? subtitle,
+      bool? maintainState,
+      ListTileControlAffinity? controlAffinity,
+      Color? collapsedTextColor,
+      Color? collapsedBackgroundColor,
+      EdgeInsetsGeometry? childrenPadding,
+      Widget? trailing,
+      Widget? leading,
+      Color? backgroundColor,
+      Decoration? decoration,
+      BorderRadius? borderRadius,
+      BoxBorder? border,
+      Clip? clipBehavior,
+      ThemeData? themeData,
+      List<BoxShadow>? boxShadow,
+      Color? expendedBorderColor,
+      Color? collapsedBorderColor,
+      bool? isHasTopBorder,
+      bool? isHasBottomBorder,
+      bool? isHasLeftBorder,
+      bool? isHasRightBorder,
+      bool? isHasTrailing}) {
     return ExpansionTileItem(
       key: key ?? this.key,
       title: title ?? this.title,
@@ -363,6 +366,7 @@ class ExpansionTileItem extends StatelessWidget {
       isHasRightBorder: isHasRightBorder ?? this.isHasRightBorder,
       isHasLeftBorder: isHasLeftBorder ?? this.isHasLeftBorder,
       isHasBottomBorder: isHasBottomBorder ?? this.isHasBottomBorder,
+      isHasTrailing: isHasTrailing ?? this.isHasTrailing,
       children: children ?? this.children,
     );
   }
@@ -404,6 +408,7 @@ class ExpansionTileItem extends StatelessWidget {
         isHasLeftBorder: isHasLeftBorder ?? false,
         isHasRightBorder: isHasRightBorder ?? false,
         isHasTopBorder: isHasTopBorder ?? true,
+        isHasTrailing: isHasTrailing ?? true,
         children: children ?? [],
       ),
     );

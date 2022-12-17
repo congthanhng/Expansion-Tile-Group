@@ -23,34 +23,27 @@ class ExampleNormalItemPage extends StatelessWidget {
                   ExpansionTileWithoutBorderItem(
                     title: const Text('ExpansionTile 1'),
                     children: [
-                      Material(
-                        child: InkWell(
-                          onTap: () {},
-                          child: const Text(
-                              '''Null am eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-                        ),
-                      ),
+                      const Text(
+                          '''Null am eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
                     ],
                   ),
                   ExpansionTileBorderItem(
                     title: const Text('ExpansionTile 2'),
                     children: [
-                      Material(
-                        child: InkWell(
-                          onTap: () {},
-                          child: const Text(
-                              ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const ExpansionTileItem(
-                    title: Text('ExpansionTile 3'),
-                    expendedBorderColor: Colors.blue,
-                    children: [
-                      Text(
+                      const Text(
                           ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
                     ],
+                  ),
+                  ExpansionTileItem(
+                    title: Text('kfhjdh '),
+                    expendedBorderColor: Colors.blue,
+                    isHasTrailing: false,
+                    children: [
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title: Text('Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. '),
+                      ),
+                                          ],
                   ),
                   const ExpansionTileItem(
                     title: Text('ExpansionTile 4'),

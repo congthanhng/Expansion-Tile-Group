@@ -70,7 +70,8 @@ class ExpansionTileCustom extends StatefulWidget {
       this.isHasTopBorder = true,
       this.isHasBottomBorder = true,
       this.isHasLeftBorder = false,
-      this.isHasRightBorder = false})
+      this.isHasRightBorder = false,
+      this.isHasTrailing = true})
       : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
@@ -324,6 +325,8 @@ class ExpansionTileCustom extends StatefulWidget {
   final bool isHasLeftBorder;
   final bool isHasRightBorder;
 
+  final bool isHasTrailing;
+
   @override
   State<ExpansionTileCustom> createState() => ExpansionTileCustomState();
 }
@@ -513,7 +516,9 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
                 leading: widget.leading ?? _buildLeadingIcon(context),
                 title: widget.title,
                 subtitle: widget.subtitle,
-                trailing: widget.trailing ?? _buildTrailingIcon(context),
+                trailing: widget.isHasTrailing == true
+                    ? widget.trailing ?? _buildTrailingIcon(context)
+                    : null,
               ),
             ),
           ),
