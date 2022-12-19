@@ -170,10 +170,10 @@ There are many types of `toggleType`, it support almost common case you will be 
 | `expandAll`               | Expanded all items if any item is expanded                     |
 | `expandAllAndCollapseAll` | Expanded/Collapsed all items if any item is Expanded/Collapsed |
 
-|                                                            |                                                                          |
-|------------------------------------------------------------|--------------------------------------------------------------------------|
-| **ToggleType.expandOnlyCurrent** ![Image][ExpandedCurrent] | **ToggleType.collapseAll** ![Image][CollapseAll]                         |
-| **ToggleType.expandAll** ![Image][ExpandedAll]             | **ToggleType.expandAllAndCollapseAll** ![Image][ExpandedAndCollapsedAll] |
+|                                                               |                                                                          |
+|---------------------------------------------------------------|--------------------------------------------------------------------------|
+| **ToggleType.expandOnlyCurrent**    ![Image][ExpandedCurrent] | **ToggleType.collapseAll**          ![Image][CollapseAll]                |
+| **ToggleType.expandAll** ![Image][ExpandedAll]                | **ToggleType.expandAllAndCollapseAll** ![Image][ExpandedAndCollapsedAll] |
 
 ### Listen the changed of any item in the group
 
