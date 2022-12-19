@@ -25,8 +25,8 @@ A Flutter widget that can be manager group of custom expansion tile
     - [Easy to customize expansion item](#easy-to-customize-expansion-item)
     - [Remove completely trailing](#remove-completely-trailing)
 - [Parameters](#parameters)
-    - [ExpansionTileGroup](#expansionTileGroup)
-    - [ExpansionTileItem](#expansionTileItem)
+    - [ExpansionTileGroup](#expansiontilegroup)
+    - [ExpansionTileItem](#expansiontileitem)
 - [Troubleshooting](#troubleshooting)
     - [Hot reload not affect immediately](#hot-reload-not-affect-immediately)
     - [Adding border radius](#adding-border-radius)
@@ -69,7 +69,7 @@ class YourExpansionTileItem extends ExpansionTileItem {
 
 **I'm very appreciate if you know any common ExpansionTile UIs and give the PR.**
 
-More detail: [ExpansionTileItem](#ExpansionTileItem), [ExpansionTileGroup](#ExpansionTileGroup)
+More detail: [ExpansionTileItem](#expansiontileitem), [ExpansionTileGroup](#expansiontilegroup)
 
 ## Install
 
