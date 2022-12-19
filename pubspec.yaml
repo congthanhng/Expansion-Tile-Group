@@ -3,8 +3,8 @@ description: A Flutter widget that can be manager group of custom expansion tile
 homepage: https://github.com/congthanhng/Expansion-Tile-Group
 repository: https://github.com/congthanhng/Expansion-Tile-Group
 issue_tracker: https://github.com/congthanhng/Expansion-Tile-Group/issues
-funding:
-  - https://www.buymeacoffee.com/congthanhng
+#funding:
+#  - https://www.buymeacoffee.com/congthanhng
 
 version: 1.0.1
 environment:
