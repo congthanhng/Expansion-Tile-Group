@@ -16,7 +16,7 @@ class ExampleExpandAllAndCollapseAllItemPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ExpansionTileGroup(
-                toggleType: ToggleType.expandAllAndCollapseALl,
+                toggleType: ToggleType.expandAllAndCollapseAll,
                 spaceBetweenItem: 8,
                 onExpansionItemChanged: (index, isExpanded) {},
                 children: [

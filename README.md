@@ -5,23 +5,25 @@ A Flutter widget that can be manager group of custom expansion tile
 ![Flutter type](https://img.shields.io/badge/Flutter-Widgets-blue) <a href="https://github.com/congthanhng/Expansion-Tile-Group" target="_blank"><img src="https://img.shields.io/badge/Github-Expansion--Tile--Group-black" ></a>
 
 ## Overview
-![Custom expansion](https://user-images.githubusercontent.com/15138747/207923692-ebb70b23-7067-4fdf-af5c-09f3c1a537be.gif)  ![Collapse all](https://user-images.githubusercontent.com/15138747/207909729-c63537c7-75d1-4b55-9617-821976e3dabf.gif)
-![Expand only current](https://user-images.githubusercontent.com/15138747/207908164-142a69d1-bc84-4d72-b1f9-a5f6f8d4fb9e.gif) ![Control behavior anywhere](https://user-images.githubusercontent.com/15138747/207922434-83d06656-2c35-4e03-8b7e-40643fc2357b.gif) ![Expand All](https://user-images.githubusercontent.com/15138747/207911159-b4f51b68-2b7b-4e67-9623-3cb6fbe09dd2.gif) ![Expand all and collapse all](https://user-images.githubusercontent.com/15138747/207912107-6c55d590-47c5-42b0-92be-2edbbab8738e.gif)
-
+![Image](https://user-images.githubusercontent.com/15138747/208438578-d4bd3321-67cc-4844-b381-c8f29e367baa.gif)
+![Image](https://user-images.githubusercontent.com/15138747/208438575-8a9acded-1188-494e-9b01-9ac061c6d911.gif)
+![Image](https://user-images.githubusercontent.com/15138747/208438573-c3ee74c3-b28d-4d73-b224-dc1e7f4f2211.gif)
+![Image](https://user-images.githubusercontent.com/15138747/208438577-035b4815-2bfc-4cdb-92ff-3e643269289d.gif)
+![Image](https://user-images.githubusercontent.com/15138747/208438574-65d53822-5289-4d56-82f3-2a3d99bf49d8.gif)
+![Image](https://user-images.githubusercontent.com/15138747/208438576-e7725572-5b8d-4d43-8033-aef2c3f2ce92.gif)
 ## Contents
 
 - [Features](#Features)
+- [Introduce](#Introduce)
 - [Install](#Install)
 - [Usage](#Usage)
-    - [Implement and manage group expansion item](#Implement-and-manage-group-expansion-item)
-    - [Group expansion and behaviors](#Group-expansion-and-behaviors)
-        - [Expanded only current item and collapse others](#Expanded-only-current-item-and-collapse-others)
-        - [Collapsed all items](#Collapsed-all-items)
-        - [Expanded all items](#Expanded-all-items)
-        - [Expanded all and collapsed all items](#Expanded-all-and-collapsed-all-items)
-    - [Adding gap space between item](#Adding-gap-space-between-item)
-    - [Specially control behavior of any expansion item](#Specially-control-behavior-of-any-expansion-item)
+    - [Implement and manage group of expansion items](#Implement-and-manage-group-of-expansion-items)
+    - [Behaviors between items in the group](#Behaviors-between-items-in-the-group)
+    - [Listen the changed of any item in the group](#Listen-the-changed-of-any-item-in-the-group)
+    - [Adding space between items](#Adding-space-between-items)
+    - [Easy control behaviors of an ExpansionTileItem from anywhere](#Easy-control-behaviors-of-an-ExpansionTileItem-from-anywhere)
     - [Easy to customize expansion item](#Easy-to-customize-expansion-item)
+    - [Remove completely trailing](#Remove-completely-trailing)
 - [Parameters](#Parameters)
     - [ExpansionTileGroup](#ExpansionTileGroup)
     - [ExpansionTileItem](#ExpansionTileItem)
@@ -35,12 +37,39 @@ A Flutter widget that can be manager group of custom expansion tile
     
 ## Features
 
-* Can manage group of `ExpansionTileItem` (`ExpansionTileItem` is extended from [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) of Flutter)
-* Can control behaviors of items in group like: `ExpandOnlyCurrent`, `ExpandAll`, `CollapseAll`, `ExpandAllAndCollapseAll`
-* Can listen changed behavior of any item in the group
-* Can add the `Gap` space between items
-* Easy control behaviors of `ExpansionTileItem` from anywhere
-* Can easy custom or add decoration into `ExpansionTileItem` like `Border`, `BorderRadius`, `Shadow`, or `BoxDecoration`
+* Can group `ExpansionTileItem`s together and manage them (`ExpansionTileItem` is extended from [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) of Flutter)
+* Support and control many kind of behaviors between items in the group like: `ExpandOnlyCurrent`, `ExpandAll`, `CollapseAll`, `ExpandAllAndCollapseAll`
+* Can listen any item changed behavior in the group
+* Can add the space between items in the group
+* Easy control behaviors of an `ExpansionTileItem` from anywhere
+* Can easy custom or add decoration into an `ExpansionTileItem` with `Border`, `BorderRadius`, `Shadow`, or `BoxDecoration`
+* Can remove completely the `trailing`, included: area, arrow icon. So that the `title` can be extended the width. Just using `isHasTrailing`
+
+## Introduce
+
+The [ExpansionTile][ExpansionTile] of Flutter has a lot of limits and difficult to customize it with these features above.
+
+So that i created `ExpansionTileItem` to remove these limits.
+
+The `ExpansionTileItem` extends all the properties and features core of [ExpansionTile][ExpansionTile], so if you are using [ExpansionTile][ExpansionTile], you can easy change to my package without changing any properties.
+
+Addition, by using `ExpansionTileItem`, you can easy to group and manage them by wrapping into `ExpansionTileGroup`.
+
+And there are some types of `ExpansionTileItem` like: `ExpansionTileBorderItem`, `ExpansionTileWithoutBorderItem`, I will add more in the future, or you can create the new one like this.
+
+```dart
+class YourExpansionTileItem extends ExpansionTileItem {
+  YourExpansionTileItem(
+          //your custom properties
+          ):super(
+    //call correspond super properties 
+  )
+}
+```
+
+**I'm very appreciate if you know any common ExpansionTile UIs and give the PR.**
+
+More detail: [ExpansionTileItem](#ExpansionTileItem), [ExpansionTileGroup](#ExpansionTileGroup)
 
 ## Install
 
@@ -59,13 +88,13 @@ import 'package:expansion_tile_group/expansion_tile_group.dart';
 
 ## Usage
 
-### Implement and manage group expansion item
+### Implement and manage group of expansion items
 
 First you need to import the package:
 ```dart
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 ```
-After that you need define the group of expansion item:
+After that you need to define the group of expansion items:
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
   const ExpansionGroupExample({Key? key}) : super(key: key);
@@ -78,7 +107,7 @@ class ExpansionGroupExample extends StatelessWidget {
 }
 ```
 
-Now you need put expansion item into this group, the children must be `ExpansionTileItem` or extends of `ExpansionTileItem` (`ExpansionTileBorderItem`, `ExpansionTileWithoutBorderItem`):
+Now you need to put expansion items into this group, the children must be `ExpansionTileItem` or extends of `ExpansionTileItem` (`ExpansionTileBorderItem`, `ExpansionTileWithoutBorderItem`):
 
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
@@ -114,14 +143,9 @@ class ExpansionGroupExample extends StatelessWidget {
 }
 ```
 
-### Group expansion and behaviors
+### Behaviors between items in the group
 
-If you want to control behaviors of expansion items like below: 
-
-#### Expanded only current item and collapse others
-![Expand only current](https://user-images.githubusercontent.com/15138747/207908164-142a69d1-bc84-4d72-b1f9-a5f6f8d4fb9e.gif)
-
-To **_expanded only current item and collapse all others_** just adding `toggleType` parameter with `expandOnlyCurrent` type:
+You can control behaviors between items in the group with adding `toggleType` parameter to `ExpansionTileGroup`like this:
 
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
@@ -136,28 +160,24 @@ class ExpansionGroupExample extends StatelessWidget {
 }
 ```
 
-#### Collapsed all items
-![Collapse all](https://user-images.githubusercontent.com/15138747/207909729-c63537c7-75d1-4b55-9617-821976e3dabf.gif)
+There are many types of `toggleType`, it support almost common case you will be met:
 
-To **_collapsed all items_** just adding `toggleType` parameter with `collapseAll` type:
+| `toggleType` type         | Description                                                    |
+|---------------------------|----------------------------------------------------------------|
+| `none`                    | It's default. Do nothing if an item changed behavior           |
+| `expandOnlyCurrent`       | When an item is expanded, would collapse all the others        |
+| `collapseAll`             | Collapsed all items if any item is collapsed                   |
+| `expandAll`               | Expanded all items if any item is expanded                     |
+| `expandAllAndCollapseAll` | Expanded/Collapsed all items if any item is Expanded/Collapsed |
 
-```dart
-class ExpansionGroupExample extends StatelessWidget {
-  const ExpansionGroupExample({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTileGroup(
-        toggleType: ToggleType.collapseAll,
-        children: []
-    );
-  }
-}
-```
+|                                                                                                                                                          |                                                                                                                                                             |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ToggleType.expandOnlyCurrent** <br/>![Image](https://user-images.githubusercontent.com/15138747/208438573-c3ee74c3-b28d-4d73-b224-dc1e7f4f2211.gif)    | **ToggleType.collapseAll** <br/>![Image](https://user-images.githubusercontent.com/15138747/208438577-035b4815-2bfc-4cdb-92ff-3e643269289d.gif)             |
+| **ToggleType.expandAll** <br/>![Image](https://user-images.githubusercontent.com/15138747/208438574-65d53822-5289-4d56-82f3-2a3d99bf49d8.gif)            | **ToggleType.expandAllAndCollapseAll** <br/>![Image](https://user-images.githubusercontent.com/15138747/208438576-e7725572-5b8d-4d43-8033-aef2c3f2ce92.gif) |
 
-#### Expanded all items
-![Expand All](https://user-images.githubusercontent.com/15138747/207911159-b4f51b68-2b7b-4e67-9623-3cb6fbe09dd2.gif)
+### Listen the changed of any item in the group
 
-To **_expanded all items_** just adding `toggleType` parameter with `expandAll` type:
+Adding the `onExpansionItemChanged` parameter into `ExpansionTileGroup` to listen the changed of any item in the group:
 
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
@@ -165,34 +185,22 @@ class ExpansionGroupExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTileGroup(
-        toggleType: ToggleType.expandAll,
+        onExpansionItemChanged: (index, isExpanded) {
+          //index is position of item in the group, 
+          //isExpanded present current behavior: 
+          //- true is expanding, 
+          //- false is collapsing
+        },
         children: []
     );
   }
 }
 ```
 
-#### Expanded all and collapsed all items
-![Expand all and collapse all](https://user-images.githubusercontent.com/15138747/207912107-6c55d590-47c5-42b0-92be-2edbbab8738e.gif)
+### Adding space between items
 
-To **_Expanded all and collapsed all items_** just adding `toggleType` parameter with `expandAllAndCollapseALl` type:
+Adding the `spaceBetweenItem` parameter into `ExpansionTileGroup` to spacing between items:
 
-```dart
-class ExpansionGroupExample extends StatelessWidget {
-  const ExpansionGroupExample({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTileGroup(
-        toggleType: ToggleType.expandAllAndCollapseALl,
-        children: []
-    );
-  }
-}
-```
-
-### Adding gap space between item
-
-Add the `spaceBetweenItem` parameter to spacing between items:
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
   const ExpansionGroupExample({Key? key}) : super(key: key);
@@ -206,8 +214,8 @@ class ExpansionGroupExample extends StatelessWidget {
 }
 ```
 
-### Specially control behavior of any expansion item
-You can make expand or collapse any expansion item in anywhere.
+### Easy control behaviors of an ExpansionTileItem from anywhere
+You can do expand/collapse any `ExpansionTileItem` anywhere in the app.
 
 First you need create a `itemKey` look like this:
 
@@ -252,7 +260,7 @@ class ExampleExpandFromAnywherePage extends StatelessWidget {
 }
 ```
 
-Now if you want to expand or collapse this expansion item, just call like this.
+Now if you want to expand or collapse this `ExpansionTileItem`, just call like this.
 
 For expand:
 ```dart
@@ -275,16 +283,21 @@ itemKey.currentState?.toggle();
 
 ![Custom expansion](https://user-images.githubusercontent.com/15138747/207923692-ebb70b23-7067-4fdf-af5c-09f3c1a537be.gif)
 
+### Remove completely trailing
+In [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) of Flutter, don't have anyway to remove completely the `trailing` (the arrow icon is removed but the area is NOT), so that in some case, the `title` is not extended the full width.
+
+With this package, just set `isHasTrailing` is `false`, the `trailing` will be removed completely, like: area, arrow icon
+
 ## Parameters
 
 ### ExpansionTileGroup
-| Parameter            | Description                                                  |
-|----------------------|--------------------------------------------------------------|
-| `key`                | Controls how one widget replaces another widget in the tree. |
-| `children`*             | The children in this group, `ExpansionTileItem`            |
-| `toggleType`            | Provide the behavior of items in this group, it's `enum`     |
-| `spaceBetweenItem`      | The gap space between item in the group                      |
-| `onExpansionItemChanged`        | Listen the changed behavior of any item in the group         |
+| Parameter                | Description                                                  |
+|--------------------------|--------------------------------------------------------------|
+| `key`                    | Controls how one widget replaces another widget in the tree. |
+| `children`*              | The children in this group, `ExpansionTileItem`              |
+| `toggleType`             | Provide the behavior of items in this group, it's `enum`     |
+| `spaceBetweenItem`       | The gap space between item in the group                      |
+| `onExpansionItemChanged` | Listen the changed behavior of any item in the group         |
 
 ### ExpansionTileItem
 | Parameter                    | Description                                                                                                                                                                                      |
@@ -354,3 +367,5 @@ Feel free to contribute to this project.
 
 If you find a bug or want a feature, but don't know how to fix/implement it, please fill an [issue](https://github.com/congthanhng/Expansion-Tile-Group/issues).  
 If you fixed a bug or implemented a feature, please send a [pull request](https://github.com/congthanhng/Expansion-Tile-Group/pulls).
+
+[ExpansionTile]: https://api.flutter.dev/flutter/material/ExpansionTile-class.html
