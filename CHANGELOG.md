@@ -1,5 +1,6 @@
 ## 1.0.1
 * Updated Readme
+* Temporary remove funding
 * BREAKING CHANGE: 
   - Fix spell: `expandAllAndCollapseALl` to `expandAllAndCollapseAll`
   
