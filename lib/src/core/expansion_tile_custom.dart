@@ -80,14 +80,13 @@ class ExpansionTileCustom extends StatefulWidget {
         assert(isHasTrailing == true || trailing == null,
             'Not necessary `trailing` when `isHasTrailing` is false'),
         assert(
-            boxShadow == null ||
-                (boxShadow != null &&
+            (boxShadow != null &&
                     backgroundColor != null &&
-                    collapsedBackgroundColor != null),
+                    collapsedBackgroundColor != null) ||
+                boxShadow == null,
             'By default the `backgroundColor` and `collapseBackgroundColor` is transparent, so you need add value when define `boxShadow`'),
         assert(
-            borderRadius == null ||
-                (borderRadius != null &&
+            (borderRadius != null &&
                     ((isHasTopBorder &&
                             isHasBottomBorder &&
                             isHasLeftBorder &&
@@ -95,7 +94,8 @@ class ExpansionTileCustom extends StatefulWidget {
                         (!isHasTopBorder &&
                             !isHasBottomBorder &&
                             !isHasLeftBorder &&
-                            !isHasRightBorder))),
+                            !isHasRightBorder))) ||
+                borderRadius == null,
             'A borderRadius can only be given for a uniform Border, \n more info here: https://stackoverflow.com/questions/58812778/a-borderradius-can-only-be-given-for-uniform-borders'),
         super(key: key);
 

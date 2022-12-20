@@ -1,3 +1,6 @@
+## 1.1.1
+* Optimized conditions between properties
+
 ## 1.1.0
 * BREAKING CHANGE
   - Added conditions between properties of `ExpansionTileItem`
