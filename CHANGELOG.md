@@ -1,3 +1,7 @@
+## 1.1.0
+* BREAKING CHANGE
+  - Added conditions between properties of `ExpansionTileItem`
+
 ## 1.0.3
 * Updated Readme
 

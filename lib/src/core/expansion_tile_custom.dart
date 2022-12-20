@@ -77,6 +77,26 @@ class ExpansionTileCustom extends StatefulWidget {
           'CrossAxisAlignment.baseline is not supported since the expanded children '
           'are aligned in a column, not a row. Try to use another constant.',
         ),
+        assert(isHasTrailing == true || trailing == null,
+            'Not necessary `trailing` when `isHasTrailing` is false'),
+        assert(
+            boxShadow == null ||
+                (boxShadow != null &&
+                    backgroundColor != null &&
+                    collapsedBackgroundColor != null),
+            'By default the `backgroundColor` and `collapseBackgroundColor` is transparent, so you need add value when define `boxShadow`'),
+        assert(
+            borderRadius == null ||
+                (borderRadius != null &&
+                    ((isHasTopBorder &&
+                            isHasBottomBorder &&
+                            isHasLeftBorder &&
+                            isHasRightBorder) ||
+                        (!isHasTopBorder &&
+                            !isHasBottomBorder &&
+                            !isHasLeftBorder &&
+                            !isHasRightBorder))),
+            'A borderRadius can only be given for a uniform Border, \n more info here: https://stackoverflow.com/questions/58812778/a-borderradius-can-only-be-given-for-uniform-borders'),
         super(key: key);
 
   /// A widget to display before the title.
