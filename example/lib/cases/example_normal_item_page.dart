@@ -35,15 +35,21 @@ class ExampleNormalItemPage extends StatelessWidget {
                     ],
                   ),
                   ExpansionTileItem(
-                    title: Text('kfhjdh '),
+                    title: Text('ExpansionTile 3'),
                     expendedBorderColor: Colors.blue,
                     isHasTrailing: false,
+                    borderRadius: BorderRadius.circular(12),
+                    isHasBottomBorder: true,
+                    isHasTopBorder: true,
+                    isHasRightBorder: true,
+                    isHasLeftBorder: true,
                     children: [
                       ListTile(
                         contentPadding: EdgeInsets.zero,
-                        title: Text('Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. '),
+                        title: Text(
+                            'Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. '),
                       ),
-                                          ],
+                    ],
                   ),
                   const ExpansionTileItem(
                     title: Text('ExpansionTile 4'),
@@ -121,7 +127,7 @@ class ExampleNormalItemPage extends StatelessWidget {
                     initiallyExpanded: false,
                     title: const Text('ExpansionTile 7'),
                     backgroundColor: Colors.greenAccent,
-                    isHasTopBorder: false,
+                    isHasTopBorder: true,
                     isHasBottomBorder: false,
                     collapsedBackgroundColor: Colors.greenAccent,
                     boxShadow: [

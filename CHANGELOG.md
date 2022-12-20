@@ -1,3 +1,9 @@
+## 1.1.0
+* Updated:
+  - Added new `ExpansionTileItem` types: `ExpansionTileCardItem`, `ExpansionTileMoonItem`
+* BREAKING CHANGE
+  - Added conditions between properties of `ExpansionTileItem`
+
 ## 1.0.3
 * Updated Readme
 

@@ -31,6 +31,8 @@ A Flutter widget that can be manager group of custom expansion tile
     - [Hot reload not affect immediately](#hot-reload-not-affect-immediately)
     - [Adding border radius](#adding-border-radius)
     - [Adding shadow to item box](#adding-shadow-to-item-box)
+    - [Condition between trailing and isHasTrailing](#condition-between-trailing-and-isHasTrailing)
+    - [BoxShadow](#boxshadow)
 - [FAQ](#faq)
 - [Sponsoring](#sponsoring)
 - [Contributions](#contributions)
@@ -346,6 +348,12 @@ You can check this post here [uniform borders](https://stackoverflow.com/questio
 
 ### Adding shadow to item box
 When you want to adding shadow into item box, you need to add the `backgroundColor` and `collapsedBackgroundColor` into item, because they are using `transparent` by default 
+
+### Condition between trailing and isHasTrailing
+Not necessary set `trailing` property when `isHasTrailing` property is set false
+
+### BoxShadow
+By default the `backgroundColor` and `collapseBackgroundColor` is transparent, so you need add value to both of them before define `boxShadow`
 
 ## FAQ
 
