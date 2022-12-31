@@ -3,7 +3,7 @@
 A Flutter widget that can be manager group of custom expansion tile
 
 ![Flutter type](https://img.shields.io/badge/Flutter-Widgets-blue) <a href="https://github.com/congthanhng/Expansion-Tile-Group" target="_blank"><img src="https://img.shields.io/badge/Github-Expansion--Tile--Group-black" ></a>
-
+![img.png](img.png)
 ## Overview
 ![Image][ItemTypes]
 ![Image][SpecialItemBehaviors]
