@@ -20,22 +20,22 @@ class ExampleNormalItemPage extends StatelessWidget {
                 spaceBetweenItem: 16,
                 onExpansionItemChanged: (index, isExpanded) {},
                 children: [
-                  ExpansionTileWithoutBorderItem(
-                    title: const Text('ExpansionTile 1'),
+                  const ExpansionTileWithoutBorderItem(
+                    title: Text('ExpansionTile 1'),
                     children: [
-                      const Text(
+                      Text(
                           '''Null am eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
                     ],
                   ),
                   ExpansionTileBorderItem(
                     title: const Text('ExpansionTile 2'),
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                           ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
                     ],
                   ),
                   ExpansionTileItem(
-                    title: Text('ExpansionTile 3'),
+                    title: const Text('ExpansionTile 3'),
                     expendedBorderColor: Colors.blue,
                     isHasTrailing: false,
                     borderRadius: BorderRadius.circular(12),
@@ -43,7 +43,7 @@ class ExampleNormalItemPage extends StatelessWidget {
                     isHasTopBorder: true,
                     isHasRightBorder: true,
                     isHasLeftBorder: true,
-                    children: [
+                    children: const [
                       ListTile(
                         contentPadding: EdgeInsets.zero,
                         title: Text(
