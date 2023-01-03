@@ -1,15 +1,15 @@
 # expansion_tile_group
 
-A Flutter widget that can be manager group of custom expansion tile
+A Flutter widget that can be a manager group of custom expansion tiles.
 
-![Pub Source][PubSource] 
-![Pub Like][PubLike]
-![Pub Point][PubPoint]
-![Pub Popular][PubPopular]
+<a href="https://pub.dev/packages/expansion_tile_group" target="_blank"><img src="https://img.shields.io/pub/v/expansion_tile_group" ></a>
+<a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/likes/expansion_tile_group" ></a>
+<a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/points/expansion_tile_group" ></a>
+<a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/popularity/expansion_tile_group" ></a>
 
-![Flutter type](https://img.shields.io/badge/Flutter-Widgets-blue) <a href="https://github.com/congthanhng/Expansion-Tile-Group" target="_blank"><img src="https://img.shields.io/badge/Github-Expansion--Tile--Group-black" ></a>
-![Dart CI][MainCI]
-
+<a href="https://pub.dev/packages/expansion_tile_group" target="_blank"><img src="https://img.shields.io/badge/Flutter-Widgets-blue" ></a> 
+<a href="https://github.com/congthanhng/Expansion-Tile-Group" target="_blank"><img src="https://img.shields.io/badge/Github-Expansion--Tile--Group-black" ></a>
+<a href="https://github.com/congthanhng/Expansion-Tile-Group/actions/workflows/dart.yml" target="_blank"><img src="https://github.com/congthanhng/Expansion-Tile-Group/actions/workflows/dart.yml/badge.svg" ></a>
 
 ## Overview
 ![Image][ItemTypes]
