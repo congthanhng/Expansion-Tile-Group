@@ -1,3 +1,6 @@
+## 1.1.6
+* Update Readme
+
 ## 1.1.2
 * Update Readme
 * Add labelers

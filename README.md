@@ -7,7 +7,7 @@ A Flutter widget that can be a manager group of custom expansion tiles.
 <a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/points/expansion_tile_group" ></a>
 <a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/popularity/expansion_tile_group" ></a>
 
-<a href="https://pub.dev/packages/expansion_tile_group" target="_blank"><img src="https://img.shields.io/badge/Flutter-Widgets-blue" ></a> 
+<a href="https://pub.dev/packages/expansion_tile_group" target="_blank"><img src="https://img.shields.io/badge/Flutter-Widgets-blue" ></a>
 <a href="https://github.com/congthanhng/Expansion-Tile-Group" target="_blank"><img src="https://img.shields.io/badge/Github-Expansion--Tile--Group-black" ></a>
 <a href="https://github.com/congthanhng/Expansion-Tile-Group/actions/workflows/dart.yml" target="_blank"><img src="https://github.com/congthanhng/Expansion-Tile-Group/actions/workflows/dart.yml/badge.svg" ></a>
 
@@ -24,61 +24,61 @@ A Flutter widget that can be a manager group of custom expansion tiles.
 - [Introduce](#introduce)
 - [Install](#install)
 - [Usage](#usage)
-    - [Implement and manage group of expansion items](#implement-and-manage-group-of-expansion-items)
-    - [Behaviors between items in the group](#behaviors-between-items-in-the-group)
-    - [Listen the changed of any item in the group](#listen-the-changed-of-any-item-in-the-group)
-    - [Adding space between items](#adding-space-between-items)
-    - [Easy control behaviors of an ExpansionTileItem from anywhere](#easy-control-behaviors-of-an-ExpansionTileItem-from-anywhere)
-    - [Easy to customize expansion item](#easy-to-customize-expansion-item)
-    - [Remove completely trailing](#remove-completely-trailing)
+  - [Implement and manage group of expansion items](#implement-and-manage-group-of-expansion-items)
+  - [Behaviors between items in the group](#behaviors-between-items-in-the-group)
+  - [Listen the changed of any item in the group](#listen-the-changed-of-any-item-in-the-group)
+  - [Adding space between items](#adding-space-between-items)
+  - [Easy control behaviors of an ExpansionTileItem from anywhere](#easy-control-behaviors-of-an-ExpansionTileItem-from-anywhere)
+  - [Easy to customize expansion item](#easy-to-customize-expansion-item)
+  - [Remove completely trailing](#remove-completely-trailing)
 - [Parameters](#parameters)
-    - [ExpansionTileGroup](#expansiontilegroup)
-    - [ExpansionTileItem](#expansiontileitem)
+  - [ExpansionTileGroup](#expansiontilegroup)
+  - [ExpansionTileItem](#expansiontileitem)
 - [Troubleshooting](#troubleshooting)
-    - [Hot reload not affect immediately](#hot-reload-not-affect-immediately)
-    - [Adding border radius](#adding-border-radius)
-    - [Adding shadow to item box](#adding-shadow-to-item-box)
-    - [Condition between trailing and isHasTrailing](#condition-between-trailing-and-isHasTrailing)
-    - [BoxShadow](#boxshadow)
+  - [Hot reload not affect immediately](#hot-reload-not-affect-immediately)
+  - [Adding border radius](#adding-border-radius)
+  - [Adding shadow to item box](#adding-shadow-to-item-box)
+  - [Condition between trailing and isHasTrailing](#condition-between-trailing-and-isHasTrailing)
+  - [BoxShadow](#boxshadow)
 - [FAQ](#faq)
 - [Sponsoring](#sponsoring)
 - [Contributions](#contributions)
-    
+
 ## Features
 
-* Can group `ExpansionTileItem`s together and manage them (`ExpansionTileItem` is extended from [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) of Flutter)
-* Support and control many kind of behaviors between items in the group like: `ExpandOnlyCurrent`, `ExpandAll`, `CollapseAll`, `ExpandAllAndCollapseAll`
-* Can listen any item changed behavior in the group
-* Can add the space between items in the group
-* Easy control behaviors of an `ExpansionTileItem` from anywhere
-* Can easy custom or add decoration into an `ExpansionTileItem` with `Border`, `BorderRadius`, `Shadow`, or `BoxDecoration`
-* Can remove completely the `trailing`, included: area, arrow icon. So that the `title` can be extended the width. Just using `isHasTrailing`
+* Can group `ExpansionTileItem`s together and manage them (`ExpansionTileItem` is extended from [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) of Flutter).
+* Support and control many kinds of behaviors between items in the group like: `ExpandOnlyCurrent`, `ExpandAll`, `CollapseAll`, `ExpandAllAndCollapseAll`.
+* Can listen to any item changed behavior in the group.
+* Can add the space between items in the group.
+* Easy control behaviors of an `ExpansionTileItem` from anywhere.
+* Can easily custom or add decoration into an `ExpansionTileItem` with `Border`, `BorderRadius`, `Shadow`, or `BoxDecoration`.
+* Can remove completely the `trailing`, included: area, arrow icon. So that the `title` can be extended the width. Just using `isHasTrailing`.
 
 ## Introduce
 
-The [ExpansionTile][ExpansionTile] of Flutter has a lot of limits and difficult to customize it with these features above.
+The [ExpansionTile][ExpansionTile] of Flutter has a lot of limits and is difficult to customize with these features above.
 
-So that i created `ExpansionTileItem` to remove these limits.
+So I created `ExpansionTileItem` to remove these limits.
 
-The `ExpansionTileItem` extends all the properties and features core of [ExpansionTile][ExpansionTile], so if you are using [ExpansionTile][ExpansionTile], you can easy change to my package without changing any properties.
+The `ExpansionTileItem` extends all the properties and features core of [ExpansionTile][ExpansionTile], so if you are using [ExpansionTile][ExpansionTile], you can easily change to my package without changing any properties.
 
-Addition, by using `ExpansionTileItem`, you can easy to group and manage them by wrapping into `ExpansionTileGroup`.
+Addition, by using `ExpansionTileItem`, you can easily group and manage them by wrapping them into `ExpansionTileGroup`.
 
 And there are some types of `ExpansionTileItem` like: `ExpansionTileBorderItem`, `ExpansionTileWithoutBorderItem`, I will add more in the future, or you can create the new one like this.
 
 ```dart
 class YourExpansionTileItem extends ExpansionTileItem {
-  YourExpansionTileItem(
-          //your custom properties
-          ):super(
-    //call correspond super properties 
-  )
+ YourExpansionTileItem(
+         //your custom properties
+         ):super(
+   //call correspond super properties
+ )
 }
 ```
 
-**I'm very appreciate if you know any common ExpansionTile UIs and give the PR.**
+**I'd really appreciate it if you know any common ExpansionTile UIs and give the PR.**
 
-More detail: [ExpansionTileItem](#expansiontileitem), [ExpansionTileGroup](#expansiontilegroup)
+More detail: [ExpansionTileItem](#expansiontileitem), [ExpansionTileGroup](#expansiontilegroup).
 
 ## Install
 
@@ -86,7 +86,7 @@ In the `pubspec.yaml` of your flutter project, add the following dependency:
 
 ```yaml
 dependencies:
-  expansion_tile_group: <latest_version>
+ expansion_tile_group: <latest_version>
 ```
 
 In your library add the following import:
@@ -106,13 +106,13 @@ import 'package:expansion_tile_group/expansion_tile_group.dart';
 After that you need to define the group of expansion items:
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
-  const ExpansionGroupExample({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTileGroup(
-        children: []
-    );
-  }
+ const ExpansionGroupExample({Key? key}) : super(key: key);
+ @override
+ Widget build(BuildContext context) {
+   return ExpansionTileGroup(
+       children: []
+   );
+ }
 }
 ```
 
@@ -120,35 +120,35 @@ Now you need to put expansion items into this group, the children must be `Expan
 
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
-  const ExpansionGroupExample({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTileGroup(
-        children: [
-          const ExpansionTileItem(
-            title: Text('ExpansionTile item 1'),
-            expendedBorderColor: Colors.blue,
-            children: [
-              Text('Title of expansion tile item 1'),
-            ],
-          ),
-          const ExpansionTileBorderItem(
-            title: Text('ExpansionTile item 2'),
-            expendedBorderColor: Colors.blue,
-            children: [
-              Text('Title of expansion tile item 2'),
-            ],
-          ),
-          const ExpansionTileWithoutBorderItem(
-            title: Text('ExpansionTile item 3'),
-            expendedBorderColor: Colors.blue,
-            children: [
-              Text('Title of expansion tile item 3'),
-            ],
-          ),
-        ]
-    );
-  }
+ const ExpansionGroupExample({Key? key}) : super(key: key);
+ @override
+ Widget build(BuildContext context) {
+   return ExpansionTileGroup(
+       children: [
+         const ExpansionTileItem(
+           title: Text('ExpansionTile item 1'),
+           expendedBorderColor: Colors.blue,
+           children: [
+             Text('Title of expansion tile item 1'),
+           ],
+         ),
+         const ExpansionTileBorderItem(
+           title: Text('ExpansionTile item 2'),
+           expendedBorderColor: Colors.blue,
+           children: [
+             Text('Title of expansion tile item 2'),
+           ],
+         ),
+         const ExpansionTileWithoutBorderItem(
+           title: Text('ExpansionTile item 3'),
+           expendedBorderColor: Colors.blue,
+           children: [
+             Text('Title of expansion tile item 3'),
+           ],
+         ),
+       ]
+   );
+ }
 }
 ```
 
@@ -158,14 +158,14 @@ You can control behaviors between items in the group with adding `toggleType` pa
 
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
-  const ExpansionGroupExample({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTileGroup(
-        toggleType: ToggleType.expandOnlyCurrent,
-        children: []
-    );
-  }
+ const ExpansionGroupExample({Key? key}) : super(key: key);
+ @override
+ Widget build(BuildContext context) {
+   return ExpansionTileGroup(
+       toggleType: ToggleType.expandOnlyCurrent,
+       children: []
+   );
+ }
 }
 ```
 
@@ -175,7 +175,7 @@ There are many types of `toggleType`, it support almost common case you will be 
 |---------------------------|----------------------------------------------------------------|
 | `none`                    | It's default. Do nothing if an item changed behavior           |
 | `expandOnlyCurrent`       | When an item is expanded, would collapse all the others        |
-| `collapseAll`             | Collapsed all items if any item is collapsed                   |
+| `collapseAll`             | Collapse all items if any item is collapsed                    |
 | `expandAll`               | Expanded all items if any item is expanded                     |
 | `expandAllAndCollapseAll` | Expanded/Collapsed all items if any item is Expanded/Collapsed |
 
@@ -190,19 +190,19 @@ Adding the `onExpansionItemChanged` parameter into `ExpansionTileGroup` to liste
 
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
-  const ExpansionGroupExample({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTileGroup(
-        onExpansionItemChanged: (index, isExpanded) {
-          //index is position of item in the group, 
-          //isExpanded present current behavior: 
-          //- true is expanding, 
-          //- false is collapsing
-        },
-        children: []
-    );
-  }
+ const ExpansionGroupExample({Key? key}) : super(key: key);
+ @override
+ Widget build(BuildContext context) {
+   return ExpansionTileGroup(
+       onExpansionItemChanged: (index, isExpanded) {
+         //index is position of item in the group,
+         //isExpanded present current behavior:
+         //- true is expanding,
+         //- false is collapsing
+       },
+       children: []
+   );
+ }
 }
 ```
 
@@ -212,19 +212,19 @@ Adding the `spaceBetweenItem` parameter into `ExpansionTileGroup` to spacing bet
 
 ```dart
 class ExpansionGroupExample extends StatelessWidget {
-  const ExpansionGroupExample({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTileGroup(
-        spaceBetweenItem: 16,
-        children: []
-    );
-  }
+ const ExpansionGroupExample({Key? key}) : super(key: key);
+ @override
+ Widget build(BuildContext context) {
+   return ExpansionTileGroup(
+       spaceBetweenItem: 16,
+       children: []
+   );
+ }
 }
 ```
 
 ### Easy control behaviors of an ExpansionTileItem from anywhere
-You can do expand/collapse any `ExpansionTileItem` anywhere in the app.
+You can expand/collapse any `ExpansionTileItem` anywhere in the app.
 
 First you need create a `itemKey` look like this:
 
@@ -233,10 +233,10 @@ import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
 class ExampleExpandFromAnywherePage extends StatelessWidget {
-  ExampleExpandFromAnywherePage({Key? key}) : super(key: key);
-  
-  final GlobalKey<ExpansionTileCustomState> itemKey = GlobalKey();
-  
+ ExampleExpandFromAnywherePage({Key? key}) : super(key: key);
+
+ final GlobalKey<ExpansionTileCustomState> itemKey = GlobalKey();
+
 }
 ```
 
@@ -247,25 +247,25 @@ import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
 class ExampleExpandFromAnywherePage extends StatelessWidget {
-  ExampleExpandFromAnywherePage({Key? key}) : super(key: key);
-  
-  final GlobalKey<ExpansionTileCustomState> itemKey = GlobalKey();
+ ExampleExpandFromAnywherePage({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Expand From Anywhere Page'),
-      ),
-      body: ExpansionTileBorderItem(
-        title: const Text('ExpansionTile 0'),
-        expansionKey: itemKey,
-        children: [
-          const Text('body content of expansion')
-        ],
-      ),
-    );
-  }
+ final GlobalKey<ExpansionTileCustomState> itemKey = GlobalKey();
+
+ @override
+ Widget build(BuildContext context) {
+   return Scaffold(
+     appBar: AppBar(
+       title: const Text('Expand From Anywhere Page'),
+     ),
+     body: ExpansionTileBorderItem(
+       title: const Text('ExpansionTile 0'),
+       expansionKey: itemKey,
+       children: [
+         const Text('body content of expansion')
+       ],
+     ),
+   );
+ }
 }
 ```
 
@@ -295,7 +295,7 @@ itemKey.currentState?.toggle();
 ### Remove completely trailing
 In [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) of Flutter, don't have anyway to remove completely the `trailing` (the arrow icon is removed but the area is NOT), so that in some case, the `title` is not extended the full width.
 
-With this package, just set `isHasTrailing` is `false`, the `trailing` will be removed completely, like: area, arrow icon
+With this package, just set `isHasTrailing` is `false`, the `trailing` will be removed completely, like: area, arrow icon.
 
 ## Parameters
 
@@ -336,8 +336,8 @@ With this package, just set `isHasTrailing` is `false`, the `trailing` will be r
 | `borderRadius`               | If non-null, the corners of this box are rounded by this BorderRadius.Applies only to boxes with rectangular shapes; ignored if shape is not BoxShape.rectangle                                  |
 | `border`                     | A border to draw above the background color, gradient, or image.Follows the shape and borderRadius.                                                                                              |
 | `boxShadow`                  | A list of shadows cast by this box behind the box. The shadow follows the shape of the box                                                                                                       |
-| `collapsedBorderColor`       | The color to display border box when collapsed.                                                                                                                                                  |
-| `expendedBorderColor`        | The color to display border box when expanded.                                                                                                                                                   |
+| `collapsedBorderColor`       | The color to display the border box when collapsed.                                                                                                                                              |
+| `expendedBorderColor`        | The color to display the border box when expanded.                                                                                                                                               |
 | `isHasTopBorder`             | Show `top` border side  or NOT                                                                                                                                                                   |
 | `isHasBottomBorder`          | Show `bottom` border side  or NOT                                                                                                                                                                |
 | `isHasLeftBorder`            | Show `left` border side  or NOT                                                                                                                                                                  |
@@ -347,20 +347,20 @@ With this package, just set `isHasTrailing` is `false`, the `trailing` will be r
 ## Troubleshooting
 
 ### Hot reload not affect immediately
-If you are using `ExpansionTileGroup` wrapping `ExpansionTileItem` items and you changed some configs of `ExpansionTileItem`, the hot reload will not immediately affect to UI, you must use the `hot restart` to see the changed. Because the items is wrapped `ExpansionTileGroup` will be auto generated the `GlobalKey` for each item. So when you do `hot reload` it will not affect immediately to UI.
+If you are using `ExpansionTileGroup` wrapping `ExpansionTileItem` items and you changed some configs of `ExpansionTileItem`, the hot reload will not immediately affect to UI, you must use the `hot restart` to see the changed. Because the items are wrapped, `ExpansionTileGroup` will auto generate the `GlobalKey` for each item. So when you do `hot reload` it will not affect the UI.
 
 ### Adding border radius
-When you want to adding border radius, please notice about the border side of box. Because the border radius only uniform borders.
+When you want to add border radius, please notice the border side of the box. Because the border radius only has uniform borders.
 You can check this post here [uniform borders](https://stackoverflow.com/questions/58812778/a-borderradius-can-only-be-given-for-uniform-borders)
 
 ### Adding shadow to item box
-When you want to adding shadow into item box, you need to add the `backgroundColor` and `collapsedBackgroundColor` into item, because they are using `transparent` by default 
+When you want to add a shadow into an item box, you need to add the `backgroundColor` and `collapsedBackgroundColor` into the item, because they are using `transparent` by default.
 
 ### Condition between trailing and isHasTrailing
-Not necessary set `trailing` property when `isHasTrailing` property is set false
+Not necessary set `trailing` property when `isHasTrailing` property is set false.
 
 ### BoxShadow
-By default the `backgroundColor` and `collapseBackgroundColor` is transparent, so you need add value to both of them before define `boxShadow`
+By default the `backgroundColor` and `collapseBackgroundColor` are transparent, so you need to add value to both of them before defining `boxShadow`.
 
 ## FAQ
 
@@ -368,7 +368,7 @@ You can read the FAQ here: [FAQ](https://github.com/congthanhng/Expansion-Tile-G
 
 ## Sponsoring
 
-If this package or any other package I created is helping you, please consider to sponsor me so that I can take time to update this packages.
+If this package or any other package I created is helping you, please consider sponsoring me so that I can take time to update this package.
 
 <a href="https://www.buymeacoffee.com/congthanhng" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
@@ -380,7 +380,7 @@ OR
 
 Feel free to contribute to this project.
 
-If you find a bug or want a feature, but don't know how to fix/implement it, please fill an [issue](https://github.com/congthanhng/Expansion-Tile-Group/issues).  
+If you find a bug or want a feature, but don't know how to fix/implement it, please fill an [issue](https://github.com/congthanhng/Expansion-Tile-Group/issues).
 If you fixed a bug or implemented a feature, please send a [pull request](https://github.com/congthanhng/Expansion-Tile-Group/pulls).
 
 [ExpansionTile]: https://api.flutter.dev/flutter/material/ExpansionTile-class.html
