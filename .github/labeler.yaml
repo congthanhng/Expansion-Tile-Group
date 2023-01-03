@@ -17,4 +17,4 @@ test:
 - test/**/*
 
 document:
-- pubspec.yaml
+- README.md
