@@ -4,14 +4,17 @@ example:
 pubspec:
 - pubspec.yaml
 
+github:
+- .github/**
+
 shelf:
 - lib/expansion_tile_group.dart
 
 types:
-- lib/src/types/**
+- lib/src/types/*
 
 core:
-- lib/src/core/**
+- lib/src/core/*
 
 test:
 - test/**
