@@ -1,0 +1,20 @@
+example:
+- example/**/*
+
+pubspec:
+- pubspec.yaml
+
+shelf:
+- lib/expansion_tile_group.dart
+
+types:
+- lib/src/types/*
+
+core:
+- lib/src/core/*
+
+test:
+- test/**/*
+
+document:
+- README.md

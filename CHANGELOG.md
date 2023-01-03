@@ -1,3 +1,7 @@
+## 1.1.2
+* Update Readme
+* Add labelers
+
 ## 1.1.1
 * Optimized conditions between properties
 
