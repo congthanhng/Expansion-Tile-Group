@@ -2,7 +2,14 @@
 
 A Flutter widget that can be manager group of custom expansion tile
 
+![Pub Source][PubSource] 
+![Pub Like][PubLike]
+![Pub Point][PubPoint]
+![Pub Popular][PubPopular]
+
 ![Flutter type](https://img.shields.io/badge/Flutter-Widgets-blue) <a href="https://github.com/congthanhng/Expansion-Tile-Group" target="_blank"><img src="https://img.shields.io/badge/Github-Expansion--Tile--Group-black" ></a>
+![Dart CI][MainCI]
+
 
 ## Overview
 ![Image][ItemTypes]
@@ -383,3 +390,8 @@ If you fixed a bug or implemented a feature, please send a [pull request](https:
 [CollapseAll]: https://user-images.githubusercontent.com/15138747/208438577-035b4815-2bfc-4cdb-92ff-3e643269289d.gif
 [ExpandedAll]: https://user-images.githubusercontent.com/15138747/208438574-65d53822-5289-4d56-82f3-2a3d99bf49d8.gif
 [ExpandedAndCollapsedAll]: https://user-images.githubusercontent.com/15138747/208438576-e7725572-5b8d-4d43-8033-aef2c3f2ce92.gif
+[MainCI]: https://github.com/congthanhng/Expansion-Tile-Group/actions/workflows/dart.yml/badge.svg
+[PubSource]: https://img.shields.io/pub/v/expansion_tile_group
+[PubLike]: https://img.shields.io/pub/likes/expansion_tile_group
+[PubPoint]: https://img.shields.io/pub/points/expansion_tile_group
+[PubPopular]: https://img.shields.io/pub/popularity/expansion_tile_group
