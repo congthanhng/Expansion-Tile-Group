@@ -43,13 +43,12 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     super.initState();
   }
 
-
   @override
   void didUpdateWidget(ExpansionTileGroup oldWidget) {
     expansionChildren.clear();
-    expansionChildren.addAll( List.generate(
+    expansionChildren.addAll(List.generate(
         widget.children.length,
-            (index) => widget.children[index].copyWith(
+        (index) => widget.children[index].copyWith(
             expansionKey: expansionTileKeys[index],
             onExpansionChanged: (isExpanded) {
               if (!_isGroupTransforming) {

@@ -1,3 +1,6 @@
+## 1.1.9
+* Format files
+
 ## 1.1.8
 * Improve force expansion behavior for `ExpansionTileGroup`
 

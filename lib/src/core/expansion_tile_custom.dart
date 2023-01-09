@@ -393,7 +393,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
     _backgroundColor =
         _controller.drive(_backgroundColorTween.chain(_easeOutTween));
 
-    if(widget.isEnableExpanded){
+    if (widget.isEnableExpanded) {
       _isExpanded = PageStorage.of(context)?.readState(context) as bool? ??
           widget.initiallyExpanded;
     }
@@ -426,7 +426,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
   }
 
   void _setExpanded(bool isExpanded) {
-    if(!isExpanded && !widget.isEnableExpanded) return;
+    if (!isExpanded && !widget.isEnableExpanded) return;
     if (_isExpanded != isExpanded) {
       setState(() {
         _isExpanded = isExpanded;
@@ -448,7 +448,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
   }
 
   void _handleTap() {
-    if(!_isExpanded && !widget.isEnableExpanded) return;
+    if (!_isExpanded && !widget.isEnableExpanded) return;
     setState(() {
       _isExpanded = !_isExpanded;
       if (_isExpanded) {
