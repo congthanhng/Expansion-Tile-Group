@@ -1,8 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExampleNormalItemPage extends StatelessWidget {
-  const ExampleNormalItemPage({Key? key}) : super(key: key);
+class ExampleAllItemPage extends StatelessWidget {
+  const ExampleAllItemPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

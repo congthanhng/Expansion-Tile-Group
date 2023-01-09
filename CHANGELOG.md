@@ -1,3 +1,8 @@
+## 1.1.7
+* Added feature:
+ - Can force control behaviors of an item: expand or collapse via `isEnableExpanded`
+* Update examples
+
 ## 1.1.6
 * Update Readme
 

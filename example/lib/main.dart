@@ -4,7 +4,8 @@ import 'package:expansion_tile_group_example/cases/example_expand_all_item.dart'
 import 'package:expansion_tile_group_example/cases/example_expand_from_anywhere_page.dart';
 import 'package:expansion_tile_group_example/cases/example_expand_only_one.dart';
 import 'package:expansion_tile_group_example/cases/example_item_change_in_group.dart';
-import 'package:expansion_tile_group_example/cases/example_normal_item_page.dart';
+import 'package:expansion_tile_group_example/cases/example_all_item_page.dart';
+import 'package:expansion_tile_group_example/cases/example_one_item.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,7 +33,7 @@ class _MyAppState extends State<MyApp> {
             return MaterialPageRoute(builder: (context) => const HomePage());
           case '/three':
             return MaterialPageRoute(
-                builder: (context) => const ExampleNormalItemPage());
+                builder: (context) => const ExampleAllItemPage());
           case '/four':
             return MaterialPageRoute(
                 builder: (context) => ExampleExpandFromAnywherePage());
@@ -55,6 +56,10 @@ class _MyAppState extends State<MyApp> {
             return MaterialPageRoute(
                 builder: (context) =>
                     const ExampleExpandAllAndCollapseAllItemPage());
+          case '/ten':
+            return MaterialPageRoute(
+                builder: (context) =>
+                const ExampleOneItemPage());
           default: return MaterialPageRoute(builder: (context) => const HomePage());
         }
       },
@@ -124,6 +129,13 @@ class HomePage extends StatelessWidget {
               },
               color: Colors.blue,
               child: const Text('Example for Expand All and Collapse ALl item'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/ten');
+              },
+              color: Colors.yellow,
+              child: const Text('Example for One item'),
             ),
           ],
         ),

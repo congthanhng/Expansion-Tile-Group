@@ -71,7 +71,8 @@ class ExpansionTileCustom extends StatefulWidget {
       this.isHasBottomBorder = true,
       this.isHasLeftBorder = false,
       this.isHasRightBorder = false,
-      this.isHasTrailing = true})
+      this.isHasTrailing = true,
+      this.isEnableExpanded = true})
       : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
@@ -347,6 +348,11 @@ class ExpansionTileCustom extends StatefulWidget {
 
   final bool isHasTrailing;
 
+  ///The widget can expand or NOT.
+  ///It helps when you want to prohibit expansion until the API requests success.
+  ///More detail: https://github.com/congthanhng/Expansion-Tile-Group/issues/22
+  final bool isEnableExpanded;
+
   @override
   State<ExpansionTileCustom> createState() => ExpansionTileCustomState();
 }
@@ -387,8 +393,11 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
     _backgroundColor =
         _controller.drive(_backgroundColorTween.chain(_easeOutTween));
 
-    _isExpanded = PageStorage.of(context)?.readState(context) as bool? ??
-        widget.initiallyExpanded;
+    if(widget.isEnableExpanded){
+      _isExpanded = PageStorage.of(context)?.readState(context) as bool? ??
+          widget.initiallyExpanded;
+    }
+
     if (_isExpanded) {
       _controller.value = 1.0;
     }
@@ -417,6 +426,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
   }
 
   void _setExpanded(bool isExpanded) {
+    if(!isExpanded && !widget.isEnableExpanded) return;
     if (_isExpanded != isExpanded) {
       setState(() {
         _isExpanded = isExpanded;
@@ -438,6 +448,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
   }
 
   void _handleTap() {
+    if(!_isExpanded && !widget.isEnableExpanded) return;
     setState(() {
       _isExpanded = !_isExpanded;
       if (_isExpanded) {
