@@ -1,4 +1,4 @@
-## 1.1.7
+## 1.1.8
 * Improve force expansion behavior for `ExpansionTileGroup`
 
 ## 1.1.7
