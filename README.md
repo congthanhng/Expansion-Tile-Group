@@ -31,6 +31,7 @@ A Flutter widget that can be a manager group of custom expansion tiles.
   - [Easy control behaviors of an ExpansionTileItem from anywhere](#easy-control-behaviors-of-an-ExpansionTileItem-from-anywhere)
   - [Easy to customize expansion item](#easy-to-customize-expansion-item)
   - [Remove completely trailing](#remove-completely-trailing)
+  - [Force behavior](#force-behavior)
 - [Parameters](#parameters)
   - [ExpansionTileGroup](#expansiontilegroup)
   - [ExpansionTileItem](#expansiontileitem)
@@ -53,6 +54,7 @@ A Flutter widget that can be a manager group of custom expansion tiles.
 * Easy control behaviors of an `ExpansionTileItem` from anywhere.
 * Can easily custom or add decoration into an `ExpansionTileItem` with `Border`, `BorderRadius`, `Shadow`, or `BoxDecoration`.
 * Can remove completely the `trailing`, included: area, arrow icon. So that the `title` can be extended the width. Just using `isHasTrailing`.
+* Can force behavior of an expansion item until a condition is successful. [More detail][ForceBehavior]
 
 ## Introduce
 
@@ -297,6 +299,15 @@ In [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.
 
 With this package, just set `isHasTrailing` is `false`, the `trailing` will be removed completely, like: area, arrow icon.
 
+### Force behavior
+You can force the behavior of an `ExpansionTileItem` to expand or NOT. 
+It's very helpful when you want to prohibit expansion until a task is completed.
+Just setting it with `isEnableExpanded` parameter.
+
+Notice: When you wrap items with `ExpansionTileGroup`, `isEnableExpanded` will be not worked perfectly, because all the children in `ExpansionTileGroup` are automatically created a `key`,
+so it will not change the value of `isEnableExpanded` when you rebuild the page.
+
+
 ## Parameters
 
 ### ExpansionTileGroup
@@ -343,6 +354,7 @@ With this package, just set `isHasTrailing` is `false`, the `trailing` will be r
 | `isHasLeftBorder`            | Show `left` border side  or NOT                                                                                                                                                                  |
 | `isHasRightBorder`           | Show `right` border side or NOT                                                                                                                                                                  |
 | `isHasTrailing`              | Show trailing widget and it's area or NOT                                                                                                                                                        |
+| `isEnableExpanded`           | Force item expand or NOT                                                                                                                                                                         |
 
 ## Troubleshooting
 
@@ -395,3 +407,4 @@ If you fixed a bug or implemented a feature, please send a [pull request](https:
 [PubLike]: https://img.shields.io/pub/likes/expansion_tile_group
 [PubPoint]: https://img.shields.io/pub/points/expansion_tile_group
 [PubPopular]: https://img.shields.io/pub/popularity/expansion_tile_group
+[ForceBehavior]: https://github.com/congthanhng/Expansion-Tile-Group/issues/22

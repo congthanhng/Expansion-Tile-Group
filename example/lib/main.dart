@@ -3,9 +3,9 @@ import 'package:expansion_tile_group_example/cases/example_expand_all_and_collap
 import 'package:expansion_tile_group_example/cases/example_expand_all_item.dart';
 import 'package:expansion_tile_group_example/cases/example_expand_from_anywhere_page.dart';
 import 'package:expansion_tile_group_example/cases/example_expand_only_one.dart';
+import 'package:expansion_tile_group_example/cases/example_force_behavior.dart';
 import 'package:expansion_tile_group_example/cases/example_item_change_in_group.dart';
 import 'package:expansion_tile_group_example/cases/example_all_item_page.dart';
-import 'package:expansion_tile_group_example/cases/example_one_item.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
           case '/ten':
             return MaterialPageRoute(
                 builder: (context) =>
-                const ExampleOneItemPage());
+                const ExampleForceBehaviorPage());
           default: return MaterialPageRoute(builder: (context) => const HomePage());
         }
       },
