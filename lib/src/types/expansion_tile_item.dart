@@ -38,7 +38,8 @@ class ExpansionTileItem extends StatelessWidget {
       this.isHasLeftBorder,
       this.isHasBottomBorder,
       this.isHasRightBorder,
-      this.isHasTrailing})
+      this.isHasTrailing,
+      this.isEnableExpanded})
       : super(key: key);
 
   /// The primary content of the list item.
@@ -293,6 +294,11 @@ class ExpansionTileItem extends StatelessWidget {
 
   final bool? isHasTrailing;
 
+  ///The widget can expand or NOT.
+  ///It helps when you want to prohibit expansion until the API requests success.
+  ///More detail: https://github.com/congthanhng/Expansion-Tile-Group/issues/22
+  final bool? isEnableExpanded;
+
   ExpansionTileItem copyWith(
       {Key? key,
       Widget? title,
@@ -327,7 +333,8 @@ class ExpansionTileItem extends StatelessWidget {
       bool? isHasBottomBorder,
       bool? isHasLeftBorder,
       bool? isHasRightBorder,
-      bool? isHasTrailing}) {
+      bool? isHasTrailing,
+      bool? isEnableExpanded}) {
     return ExpansionTileItem(
       key: key ?? this.key,
       title: title ?? this.title,
@@ -367,6 +374,7 @@ class ExpansionTileItem extends StatelessWidget {
       isHasLeftBorder: isHasLeftBorder ?? this.isHasLeftBorder,
       isHasBottomBorder: isHasBottomBorder ?? this.isHasBottomBorder,
       isHasTrailing: isHasTrailing ?? this.isHasTrailing,
+      isEnableExpanded: isEnableExpanded ?? this.isEnableExpanded,
       children: children ?? this.children,
     );
   }
@@ -409,6 +417,7 @@ class ExpansionTileItem extends StatelessWidget {
         isHasRightBorder: isHasRightBorder ?? false,
         isHasTopBorder: isHasTopBorder ?? true,
         isHasTrailing: isHasTrailing ?? true,
+        isEnableExpanded: isEnableExpanded ?? true,
         children: children ?? [],
       ),
     );
