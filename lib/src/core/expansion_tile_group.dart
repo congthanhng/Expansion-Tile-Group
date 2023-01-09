@@ -43,6 +43,23 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     super.initState();
   }
 
+
+  @override
+  void didUpdateWidget(ExpansionTileGroup oldWidget) {
+    expansionChildren.clear();
+    expansionChildren.addAll( List.generate(
+        widget.children.length,
+            (index) => widget.children[index].copyWith(
+            expansionKey: expansionTileKeys[index],
+            onExpansionChanged: (isExpanded) {
+              if (!_isGroupTransforming) {
+                _updateExpandedForAccordions(index, isExpanded, false);
+                widget.onExpansionItemChanged?.call(index, isExpanded);
+              }
+            })));
+    super.didUpdateWidget(oldWidget);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
