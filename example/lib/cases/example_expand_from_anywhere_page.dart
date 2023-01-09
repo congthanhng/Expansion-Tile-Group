@@ -68,7 +68,7 @@ class ExampleExpandFromAnywherePage extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {
-                key0.currentState?.collapse();
+                key0.currentState?.expand();
               },
               color: Colors.grey,
               child: const Text('Expand item 0'),
