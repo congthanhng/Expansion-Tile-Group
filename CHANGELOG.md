@@ -1,3 +1,6 @@
+## 1.1.8
+* Improve force expansion behavior for `ExpansionTileGroup`
+
 ## 1.1.7
 * Added feature:
  - Can force control behaviors of an item: expand or collapse via `isEnableExpanded`
