@@ -1,3 +1,4 @@
+import 'package:expansion_tile_group_example/cases/example_all_item_page.dart';
 import 'package:expansion_tile_group_example/cases/example_collapse_all_item.dart';
 import 'package:expansion_tile_group_example/cases/example_expand_all_and_collapse_all.dart';
 import 'package:expansion_tile_group_example/cases/example_expand_all_item.dart';
@@ -5,7 +6,6 @@ import 'package:expansion_tile_group_example/cases/example_expand_from_anywhere_
 import 'package:expansion_tile_group_example/cases/example_expand_only_one.dart';
 import 'package:expansion_tile_group_example/cases/example_force_behavior.dart';
 import 'package:expansion_tile_group_example/cases/example_item_change_in_group.dart';
-import 'package:expansion_tile_group_example/cases/example_all_item_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,6 +24,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -58,9 +59,9 @@ class _MyAppState extends State<MyApp> {
                     const ExampleExpandAllAndCollapseAllItemPage());
           case '/ten':
             return MaterialPageRoute(
-                builder: (context) =>
-                const ExampleForceBehaviorPage());
-          default: return MaterialPageRoute(builder: (context) => const HomePage());
+                builder: (context) => const ExampleForceBehaviorPage());
+          default:
+            return MaterialPageRoute(builder: (context) => const HomePage());
         }
       },
     );
@@ -80,7 +81,6 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-
             MaterialButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/three');

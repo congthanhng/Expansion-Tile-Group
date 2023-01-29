@@ -5,10 +5,12 @@ class ExampleItemChangeInGroupPage extends StatefulWidget {
   const ExampleItemChangeInGroupPage({Key? key}) : super(key: key);
 
   @override
-  State<ExampleItemChangeInGroupPage> createState() => _ExampleItemChangeInGroupPageState();
+  State<ExampleItemChangeInGroupPage> createState() =>
+      _ExampleItemChangeInGroupPageState();
 }
 
-class _ExampleItemChangeInGroupPageState extends State<ExampleItemChangeInGroupPage> {
+class _ExampleItemChangeInGroupPageState
+    extends State<ExampleItemChangeInGroupPage> {
   final GlobalKey<ExpansionTileCustomState> key0 = GlobalKey();
 
   int currentItem = 0;

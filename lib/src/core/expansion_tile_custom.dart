@@ -394,8 +394,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
         _controller.drive(_backgroundColorTween.chain(_easeOutTween));
 
     if (widget.isEnableExpanded) {
-      _isExpanded = PageStorage.of(context)?.readState(context) as bool? ??
-          widget.initiallyExpanded;
+      _isExpanded = PageStorage.of(context).readState(context);
     }
 
     if (_isExpanded) {
@@ -439,7 +438,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
             });
           });
         }
-        PageStorage.of(context)?.writeState(context, _isExpanded);
+        PageStorage.of(context).writeState(context, _isExpanded);
       });
       if (widget.onExpansionChanged != null) {
         widget.onExpansionChanged!(_isExpanded);
@@ -463,7 +462,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
           });
         });
       }
-      PageStorage.of(context)?.writeState(context, _isExpanded);
+      PageStorage.of(context).writeState(context, _isExpanded);
     });
     widget.onExpansionChanged?.call(_isExpanded);
   }
@@ -580,7 +579,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
     _headerColorTween
       ..begin = widget.collapsedTextColor ??
           expansionTileTheme.collapsedTextColor ??
-          theme.textTheme.subtitle1!.color
+          theme.textTheme.titleMedium!.color
       ..end = widget.textColor ??
           expansionTileTheme.textColor ??
           colorScheme.primary;

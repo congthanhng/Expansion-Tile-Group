@@ -19,8 +19,7 @@ class ExampleExpandFromAnywherePage extends StatelessWidget {
               child: ExpansionTileGroup(
                 toggleType: ToggleType.none,
                 spaceBetweenItem: 8,
-                onExpansionItemChanged: (index, isExpanded) {
-                },
+                onExpansionItemChanged: (index, isExpanded) {},
                 children: [
                   ExpansionTileBorderItem(
                     title: const Text('ExpansionTile 0'),

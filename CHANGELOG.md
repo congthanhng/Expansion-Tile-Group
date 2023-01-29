@@ -1,3 +1,6 @@
+## 1.2.0
+* Update new flutter SDK version and fix warning from analyze
+
 ## 1.1.9
 * Format files
 
