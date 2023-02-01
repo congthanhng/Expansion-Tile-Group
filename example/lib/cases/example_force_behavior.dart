@@ -17,7 +17,8 @@ class ExampleForceBehaviorPage extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 20),
-                  const Text('The Expansion Items can\'t expand until loading is success'),
+                  const Text(
+                      'The Expansion Items can\'t expand until loading is success'),
                   const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.all(8.0),

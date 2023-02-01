@@ -1,3 +1,8 @@
+## 1.2.0
+* Update new flutter SDK version to 3.7 and fix warning from analyze
+* BREAKING CHANGE:
+  - `theme.textTheme.subtitle1` is deprecated. Use `titleMedium` instead
+
 ## 1.1.9
 * Format files
 
