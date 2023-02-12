@@ -1,5 +1,6 @@
 ## 1.2.1
-  Reverse
+  Fix bug
+
 ## 1.2.0
 * Update new flutter SDK version to 3.7 and fix warning from analyze
 * BREAKING CHANGE:

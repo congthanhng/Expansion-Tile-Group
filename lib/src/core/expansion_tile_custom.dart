@@ -394,7 +394,8 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
         _controller.drive(_backgroundColorTween.chain(_easeOutTween));
 
     if (widget.isEnableExpanded) {
-      _isExpanded = PageStorage.of(context).readState(context);
+      _isExpanded = PageStorage.of(context).readState(context) ??
+          widget.initiallyExpanded;
     }
 
     if (_isExpanded) {
