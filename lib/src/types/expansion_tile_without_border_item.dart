@@ -38,6 +38,7 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
     bool? isHasRightBorder,
     bool? isHasTrailing,
     bool? isEnableExpanded,
+    bool? isDefaultVerticalPadding,
   }) : super(
             key: key,
             title: title,
@@ -74,5 +75,6 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
             isHasRightBorder: isHasRightBorder,
             isHasTopBorder: isHasTopBorder,
             isHasTrailing: isHasTrailing,
-            isEnableExpanded: isEnableExpanded);
+            isEnableExpanded: isEnableExpanded,
+            isDefaultVerticalPadding: isDefaultVerticalPadding);
 }

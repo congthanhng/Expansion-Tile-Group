@@ -72,7 +72,8 @@ class ExpansionTileCustom extends StatefulWidget {
       this.isHasLeftBorder = false,
       this.isHasRightBorder = false,
       this.isHasTrailing = true,
-      this.isEnableExpanded = true})
+      this.isEnableExpanded = true,
+      this.isDefaultVerticalPadding = true})
       : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
@@ -353,6 +354,8 @@ class ExpansionTileCustom extends StatefulWidget {
   ///More detail: https://github.com/congthanhng/Expansion-Tile-Group/issues/22
   final bool isEnableExpanded;
 
+  final bool isDefaultVerticalPadding;
+
   @override
   State<ExpansionTileCustom> createState() => ExpansionTileCustomState();
 }
@@ -542,6 +545,10 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
               borderRadius: widget.borderRadius,
               onTap: _handleTap,
               child: ListTile(
+                dense: widget.isDefaultVerticalPadding ? null : true,
+                visualDensity: widget.isDefaultVerticalPadding
+                    ? null
+                    : const VisualDensity(horizontal: 0, vertical: -4),
                 contentPadding:
                     widget.tilePadding ?? expansionTileTheme.tilePadding,
                 leading: widget.leading ?? _buildLeadingIcon(context),

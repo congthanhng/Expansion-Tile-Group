@@ -22,6 +22,7 @@ class ExampleAllItemPage extends StatelessWidget {
                 children: [
                   const ExpansionTileWithoutBorderItem(
                     title: Text('ExpansionTile 1'),
+                    isDefaultVerticalPadding: false,
                     children: [
                       Text(
                           '''Null am eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
@@ -78,6 +79,7 @@ class ExampleAllItemPage extends StatelessWidget {
                     expendedBorderColor: Colors.blue,
                     iconColor: Colors.greenAccent,
                     collapsedIconColor: Colors.green,
+                    isDefaultVerticalPadding: false,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.5),
@@ -109,6 +111,7 @@ class ExampleAllItemPage extends StatelessWidget {
                     expendedBorderColor: Colors.blue,
                     iconColor: Colors.greenAccent,
                     collapsedIconColor: Colors.green,
+                    isDefaultVerticalPadding: false,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.5),
