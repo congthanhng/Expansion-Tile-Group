@@ -45,6 +45,9 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
 
   @override
   void didUpdateWidget(ExpansionTileGroup oldWidget) {
+    expansionTileKeys.clear();
+    expansionTileKeys.addAll(List.generate(widget.children.length,
+        (index) => widget.children[index].expansionKey ?? GlobalKey()));
     expansionChildren.clear();
     expansionChildren.addAll(List.generate(
         widget.children.length,
