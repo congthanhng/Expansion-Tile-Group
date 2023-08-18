@@ -354,6 +354,7 @@ class ExpansionTileCustom extends StatefulWidget {
   ///More detail: https://github.com/congthanhng/Expansion-Tile-Group/issues/22
   final bool isEnableExpanded;
 
+  ///Remove completely default vertical title padding
   final bool isDefaultVerticalPadding;
 
   @override
@@ -538,28 +539,62 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          ListTileTheme.merge(
-            iconColor: _iconColor.value ?? expansionTileTheme.iconColor,
-            textColor: _headerColor.value,
-            child: InkWell(
-              borderRadius: widget.borderRadius,
-              onTap: _handleTap,
-              child: ListTile(
-                dense: widget.isDefaultVerticalPadding ? null : true,
-                visualDensity: widget.isDefaultVerticalPadding
-                    ? null
-                    : const VisualDensity(horizontal: 0, vertical: -4),
-                contentPadding:
-                    widget.tilePadding ?? expansionTileTheme.tilePadding,
-                leading: widget.leading ?? _buildLeadingIcon(context),
-                title: widget.title,
-                subtitle: widget.subtitle,
-                trailing: widget.isHasTrailing == true
-                    ? widget.trailing ?? _buildTrailingIcon(context)
-                    : null,
-              ),
-            ),
-          ),
+          widget.isDefaultVerticalPadding == false
+              ? IconTheme.merge(
+                  data: IconThemeData(
+                      color: _iconColor.value ?? expansionTileTheme.iconColor),
+                  child: InkWell(
+                    borderRadius: widget.borderRadius,
+                    onTap: _handleTap,
+                    child: Row(
+                      children: [
+                        widget.leading ??
+                            _buildLeadingIcon(context) ??
+                            const SizedBox.shrink(),
+                        Column(
+                          children: [
+                            Padding(
+                              padding: widget.tilePadding ??
+                                  expansionTileTheme.tilePadding ??
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: DefaultTextStyle(
+                                  style: TextStyle(color: _headerColor.value),
+                                  child: widget.title),
+                            ),
+                            widget.subtitle ?? const SizedBox.shrink(),
+                          ],
+                        ),
+                        const Spacer(),
+                        widget.isHasTrailing == true
+                            ? widget.trailing ??
+                                _buildTrailingIcon(context) ??
+                                const SizedBox.shrink()
+                            : const SizedBox.shrink(),
+                      ],
+                    ),
+                  ))
+              : ListTileTheme.merge(
+                  iconColor: _iconColor.value ?? expansionTileTheme.iconColor,
+                  textColor: _headerColor.value,
+                  child: InkWell(
+                    borderRadius: widget.borderRadius,
+                    onTap: _handleTap,
+                    child: ListTile(
+                      dense: widget.isDefaultVerticalPadding ? null : true,
+                      visualDensity: widget.isDefaultVerticalPadding
+                          ? null
+                          : const VisualDensity(horizontal: 0, vertical: -4),
+                      contentPadding:
+                          widget.tilePadding ?? expansionTileTheme.tilePadding,
+                      leading: widget.leading ?? _buildLeadingIcon(context),
+                      title: widget.title,
+                      subtitle: widget.subtitle,
+                      trailing: widget.isHasTrailing == true
+                          ? widget.trailing ?? _buildTrailingIcon(context)
+                          : null,
+                    ),
+                  ),
+                ),
           ClipRect(
             child: Align(
               alignment: widget.expandedAlignment ??

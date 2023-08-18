@@ -1,3 +1,7 @@
+## 1.2.3
+* Update removing default vertical padding via `isDefaultVerticalPadding`
+* Improvement with PR #36
+
 ## 1.2.2
 * Implement removing default vertical padding via `isDefaultVerticalPadding`
 

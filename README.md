@@ -32,6 +32,7 @@ A Flutter widget that can be a manager group of custom expansion tiles.
   - [Easy to customize expansion item](#easy-to-customize-expansion-item)
   - [Remove completely trailing](#remove-completely-trailing)
   - [Force behavior](#force-behavior)
+  - [Remove completely default vertical title padding](#remove-completely-default-vertical-title-padding)
 - [Parameters](#parameters)
   - [ExpansionTileGroup](#expansiontilegroup)
   - [ExpansionTileItem](#expansiontileitem)
@@ -307,6 +308,9 @@ Just setting it with `isEnableExpanded` parameter.
 Notice: When you wrap items with `ExpansionTileGroup`, `isEnableExpanded` will be not worked perfectly, because all the children in `ExpansionTileGroup` are automatically created a `key`,
 so it will not change the value of `isEnableExpanded` when you rebuild the page.
 
+### Remove completely default vertical title padding
+Now you can remove completely default vertical title padding by setting `isDefaultVerticalPadding` with `false`
+
 
 ## Parameters
 
@@ -355,6 +359,7 @@ so it will not change the value of `isEnableExpanded` when you rebuild the page.
 | `isHasRightBorder`           | Show `right` border side or NOT                                                                                                                                                                  |
 | `isHasTrailing`              | Show trailing widget and it's area or NOT                                                                                                                                                        |
 | `isEnableExpanded`           | Force item expand or NOT                                                                                                                                                                         |
+| `isDefaultVerticalPadding`   | Remove completely default vertical title padding                                                                                                                                                                         |
 
 ## Troubleshooting
 
