@@ -1,14 +1,14 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExampleExpandAllAndCollapseAllItemPage extends StatelessWidget {
-  const ExampleExpandAllAndCollapseAllItemPage({Key? key}) : super(key: key);
+class CollapseAllPage extends StatelessWidget {
+  const CollapseAllPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Expand all And Collapse All item'),
+        title: const Text('Collapse all item'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -16,7 +16,7 @@ class ExampleExpandAllAndCollapseAllItemPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ExpansionTileGroup(
-                toggleType: ToggleType.expandAllAndCollapseAll,
+                toggleType: ToggleType.collapseAll,
                 spaceBetweenItem: 8,
                 onExpansionItemChanged: (index, isExpanded) {},
                 children: [

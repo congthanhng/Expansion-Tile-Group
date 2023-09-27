@@ -88,6 +88,9 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
       case ToggleType.expandOnlyCurrent:
         _onExpandOne(index, isExpanded, defaultState);
         break;
+      case ToggleType.expandAlwaysCurrent:
+        _onExpandAlwaysCurrent(index, isExpanded, defaultState);
+        break;
       case ToggleType.collapseAll:
         _onCollapseAll(index, isExpanded, defaultState);
         break;
@@ -110,6 +113,22 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     } else {
       expansionTileKeys[index].currentState?.collapse();
     }
+    for (int i = 0; i < expansionTileKeys.length; i++) {
+      if (i != index) {
+        if (defaultState) {
+          expansionTileKeys[i].currentState?.expand();
+        } else {
+          expansionTileKeys[i].currentState?.collapse();
+        }
+      }
+    }
+    _isGroupTransforming = false;
+  }
+
+  void _onExpandAlwaysCurrent(int index, bool isExpanded, bool defaultState) {
+    _isGroupTransforming = true;
+    expansionTileKeys[index].currentState?.expand();
+
     for (int i = 0; i < expansionTileKeys.length; i++) {
       if (i != index) {
         if (defaultState) {
