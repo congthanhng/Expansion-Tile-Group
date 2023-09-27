@@ -1,8 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExampleForceBehaviorPage extends StatelessWidget {
-  const ExampleForceBehaviorPage({Key? key}) : super(key: key);
+class IgnoreBehaviorPage extends StatelessWidget {
+  const IgnoreBehaviorPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

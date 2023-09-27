@@ -1,8 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExampleAllItemPage extends StatelessWidget {
-  const ExampleAllItemPage({Key? key}) : super(key: key);
+class AllCustomItemsPage extends StatelessWidget {
+  const AllCustomItemsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +21,22 @@ class ExampleAllItemPage extends StatelessWidget {
                 onExpansionItemChanged: (index, isExpanded) {},
                 children: [
                   const ExpansionTileWithoutBorderItem(
-                    title: Text('ExpansionTile 1'),
+                    title: Text('ExpansionTileWithoutBorderItem'),
                     children: [
                       Text(
                           '''Null am eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
                     ],
                   ),
                   ExpansionTileBorderItem(
-                    title: const Text('ExpansionTile 2'),
+                    isEnableExpanded: false,
+                    title: const Text('Item with isEnableExpanded = false'),
                     children: const [
                       Text(
                           ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
                     ],
                   ),
                   ExpansionTileItem(
-                    title: const Text('ExpansionTile 3'),
+                    title: const Text('Item without TrailingIcon, Expanded border, Title border radius'),
                     expendedBorderColor: Colors.blue,
                     isHasTrailing: false,
                     borderRadius: BorderRadius.circular(12),
@@ -52,10 +53,10 @@ class ExampleAllItemPage extends StatelessWidget {
                     ],
                   ),
                   const ExpansionTileItem(
-                    title: Text('ExpansionTile 4'),
+                    title: Text('Item without expanded Top border'),
                     isHasBottomBorder: true,
                     isHasRightBorder: true,
-                    isHasTopBorder: true,
+                    isHasTopBorder: false,
                     isHasLeftBorder: true,
                     expendedBorderColor: Colors.red,
                     children: [
@@ -65,19 +66,19 @@ class ExampleAllItemPage extends StatelessWidget {
                   ),
                   ExpansionTileItem(
                     initiallyExpanded: false,
-                    title: const Text('ExpansionTile 5'),
+                    title: const Text('Item with shadow, border - bg - text color (different between expand and collapse)'),
                     backgroundColor: Colors.red,
                     collapsedBackgroundColor: Colors.yellow,
-                    borderRadius: BorderRadius.circular(8),
                     textColor: Colors.white,
-                    isHasLeftBorder: true,
-                    isHasTopBorder: true,
-                    isHasRightBorder: true,
-                    isHasBottomBorder: true,
                     collapsedBorderColor: Colors.pink,
                     expendedBorderColor: Colors.blue,
                     iconColor: Colors.greenAccent,
                     collapsedIconColor: Colors.green,
+                    isHasLeftBorder: true,
+                    isHasTopBorder: true,
+                    isHasRightBorder: true,
+                    isHasBottomBorder: true,
+                    borderRadius: BorderRadius.circular(8),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.5),
@@ -94,7 +95,7 @@ class ExampleAllItemPage extends StatelessWidget {
                   ),
                   ExpansionTileItem(
                     initiallyExpanded: false,
-                    title: const Text('ExpansionTile 6'),
+                    title: const Text('Item with custom border side radius'),
                     backgroundColor: Colors.red,
                     collapsedBackgroundColor: Colors.yellow,
                     borderRadius: const BorderRadius.only(
@@ -124,8 +125,8 @@ class ExampleAllItemPage extends StatelessWidget {
                     ],
                   ),
                   ExpansionTileItem(
-                    initiallyExpanded: false,
-                    title: const Text('ExpansionTile 7'),
+                    initiallyExpanded: true,
+                    title: const Text('Item with default state is expand'),
                     backgroundColor: Colors.greenAccent,
                     isHasTopBorder: true,
                     isHasBottomBorder: false,
@@ -140,22 +141,6 @@ class ExampleAllItemPage extends StatelessWidget {
                       ),
                     ],
                     children: const [
-                      Text(
-                          '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-                    ],
-                  ),
-                  const ExpansionTileItem(
-                    initiallyExpanded: false,
-                    title: Text('ExpansionTile 8'),
-                    isHasTopBorder: false,
-                    isHasBottomBorder: false,
-                    backgroundColor: Colors.blueAccent,
-                    collapsedBackgroundColor: Colors.blueAccent,
-                    collapsedIconColor: Colors.green,
-                    iconColor: Colors.red,
-                    textColor: Colors.white,
-                    collapsedTextColor: Colors.red,
-                    children: [
                       Text(
                           '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
                     ],
@@ -181,7 +166,7 @@ class ExampleAllItemPage extends StatelessWidget {
                   ),
                   const ExpansionTileItem(
                     initiallyExpanded: false,
-                    title: Text('ExpansionTile 10'),
+                    title: Text('Item without default vertical padding'),
                     isHasTopBorder: false,
                     isHasBottomBorder: false,
                     isDefaultVerticalPadding: false,
@@ -189,9 +174,9 @@ class ExampleAllItemPage extends StatelessWidget {
                     backgroundColor: Colors.blueAccent,
                     collapsedBackgroundColor: Colors.blueAccent,
                     collapsedIconColor: Colors.green,
-                    iconColor: Colors.red,
+                    iconColor: Colors.white,
                     textColor: Colors.white,
-                    collapsedTextColor: Colors.red,
+                    collapsedTextColor: Colors.yellow,
                     children: [
                       Text(
                           '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),

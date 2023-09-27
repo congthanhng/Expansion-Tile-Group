@@ -1,3 +1,7 @@
+## 1.2.4
+* Add new toggle type for group: `ExpandAlwaysCurrent` [#39](https://github.com/congthanhng/Expansion-Tile-Group/issues/39)
+* Update examples
+
 ## 1.2.3
 * Update removing default vertical padding via `isDefaultVerticalPadding`
 * Improvement with PR #36

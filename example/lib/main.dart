@@ -1,11 +1,13 @@
-import 'package:expansion_tile_group_example/cases/example_all_item_page.dart';
-import 'package:expansion_tile_group_example/cases/example_collapse_all_item.dart';
-import 'package:expansion_tile_group_example/cases/example_expand_all_and_collapse_all.dart';
-import 'package:expansion_tile_group_example/cases/example_expand_all_item.dart';
-import 'package:expansion_tile_group_example/cases/example_expand_from_anywhere_page.dart';
-import 'package:expansion_tile_group_example/cases/example_expand_only_one.dart';
-import 'package:expansion_tile_group_example/cases/example_force_behavior.dart';
-import 'package:expansion_tile_group_example/cases/example_item_change_in_group.dart';
+import 'package:expansion_tile_group_example/cases/all_custom_items_page.dart';
+import 'package:expansion_tile_group_example/cases/collapse_all_page.dart';
+import 'package:expansion_tile_group_example/cases/expand_or_collapse_all_page.dart';
+import 'package:expansion_tile_group_example/cases/expand_all_page.dart';
+import 'package:expansion_tile_group_example/cases/expand_always_current_page.dart';
+import 'package:expansion_tile_group_example/cases/control_state_from_anywhere_page.dart';
+import 'package:expansion_tile_group_example/cases/expand_only_current_page.dart';
+import 'package:expansion_tile_group_example/cases/ignore_behavior_page.dart';
+import 'package:expansion_tile_group_example/cases/listen_group_item_changed_page.dart';
+import 'package:expansion_tile_group_example/route_named.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,36 +32,34 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       onGenerateRoute: (settings) {
         switch (settings.name) {
-          case '/':
+          case RouteNamed.homePage:
             return MaterialPageRoute(builder: (context) => const HomePage());
-          case '/three':
+          case RouteNamed.allCustomItems:
             return MaterialPageRoute(
-                builder: (context) => const ExampleAllItemPage());
-          case '/four':
+                builder: (context) => const AllCustomItemsPage());
+          case RouteNamed.controlState:
+            return MaterialPageRoute(builder: (context) => ControlStatePage());
+          case RouteNamed.listenGroupItemChanged:
             return MaterialPageRoute(
-                builder: (context) => ExampleExpandFromAnywherePage());
-          case '/five':
+                builder: (context) => const ListenGroupItemChangedPage());
+          case RouteNamed.expandOnlyCurrent:
             return MaterialPageRoute(
-                builder: (context) => const ExampleItemChangeInGroupPage());
-
-          case '/six':
+                builder: (context) => const ExpandOnlyCurrentPage());
+          case RouteNamed.collapseAll:
             return MaterialPageRoute(
-                builder: (context) => const ExampleOnlyCurrentItemPage());
-
-          case '/seven':
+                builder: (context) => const CollapseAllPage());
+          case RouteNamed.expandAll:
             return MaterialPageRoute(
-                builder: (context) => const ExampleCollapseAllItemPage());
-
-          case '/eight':
+                builder: (context) => const ExpandAllPage());
+          case RouteNamed.expandOrCollapseAll:
             return MaterialPageRoute(
-                builder: (context) => const ExampleExpandAllItemPage());
-          case '/nine':
+                builder: (context) => const ExpandAndCollapseAllPage());
+          case RouteNamed.ignoreBehavior:
             return MaterialPageRoute(
-                builder: (context) =>
-                    const ExampleExpandAllAndCollapseAllItemPage());
-          case '/ten':
+                builder: (context) => const IgnoreBehaviorPage());
+          case RouteNamed.expandAlwaysCurrent:
             return MaterialPageRoute(
-                builder: (context) => const ExampleForceBehaviorPage());
+                builder: (context) => const ExpandAlwaysCurrentPage());
           default:
             return MaterialPageRoute(builder: (context) => const HomePage());
         }
@@ -83,59 +83,69 @@ class HomePage extends StatelessWidget {
           children: [
             MaterialButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/three');
+                Navigator.pushNamed(context, RouteNamed.allCustomItems);
               },
               color: Colors.pink,
-              child: const Text('Example for Custom Expansion Item'),
+              child: const Text('Custom Items'),
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/four');
+                Navigator.pushNamed(context, RouteNamed.controlState);
               },
               color: Colors.blueGrey,
-              child: const Text('Example for Can expand any item in any where'),
+              child: const Text('Control state from anywhere'),
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/five');
+                Navigator.pushNamed(context, RouteNamed.listenGroupItemChanged);
               },
               color: Colors.blueGrey,
-              child: const Text('Example for Listen the group item changed'),
+              child: const Text('Listen items changed in a group'),
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/six');
+                Navigator.pushNamed(context, RouteNamed.expandOnlyCurrent);
               },
               color: Colors.blue,
-              child: const Text('Example Expand only current'),
+              child: const Text('Expand only current item in the group'),
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/seven');
+                Navigator.pushNamed(context, RouteNamed.expandAlwaysCurrent);
               },
               color: Colors.blue,
-              child: const Text('Example Collapse all item'),
+              child: const Text(
+                  'Always Expand only current item in the group without collapsing when tapping again',
+                  textAlign: TextAlign.center),
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/eight');
+                Navigator.pushNamed(context, RouteNamed.expandAll);
               },
               color: Colors.blue,
-              child: const Text('Example for Expand All item'),
+              child: const Text('Expand all items in group when one collapsing is tapped'),
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/nine');
+                Navigator.pushNamed(context, RouteNamed.collapseAll);
               },
               color: Colors.blue,
-              child: const Text('Example for Expand All and Collapse ALl item'),
+              child:
+                  const Text('Collapse all items in group when one expanding is tapped'),
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/ten');
+                Navigator.pushNamed(context, RouteNamed.expandOrCollapseAll);
+              },
+              color: Colors.blue,
+              child: const Text('Toggle all items in group when one is tapped'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RouteNamed.ignoreBehavior);
               },
               color: Colors.yellow,
-              child: const Text('Example for One item'),
+              child: const Text('Ignore behavior until a task completed'),
             ),
           ],
         ),
