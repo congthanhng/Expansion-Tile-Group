@@ -1,6 +1,6 @@
 # expansion_tile_group
 
-A Flutter widget that can be a manager group of custom expansion tiles.
+A Flutter widget that can manage group of custom ExpansionTile items.
 
 <a href="https://pub.dev/packages/expansion_tile_group" target="_blank"><img src="https://img.shields.io/pub/v/expansion_tile_group" ></a>
 <a href="https://pub.dev/packages/expansion_tile_group/score" target="_blank"><img src="https://img.shields.io/pub/likes/expansion_tile_group" ></a>
@@ -174,13 +174,15 @@ class ExpansionGroupExample extends StatelessWidget {
 
 There are many types of `toggleType`, it support almost common case you will be met:
 
-| `toggleType` type         | Description                                                    |
-|---------------------------|----------------------------------------------------------------|
-| `none`                    | It's default. Do nothing if an item changed behavior           |
-| `expandOnlyCurrent`       | When an item is expanded, would collapse all the others        |
-| `collapseAll`             | Collapse all items if any item is collapsed                    |
-| `expandAll`               | Expanded all items if any item is expanded                     |
-| `expandAllAndCollapseAll` | Expanded/Collapsed all items if any item is Expanded/Collapsed |
+| `toggleType` type         | Description                                                                                  |
+|---------------------------|----------------------------------------------------------------------------------------------|
+| `none`                    | It's default. Do nothing if an item changed behavior                                         |
+| `expandOnlyCurrent`       | When an item is expanded, would collapse all the others                                      |
+| `collapseAll`             | Collapse all items if any item is collapsed                                                  |
+| `expandAll`               | Expanded all items if any item is expanded                                                   |
+| `expandAllAndCollapseAll` | Expanded/Collapsed all items if any item is Expanded/Collapsed                               |
+| `expandAlwaysCurrent`     | Expand tapped item and collapse all others, but not collapse the expanded one when tap again |
+
 
 |                                                                    |                                                                               |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
