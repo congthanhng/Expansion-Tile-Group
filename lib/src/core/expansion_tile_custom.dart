@@ -385,6 +385,10 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
 
   bool _isExpanded = false;
 
+  /// [Immutable]
+  /// When [isExpanded] is `true`, this tile is expanded and false otherwise.
+  bool get isExpanded => _isExpanded;
+
   @override
   void initState() {
     super.initState();
