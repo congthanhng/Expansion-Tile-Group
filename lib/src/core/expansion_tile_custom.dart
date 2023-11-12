@@ -47,6 +47,7 @@ class ExpansionTileCustom extends StatefulWidget {
       this.onExpansionChanged,
       this.children = const <Widget>[],
       this.trailing,
+      this.trailingBuilder,
       this.initiallyExpanded = false,
       this.maintainState = false,
       this.tilePadding,
@@ -158,6 +159,8 @@ class ExpansionTileCustom extends StatefulWidget {
   /// Note that depending on the value of [controlAffinity], the [trailing] widget
   /// may replace the rotating expansion arrow icon.
   final Widget? trailing;
+
+  final Function(Animation<double> iconTurn)? trailingBuilder;
 
   /// Specifies if the list tile is initially expanded (true) or collapsed (false, the default).
   final bool initiallyExpanded;
@@ -485,6 +488,9 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
   }
 
   Widget? _buildIcon(BuildContext context) {
+    if (widget.trailingBuilder != null) {
+      return widget.trailingBuilder?.call(_iconTurns);
+    }
     return RotationTransition(
       turns: _iconTurns,
       child: const Icon(Icons.expand_more),
