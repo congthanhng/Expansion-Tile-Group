@@ -25,6 +25,7 @@ class ExpansionTileItem extends StatelessWidget {
       this.collapsedBackgroundColor,
       this.childrenPadding,
       this.trailing,
+      this.trailingBuilder,
       this.leading,
       this.themeData,
       this.decoration,
@@ -207,6 +208,8 @@ class ExpansionTileItem extends StatelessWidget {
   /// may replace the rotating expansion arrow icon.
   final Widget? trailing;
 
+  final Function(Animation<double> iconTurn)? trailingBuilder;
+
   /// A widget to display before the title.
   ///
   /// Typically a [CircleAvatar] widget.
@@ -322,6 +325,7 @@ class ExpansionTileItem extends StatelessWidget {
     Color? collapsedBackgroundColor,
     EdgeInsetsGeometry? childrenPadding,
     Widget? trailing,
+    Function(Animation<double> iconTurn)? trailingBuilder,
     Widget? leading,
     Color? backgroundColor,
     Decoration? decoration,
@@ -351,6 +355,7 @@ class ExpansionTileItem extends StatelessWidget {
         backgroundColor: backgroundColor ?? this.backgroundColor,
         leading: leading ?? this.leading,
         trailing: trailing ?? this.trailing,
+        trailingBuilder: trailingBuilder ?? this.trailingBuilder,
         childrenPadding: childrenPadding ?? this.childrenPadding,
         collapsedBackgroundColor:
             collapsedBackgroundColor ?? this.collapsedBackgroundColor,
@@ -409,6 +414,7 @@ class ExpansionTileItem extends StatelessWidget {
         childrenPadding: childrenPadding ??
             const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         trailing: trailing,
+        trailingBuilder: trailingBuilder,
         leading: leading,
         backgroundColor: backgroundColor,
         decoration: decoration,
