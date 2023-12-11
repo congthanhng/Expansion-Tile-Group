@@ -551,20 +551,22 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
                         widget.leading ??
                             _buildLeadingIcon(context) ??
                             const SizedBox.shrink(),
-                        Column(
-                          children: [
-                            Padding(
-                              padding: widget.tilePadding ??
-                                  expansionTileTheme.tilePadding ??
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: DefaultTextStyle(
-                                  style: TextStyle(color: _headerColor.value),
-                                  child: widget.title),
-                            ),
-                            widget.subtitle ?? const SizedBox.shrink(),
-                          ],
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: widget.tilePadding ??
+                                    expansionTileTheme.tilePadding ??
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: DefaultTextStyle(
+                                    style: TextStyle(color: _headerColor.value),
+                                    child: widget.title),
+                              ),
+                              widget.subtitle ?? const SizedBox.shrink(),
+                            ],
+                          ),
                         ),
-                        const Spacer(),
                         widget.isHasTrailing == true
                             ? widget.trailing ??
                                 _buildTrailingIcon(context) ??
