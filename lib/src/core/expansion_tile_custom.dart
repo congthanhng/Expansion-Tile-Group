@@ -39,42 +39,43 @@ const Duration _kExpand = Duration(milliseconds: 200);
 ///  * The "Expand and collapse" section of
 ///    <https://material.io/components/lists#types>
 class ExpansionTileCustom extends StatefulWidget {
-  const ExpansionTileCustom(
-      {Key? key,
-      this.leading,
-      required this.title,
-      this.subtitle,
-      this.onExpansionChanged,
-      this.children = const <Widget>[],
-      this.trailing,
-      this.initiallyExpanded = false,
-      this.maintainState = false,
-      this.tilePadding,
-      this.expandedCrossAxisAlignment,
-      this.expandedAlignment,
-      this.childrenPadding,
-      this.backgroundColor,
-      this.collapsedBackgroundColor,
-      this.textColor,
-      this.collapsedTextColor,
-      this.iconColor,
-      this.collapsedIconColor,
-      this.controlAffinity,
-      this.clipBehavior,
-      this.decoration,
-      this.borderRadius,
-      this.border,
-      this.boxShadow,
-      this.collapsedBorderColor,
-      this.expendedBorderColor,
-      this.isHasTopBorder = true,
-      this.isHasBottomBorder = true,
-      this.isHasLeftBorder = false,
-      this.isHasRightBorder = false,
-      this.isHasTrailing = true,
-      this.isEnableExpanded = true,
-      this.isDefaultVerticalPadding = true})
-      : assert(
+  const ExpansionTileCustom({
+    Key? key,
+    this.leading,
+    required this.title,
+    this.subtitle,
+    this.onExpansionChanged,
+    this.children = const <Widget>[],
+    this.trailing,
+    this.initiallyExpanded = false,
+    this.maintainState = false,
+    this.tilePadding,
+    this.expandedCrossAxisAlignment,
+    this.expandedAlignment,
+    this.childrenPadding,
+    this.backgroundColor,
+    this.collapsedBackgroundColor,
+    this.textColor,
+    this.collapsedTextColor,
+    this.iconColor,
+    this.collapsedIconColor,
+    this.controlAffinity,
+    this.clipBehavior,
+    this.decoration,
+    this.borderRadius,
+    this.border,
+    this.boxShadow,
+    this.collapsedBorderColor,
+    this.expendedBorderColor,
+    this.isHasTopBorder = true,
+    this.isHasBottomBorder = true,
+    this.isHasLeftBorder = false,
+    this.isHasRightBorder = false,
+    this.isHasTrailing = true,
+    this.isEnableExpanded = true,
+    this.isDefaultVerticalPadding = true,
+    this.isHideSubtitleOnExpanded = false,
+  })  : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
           'are aligned in a column, not a row. Try to use another constant.',
@@ -357,6 +358,9 @@ class ExpansionTileCustom extends StatefulWidget {
   ///Remove completely default vertical title padding
   final bool isDefaultVerticalPadding;
 
+  ///Hide subtitle on expanded
+  final bool isHideSubtitleOnExpanded;
+
   @override
   State<ExpansionTileCustom> createState() => ExpansionTileCustomState();
 }
@@ -536,76 +540,83 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
             boxShadow: widget.boxShadow,
           ),
       clipBehavior: widget.clipBehavior ?? Clip.hardEdge,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          widget.isDefaultVerticalPadding == false
-              ? IconTheme.merge(
-                  data: IconThemeData(
-                      color: _iconColor.value ?? expansionTileTheme.iconColor),
-                  child: InkWell(
-                    borderRadius: widget.borderRadius,
-                    onTap: _handleTap,
-                    child: Row(
-                      children: [
-                        widget.leading ??
-                            _buildLeadingIcon(context) ??
-                            const SizedBox.shrink(),
-                        Column(
-                          children: [
-                            Padding(
-                              padding: widget.tilePadding ??
-                                  expansionTileTheme.tilePadding ??
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: DefaultTextStyle(
-                                  style: TextStyle(color: _headerColor.value),
-                                  child: widget.title),
-                            ),
-                            widget.subtitle ?? const SizedBox.shrink(),
-                          ],
-                        ),
-                        const Spacer(),
-                        widget.isHasTrailing == true
-                            ? widget.trailing ??
-                                _buildTrailingIcon(context) ??
-                                const SizedBox.shrink()
-                            : const SizedBox.shrink(),
-                      ],
-                    ),
-                  ))
-              : ListTileTheme.merge(
-                  iconColor: _iconColor.value ?? expansionTileTheme.iconColor,
-                  textColor: _headerColor.value,
-                  child: InkWell(
-                    borderRadius: widget.borderRadius,
-                    onTap: _handleTap,
-                    child: ListTile(
-                      dense: widget.isDefaultVerticalPadding ? null : true,
-                      visualDensity: widget.isDefaultVerticalPadding
-                          ? null
-                          : const VisualDensity(horizontal: 0, vertical: -4),
-                      contentPadding:
-                          widget.tilePadding ?? expansionTileTheme.tilePadding,
-                      leading: widget.leading ?? _buildLeadingIcon(context),
-                      title: widget.title,
-                      subtitle: widget.subtitle,
-                      trailing: widget.isHasTrailing == true
-                          ? widget.trailing ?? _buildTrailingIcon(context)
-                          : null,
-                    ),
+      child: _buildMainBody(context, child),
+    );
+  }
+
+  Widget _buildMainBody(BuildContext context, Widget? child) {
+    final ExpansionTileThemeData expansionTileTheme =
+        ExpansionTileTheme.of(context);
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        widget.isDefaultVerticalPadding
+            ? ListTileTheme.merge(
+                iconColor: _iconColor.value ?? expansionTileTheme.iconColor,
+                textColor: _headerColor.value,
+                child: InkWell(
+                  borderRadius: widget.borderRadius,
+                  onTap: _handleTap,
+                  child: ListTile(
+                    dense: widget.isDefaultVerticalPadding ? null : true,
+                    visualDensity: widget.isDefaultVerticalPadding
+                        ? null
+                        : const VisualDensity(horizontal: 0, vertical: -4),
+                    contentPadding:
+                        widget.tilePadding ?? expansionTileTheme.tilePadding,
+                    leading: widget.leading ?? _buildLeadingIcon(context),
+                    title: widget.title,
+                    subtitle: isHideSubtitle ? null: widget.subtitle,
+                    trailing: widget.isHasTrailing == true
+                        ? widget.trailing ?? _buildTrailingIcon(context)
+                        : null,
                   ),
                 ),
-          ClipRect(
-            child: Align(
-              alignment: widget.expandedAlignment ??
-                  expansionTileTheme.expandedAlignment ??
-                  Alignment.center,
-              heightFactor: _heightFactor.value,
-              child: child,
-            ),
+              )
+            : IconTheme.merge(
+                data: IconThemeData(
+                    color: _iconColor.value ?? expansionTileTheme.iconColor),
+                child: InkWell(
+                  borderRadius: widget.borderRadius,
+                  onTap: _handleTap,
+                  child: Row(
+                    children: [
+                      widget.leading ??
+                          _buildLeadingIcon(context) ??
+                          const SizedBox.shrink(),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: widget.tilePadding ??
+                                expansionTileTheme.tilePadding ??
+                                const EdgeInsets.symmetric(horizontal: 8),
+                            child: DefaultTextStyle(
+                                style: TextStyle(color: _headerColor.value),
+                                child: widget.title),
+                          ),
+                          if (!isHideSubtitle)
+                            widget.subtitle ?? const SizedBox.shrink(),
+                        ],
+                      ),
+                      const Spacer(),
+                      widget.isHasTrailing == true
+                          ? widget.trailing ??
+                              _buildTrailingIcon(context) ??
+                              const SizedBox.shrink()
+                          : const SizedBox.shrink(),
+                    ],
+                  ),
+                )),
+        ClipRect(
+          child: Align(
+            alignment: widget.expandedAlignment ??
+                expansionTileTheme.expandedAlignment ??
+                Alignment.center,
+            heightFactor: _heightFactor.value,
+            child: child,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -639,6 +650,8 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
       ..end = widget.backgroundColor ?? expansionTileTheme.backgroundColor;
     super.didChangeDependencies();
   }
+
+  bool get isHideSubtitle => _isExpanded && widget.isHideSubtitleOnExpanded;
 
   @override
   Widget build(BuildContext context) {

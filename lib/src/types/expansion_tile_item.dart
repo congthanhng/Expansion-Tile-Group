@@ -4,44 +4,45 @@ import 'package:expansion_tile_group/src/core/expansion_tile_custom.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionTileItem extends StatelessWidget {
-  const ExpansionTileItem(
-      {Key? key,
-      required this.title,
-      required this.children,
-      this.expansionKey,
-      this.onExpansionChanged,
-      this.tilePadding,
-      this.initiallyExpanded = false,
-      this.backgroundColor,
-      this.textColor,
-      this.subtitle,
-      this.maintainState = false,
-      this.iconColor,
-      this.expandedCrossAxisAlignment,
-      this.expandedAlignment,
-      this.controlAffinity,
-      this.collapsedTextColor,
-      this.collapsedIconColor,
-      this.collapsedBackgroundColor,
-      this.childrenPadding,
-      this.trailing,
-      this.leading,
-      this.themeData,
-      this.decoration,
-      this.borderRadius,
-      this.border,
-      this.clipBehavior,
-      this.boxShadow,
-      this.expendedBorderColor,
-      this.collapsedBorderColor,
-      this.isHasTopBorder,
-      this.isHasLeftBorder,
-      this.isHasBottomBorder,
-      this.isHasRightBorder,
-      this.isHasTrailing,
-      this.isEnableExpanded,
-      this.isDefaultVerticalPadding})
-      : super(key: key);
+  const ExpansionTileItem({
+    Key? key,
+    required this.title,
+    required this.children,
+    this.expansionKey,
+    this.onExpansionChanged,
+    this.tilePadding,
+    this.initiallyExpanded = false,
+    this.backgroundColor,
+    this.textColor,
+    this.subtitle,
+    this.maintainState = false,
+    this.iconColor,
+    this.expandedCrossAxisAlignment,
+    this.expandedAlignment,
+    this.controlAffinity,
+    this.collapsedTextColor,
+    this.collapsedIconColor,
+    this.collapsedBackgroundColor,
+    this.childrenPadding,
+    this.trailing,
+    this.leading,
+    this.themeData,
+    this.decoration,
+    this.borderRadius,
+    this.border,
+    this.clipBehavior,
+    this.boxShadow,
+    this.expendedBorderColor,
+    this.collapsedBorderColor,
+    this.isHasTopBorder,
+    this.isHasLeftBorder,
+    this.isHasBottomBorder,
+    this.isHasRightBorder,
+    this.isHasTrailing,
+    this.isEnableExpanded,
+    this.isDefaultVerticalPadding,
+    this.isHideSubtitleOnExpanded,
+  }) : super(key: key);
 
   /// The primary content of the list item.
   ///
@@ -302,6 +303,8 @@ class ExpansionTileItem extends StatelessWidget {
 
   final bool? isDefaultVerticalPadding;
 
+  final bool? isHideSubtitleOnExpanded;
+
   ExpansionTileItem copyWith({
     Key? key,
     Widget? title,
@@ -339,6 +342,7 @@ class ExpansionTileItem extends StatelessWidget {
     bool? isHasTrailing,
     bool? isEnableExpanded,
     bool? isDefaultVerticalPadding,
+    bool? isHideSubtitleOnExpanded,
   }) {
     return ExpansionTileItem(
         key: key ?? this.key,
@@ -382,6 +386,8 @@ class ExpansionTileItem extends StatelessWidget {
         isEnableExpanded: isEnableExpanded ?? this.isEnableExpanded,
         isDefaultVerticalPadding:
             isDefaultVerticalPadding ?? this.isDefaultVerticalPadding,
+        isHideSubtitleOnExpanded:
+            isHideSubtitleOnExpanded ?? this.isHideSubtitleOnExpanded,
         children: children ?? this.children);
   }
 
@@ -425,6 +431,7 @@ class ExpansionTileItem extends StatelessWidget {
         isHasTrailing: isHasTrailing ?? true,
         isEnableExpanded: isEnableExpanded ?? true,
         isDefaultVerticalPadding: isDefaultVerticalPadding ?? true,
+        isHideSubtitleOnExpanded: isHideSubtitleOnExpanded ?? false,
         children: children ?? [],
       ),
     );

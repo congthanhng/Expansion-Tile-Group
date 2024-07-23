@@ -5,6 +5,7 @@ import 'package:expansion_tile_group_example/cases/expand_all_page.dart';
 import 'package:expansion_tile_group_example/cases/expand_always_current_page.dart';
 import 'package:expansion_tile_group_example/cases/control_state_from_anywhere_page.dart';
 import 'package:expansion_tile_group_example/cases/expand_only_current_page.dart';
+import 'package:expansion_tile_group_example/cases/hide_subtitle_on_expanded.dart';
 import 'package:expansion_tile_group_example/cases/ignore_behavior_page.dart';
 import 'package:expansion_tile_group_example/cases/listen_group_item_changed_page.dart';
 import 'package:expansion_tile_group_example/route_named.dart';
@@ -60,6 +61,9 @@ class _MyAppState extends State<MyApp> {
           case RouteNamed.expandAlwaysCurrent:
             return MaterialPageRoute(
                 builder: (context) => const ExpandAlwaysCurrentPage());
+          case RouteNamed.hideSubtitle:
+            return MaterialPageRoute(
+                builder: (context) => const HideSubtitleOnExpandedPage());
           default:
             return MaterialPageRoute(builder: (context) => const HomePage());
         }
@@ -146,6 +150,13 @@ class HomePage extends StatelessWidget {
               },
               color: Colors.yellow,
               child: const Text('Ignore behavior until a task completed'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RouteNamed.hideSubtitle);
+              },
+              color: Colors.yellow,
+              child: const Text('Hide Subtitle on Expanded'),
             ),
           ],
         ),

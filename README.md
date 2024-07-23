@@ -33,6 +33,7 @@ A Flutter widget that can manage group of custom ExpansionTile items.
   - [Remove completely trailing](#remove-completely-trailing)
   - [Force behavior](#force-behavior)
   - [Remove completely default vertical title padding](#remove-completely-default-vertical-title-padding)
+  - [Hide Subtitle on Expanded view](#hide_subtitle_on_expanded_view)
 - [Parameters](#parameters)
   - [ExpansionTileGroup](#expansiontilegroup)
   - [ExpansionTileItem](#expansiontileitem)
@@ -311,7 +312,10 @@ Notice: When you wrap items with `ExpansionTileGroup`, `isEnableExpanded` will b
 so it will not change the value of `isEnableExpanded` when you rebuild the page.
 
 ### Remove completely default vertical title padding
-Now you can remove completely default vertical title padding by setting `isDefaultVerticalPadding` with `false`
+Now you can remove completely default vertical title padding by setting `isDefaultVerticalPadding` is `false`
+
+### Hide Subtitle on Expanded view
+Now you can hide the subtitle whenever the view is expanded by setting `isHideSubtitleOnExpanded` is `true`
 
 
 ## Parameters
@@ -361,7 +365,8 @@ Now you can remove completely default vertical title padding by setting `isDefau
 | `isHasRightBorder`           | Show `right` border side or NOT                                                                                                                                                                  |
 | `isHasTrailing`              | Show trailing widget and it's area or NOT                                                                                                                                                        |
 | `isEnableExpanded`           | Force item expand or NOT                                                                                                                                                                         |
-| `isDefaultVerticalPadding`   | Remove completely default vertical title padding                                                                                                                                                                         |
+| `isDefaultVerticalPadding`   | Remove completely default vertical title padding                                                                                                                                                 |
+| `isHideSubtitleOnExpanded`   | Hide Subtitle when view is expanded                                                                                                                                                              |
 
 ## Troubleshooting
 

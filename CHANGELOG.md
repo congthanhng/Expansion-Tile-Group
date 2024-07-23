@@ -1,3 +1,10 @@
+## 1.2.5
+* New feature:
+  - Hide subtitle on view expanded [#45](https://github.com/congthanhng/Expansion-Tile-Group/discussions/45)
+* Update examples
+* BREAKING CHANGE:
+  - Rename: `ToggleType.expandAllAndCollapseAll` to `ToggleType.expandAllOrCollapseAll`
+
 ## 1.2.4
 * Add new toggle type for group: `ExpandAlwaysCurrent` [#39](https://github.com/congthanhng/Expansion-Tile-Group/issues/39)
 * Update examples

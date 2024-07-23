@@ -9,4 +9,5 @@ class RouteNamed {
   static const String expandAll = '/expandAll';
   static const String expandOrCollapseAll = '/expandOrCollapseAll';
   static const String ignoreBehavior = '/ignoreBehavior';
+  static const String hideSubtitle = '/hideSubtitle';
 }
