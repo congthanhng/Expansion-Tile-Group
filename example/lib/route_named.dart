@@ -1,13 +1,13 @@
 class RouteNamed {
   static const String homePage = '/';
-  static const String allCustomItems = '/allCustomItems';
-  static const String controlState = '/controlState';
-  static const String listenGroupItemChanged = '/listenGroupItemChanged';
-  static const String expandOnlyCurrent = '/expandOnlyCurrent';
-  static const String expandAlwaysCurrent = '/expandAlwaysCurrent';
-  static const String collapseAll = '/collapseAll';
-  static const String expandAll = '/expandAll';
-  static const String expandOrCollapseAll = '/expandOrCollapseAll';
-  static const String ignoreBehavior = '/ignoreBehavior';
-  static const String hideSubtitle = '/hideSubtitle';
+  static const String allCustomItems = '/all_custom_items';
+  static const String controlState = '/control_state';
+  static const String listenGroupItemChanged = '/listen_group_item_changed';
+  static const String expandOnlyCurrent = '/expand_only_current';
+  static const String expandAlwaysCurrent = '/expand_always_current';
+  static const String collapseAll = '/collapse_all';
+  static const String expandAll = '/expand_all';
+  static const String expandOrCollapseAll = '/expand_or_collapse_all';
+  static const String ignoreBehavior = '/ignore_behavior';
+  static const String hideSubtitle = '/hide_subtitle';
 }

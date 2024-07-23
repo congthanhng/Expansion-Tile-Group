@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class ExpansionTileItem extends StatelessWidget {
   const ExpansionTileItem({
-    Key? key,
+    super.key,
     required this.title,
     required this.children,
     this.expansionKey,
@@ -42,7 +42,155 @@ class ExpansionTileItem extends StatelessWidget {
     this.isEnableExpanded,
     this.isDefaultVerticalPadding,
     this.isHideSubtitleOnExpanded,
-  }) : super(key: key);
+    this.trailingIcon,
+  });
+
+  const ExpansionTileItem.withoutBorder({
+    super.key,
+    required this.title,
+    required this.children,
+    this.expansionKey,
+    this.onExpansionChanged,
+    this.tilePadding,
+    this.initiallyExpanded = false,
+    this.backgroundColor,
+    this.textColor,
+    this.subtitle,
+    this.maintainState = false,
+    this.iconColor,
+    this.expandedCrossAxisAlignment,
+    this.controlAffinity,
+    this.collapsedTextColor,
+    this.collapsedIconColor,
+    this.collapsedBackgroundColor,
+    this.trailing,
+    this.leading,
+    this.themeData,
+    this.decoration,
+    this.clipBehavior,
+    this.boxShadow,
+    this.trailingIcon,
+    this.borderRadius,
+    this.collapsedBorderColor,
+    this.expendedBorderColor,
+    this.isHasBottomBorder,
+    this.isHasLeftBorder,
+    this.isHasRightBorder,
+    this.isHasTopBorder,
+    this.isHasTrailing,
+    this.isEnableExpanded,
+    this.isDefaultVerticalPadding,
+    this.isHideSubtitleOnExpanded,
+    BoxBorder? border,
+    EdgeInsetsGeometry? childrenPadding,
+    Alignment? expandedAlignment,
+  })  : border = border ?? const Border(),
+        childrenPadding = childrenPadding ??
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        expandedAlignment = expandedAlignment ?? Alignment.topLeft;
+
+  ExpansionTileItem.withBorder({
+    super.key,
+    required this.title,
+    required this.children,
+    this.expansionKey,
+    this.onExpansionChanged,
+    this.tilePadding,
+    this.initiallyExpanded = false,
+    this.backgroundColor,
+    this.textColor,
+    this.subtitle,
+    this.maintainState = false,
+    this.iconColor,
+    this.expandedCrossAxisAlignment,
+    this.controlAffinity,
+    this.collapsedTextColor,
+    this.collapsedIconColor,
+    this.collapsedBackgroundColor,
+    this.trailing,
+    this.leading,
+    this.themeData,
+    this.decoration,
+    this.clipBehavior,
+    this.boxShadow,
+    this.isDefaultVerticalPadding,
+    this.trailingIcon,
+    this.border,
+    this.isHideSubtitleOnExpanded,
+    EdgeInsetsGeometry? childrenPadding,
+    Alignment? expandedAlignment,
+    BorderRadius? borderRadius,
+    Color? collapsedBorderColor,
+    Color? expendedBorderColor,
+    bool? isHasTrailing,
+    bool? isEnableExpanded,
+  })  : borderRadius = borderRadius ?? BorderRadius.circular(8),
+        childrenPadding = childrenPadding ??
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        expandedAlignment = expandedAlignment ?? Alignment.topLeft,
+        collapsedBorderColor = collapsedBorderColor ?? Colors.grey,
+        expendedBorderColor = expendedBorderColor ?? Colors.blue,
+        isHasBottomBorder = true,
+        isHasLeftBorder = true,
+        isHasRightBorder = true,
+        isHasTopBorder = true,
+        isHasTrailing = isHasTrailing ?? true,
+        isEnableExpanded = isEnableExpanded ?? true;
+
+  ExpansionTileItem.leaf({
+    super.key,
+    required this.title,
+    required this.children,
+    this.expansionKey,
+    this.onExpansionChanged,
+    this.tilePadding,
+    this.initiallyExpanded = false,
+    this.backgroundColor,
+    this.textColor,
+    this.subtitle,
+    this.maintainState = false,
+    this.iconColor,
+    this.expandedCrossAxisAlignment,
+    this.controlAffinity,
+    this.collapsedTextColor,
+    this.collapsedIconColor,
+    this.collapsedBackgroundColor,
+    this.trailing,
+    this.leading,
+    this.themeData,
+    this.decoration,
+    this.clipBehavior,
+    this.boxShadow,
+    this.isDefaultVerticalPadding,
+    this.trailingIcon,
+    this.border,
+    this.isHideSubtitleOnExpanded,
+    EdgeInsetsGeometry? childrenPadding,
+    Alignment? expandedAlignment,
+    Color? collapsedBorderColor,
+    Color? expendedBorderColor,
+    bool? isHasTrailing,
+    bool? isEnableExpanded,
+    double? leafRadius,
+    bool isReverseLeaf = false,
+  })  : borderRadius = isReverseLeaf
+            ? BorderRadius.only(
+                bottomRight: Radius.circular(leafRadius ?? 20),
+                topLeft: Radius.circular(leafRadius ?? 20))
+            : BorderRadius.only(
+                bottomLeft: Radius.circular(leafRadius ?? 20),
+                topRight: Radius.circular(leafRadius ?? 20)),
+        childrenPadding = childrenPadding ??
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        expandedAlignment = expandedAlignment ?? Alignment.topLeft,
+        collapsedBorderColor = collapsedBorderColor ?? Colors.grey,
+        expendedBorderColor = expendedBorderColor ?? Colors.blue,
+        isHasBottomBorder = true,
+        isHasLeftBorder = true,
+        isHasRightBorder = true,
+        isHasTopBorder = true,
+        isHasTrailing = isHasTrailing ?? true,
+        isEnableExpanded = isEnableExpanded ?? true;
 
   /// The primary content of the list item.
   ///
@@ -294,6 +442,7 @@ class ExpansionTileItem extends StatelessWidget {
   final bool? isHasLeftBorder;
   final bool? isHasRightBorder;
 
+  ///Permanently hide trailing included default icon
   final bool? isHasTrailing;
 
   ///The widget can expand or NOT.
@@ -301,9 +450,15 @@ class ExpansionTileItem extends StatelessWidget {
   ///More detail: https://github.com/congthanhng/Expansion-Tile-Group/issues/22
   final bool? isEnableExpanded;
 
+  ///Remove completely default vertical title padding
   final bool? isDefaultVerticalPadding;
 
+  ///Hide subtitle on expanded view
   final bool? isHideSubtitleOnExpanded;
+
+  ///By default, ExpansionTile has default trailing icon with rotate animation whenever it is expanded/collapsed.
+  ///This property used to override the default trailing icon.
+  final Widget? trailingIcon;
 
   ExpansionTileItem copyWith({
     Key? key,
@@ -343,6 +498,7 @@ class ExpansionTileItem extends StatelessWidget {
     bool? isEnableExpanded,
     bool? isDefaultVerticalPadding,
     bool? isHideSubtitleOnExpanded,
+    Widget? trailingIcon,
   }) {
     return ExpansionTileItem(
         key: key ?? this.key,
@@ -388,6 +544,7 @@ class ExpansionTileItem extends StatelessWidget {
             isDefaultVerticalPadding ?? this.isDefaultVerticalPadding,
         isHideSubtitleOnExpanded:
             isHideSubtitleOnExpanded ?? this.isHideSubtitleOnExpanded,
+        trailingIcon: trailingIcon ?? this.trailingIcon,
         children: children ?? this.children);
   }
 
@@ -432,6 +589,7 @@ class ExpansionTileItem extends StatelessWidget {
         isEnableExpanded: isEnableExpanded ?? true,
         isDefaultVerticalPadding: isDefaultVerticalPadding ?? true,
         isHideSubtitleOnExpanded: isHideSubtitleOnExpanded ?? false,
+        trailingIcon: trailingIcon,
         children: children ?? [],
       ),
     );

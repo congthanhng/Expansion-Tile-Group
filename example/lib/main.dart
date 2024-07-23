@@ -1,15 +1,7 @@
-import 'package:expansion_tile_group_example/cases/all_custom_items_page.dart';
-import 'package:expansion_tile_group_example/cases/collapse_all_page.dart';
-import 'package:expansion_tile_group_example/cases/expand_or_collapse_all_page.dart';
-import 'package:expansion_tile_group_example/cases/expand_all_page.dart';
-import 'package:expansion_tile_group_example/cases/expand_always_current_page.dart';
-import 'package:expansion_tile_group_example/cases/control_state_from_anywhere_page.dart';
-import 'package:expansion_tile_group_example/cases/expand_only_current_page.dart';
-import 'package:expansion_tile_group_example/cases/hide_subtitle_on_expanded.dart';
-import 'package:expansion_tile_group_example/cases/ignore_behavior_page.dart';
-import 'package:expansion_tile_group_example/cases/listen_group_item_changed_page.dart';
 import 'package:expansion_tile_group_example/route_named.dart';
 import 'package:flutter/material.dart';
+
+import 'use_cases/use_cases.dart';
 
 void main() {
   runApp(const MyApp());
@@ -85,81 +77,149 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.allCustomItems);
-              },
-              color: Colors.pink,
-              child: const Text('Custom Items'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.controlState);
-              },
-              color: Colors.blueGrey,
-              child: const Text('Control state from anywhere'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.listenGroupItemChanged);
-              },
-              color: Colors.blueGrey,
-              child: const Text('Listen items changed in a group'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.expandOnlyCurrent);
-              },
-              color: Colors.blue,
-              child: const Text('Expand only current item in the group'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.expandAlwaysCurrent);
-              },
-              color: Colors.blue,
-              child: const Text(
-                  'Always Expand only current item in the group without collapsing when tapping again',
-                  textAlign: TextAlign.center),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.expandAll);
-              },
-              color: Colors.blue,
-              child: const Text('Expand all items in group when one collapsing is tapped'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.collapseAll);
-              },
-              color: Colors.blue,
-              child:
-                  const Text('Collapse all items in group when one expanding is tapped'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.expandOrCollapseAll);
-              },
-              color: Colors.blue,
-              child: const Text('Toggle all items in group when one is tapped'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.ignoreBehavior);
-              },
-              color: Colors.yellow,
-              child: const Text('Ignore behavior until a task completed'),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteNamed.hideSubtitle);
-              },
-              color: Colors.yellow,
-              child: const Text('Hide Subtitle on Expanded'),
-            ),
+            _buildItemSection(context),
+            _buildGroupSection(context),
+
+            // _buildButton(
+            //   context,
+            //   title: 'Ignore behavior until a task completed',
+            //   routeName: RouteNamed.ignoreBehavior,
+            // ),
+            // _buildButton(
+            //   context,
+            //   title: 'Hide Subtitle on Expanded',
+            //   routeName: RouteNamed.hideSubtitle,
+            // ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildItemSection(BuildContext context) {
+    return _buildSection(
+      context,
+      title: 'Powerful Custom Items',
+      description: 'Features can be explored are:\n'
+          '- Show all custom types\n'
+          '- Hide subtitle on expanded view\n'
+          '- Remove completely default vertical title padding of ExpansionTile\n'
+          '- Remove completely trailing of ExpansionTile\n'
+          '- Force behavior to ignore until a task completed\n'
+          '- Trailing icon now can be changed with keeping rotate animation\n',
+      body: _buildButton(
+        context,
+        title: 'See Demo',
+        routeName: RouteNamed.allCustomItems,
+      ),
+    );
+  }
+
+  Widget _buildGroupSection(BuildContext context) {
+    return _buildSection(
+      context,
+      title: 'Group Items Management & Behaviors',
+      body: Column(
+        children: [
+          _buildRow(
+            context,
+            title: 'expandOnlyCurrent:',
+            // subtitle: 'Expand only current item in group',
+            routeName: RouteNamed.expandOnlyCurrent,
+          ),
+          _buildRow(
+            context,
+            title: 'expandAlwaysCurrent:',
+            routeName: RouteNamed.expandAlwaysCurrent,
+          ),
+          _buildRow(
+            context,
+            title: 'expandAll:',
+            routeName: RouteNamed.expandAll,
+          ),
+          _buildRow(
+            context,
+            title: 'collapseAll:',
+            routeName: RouteNamed.collapseAll,
+          ),
+          _buildRow(
+            context,
+            title: 'expandAllOrCollapseAll:',
+            routeName: RouteNamed.expandOrCollapseAll,
+          ),
+          _buildRow(
+            context,
+            title: 'Listen changed of any item in group:',
+            routeName: RouteNamed.listenGroupItemChanged,
+          ),
+          _buildRow(
+            context,
+            title: 'Control expand/collapse state of an item from anywhere:',
+            routeName: RouteNamed.controlState,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSection(BuildContext context,
+      {required String title, String? description, required Widget body}) {
+    return Container(
+      margin: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: Colors.green)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              )),
+          if (description != null)
+            Text(description,
+                style: TextStyle(fontSize: 16, color: Colors.grey[700])),
+          body
+        ],
+      ),
+    );
+  }
+
+  Widget _buildRow(BuildContext context,
+      {String? title, String? subtitle, required String routeName}) {
+    return Row(
+      children: [
+        Expanded(
+          child: Text(title ?? '',
+              style: const TextStyle(
+                  // fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  color: Colors.black)),
+        ),
+        Text(subtitle ?? '',
+            style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+        TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, routeName);
+          },
+          child: const Text('See Demo'),
+        )
+      ],
+    );
+  }
+
+  Widget _buildButton(BuildContext context,
+      {required String title, required String routeName}) {
+    return OutlinedButton(
+      onPressed: () {
+        Navigator.pushNamed(context, routeName);
+      },
+      child: Text(
+        title,
+        textAlign: TextAlign.center,
       ),
     );
   }

@@ -75,6 +75,7 @@ class ExpansionTileCustom extends StatefulWidget {
     this.isEnableExpanded = true,
     this.isDefaultVerticalPadding = true,
     this.isHideSubtitleOnExpanded = false,
+    this.trailingIcon,
   })  : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
@@ -348,6 +349,7 @@ class ExpansionTileCustom extends StatefulWidget {
   final bool isHasLeftBorder;
   final bool isHasRightBorder;
 
+  ///Permanently hide trailing included default icon
   final bool isHasTrailing;
 
   ///The widget can expand or NOT.
@@ -360,6 +362,10 @@ class ExpansionTileCustom extends StatefulWidget {
 
   ///Hide subtitle on expanded
   final bool isHideSubtitleOnExpanded;
+
+  ///By default, ExpansionTile has default trailing icon with rotate animation whenever it is expanded/collapsed.
+  ///This property used to override the default trailing icon.
+  final Widget? trailingIcon;
 
   @override
   State<ExpansionTileCustom> createState() => ExpansionTileCustomState();
@@ -491,7 +497,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
   Widget? _buildIcon(BuildContext context) {
     return RotationTransition(
       turns: _iconTurns,
-      child: const Icon(Icons.expand_more),
+      child: widget.trailingIcon ?? const Icon(Icons.expand_more),
     );
   }
 
@@ -566,7 +572,7 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
                         widget.tilePadding ?? expansionTileTheme.tilePadding,
                     leading: widget.leading ?? _buildLeadingIcon(context),
                     title: widget.title,
-                    subtitle: isHideSubtitle ? null: widget.subtitle,
+                    subtitle: isHideSubtitle ? null : widget.subtitle,
                     trailing: widget.isHasTrailing == true
                         ? widget.trailing ?? _buildTrailingIcon(context)
                         : null,
@@ -584,21 +590,23 @@ class ExpansionTileCustomState extends State<ExpansionTileCustom>
                       widget.leading ??
                           _buildLeadingIcon(context) ??
                           const SizedBox.shrink(),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: widget.tilePadding ??
-                                expansionTileTheme.tilePadding ??
-                                const EdgeInsets.symmetric(horizontal: 8),
-                            child: DefaultTextStyle(
-                                style: TextStyle(color: _headerColor.value),
-                                child: widget.title),
-                          ),
-                          if (!isHideSubtitle)
-                            widget.subtitle ?? const SizedBox.shrink(),
-                        ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: widget.tilePadding ??
+                                  expansionTileTheme.tilePadding ??
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: DefaultTextStyle(
+                                  style: TextStyle(color: _headerColor.value),
+                                  child: widget.title),
+                            ),
+                            if (!isHideSubtitle)
+                              widget.subtitle ?? const SizedBox.shrink(),
+                          ],
+                        ),
                       ),
-                      const Spacer(),
                       widget.isHasTrailing == true
                           ? widget.trailing ??
                               _buildTrailingIcon(context) ??

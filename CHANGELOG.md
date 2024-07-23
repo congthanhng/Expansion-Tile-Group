@@ -1,3 +1,17 @@
+## 1.2.6
+* New Feature:
+  - Added trailing builder [#41](https://github.com/congthanhng/Expansion-Tile-Group/pull/41)
+  - New Item Type: `ExpansionTileLeafItem`
+  - Now you can call variant type item easily:
+    For Example: Instead of calling `ExpansionTileBorderItem`, now can call `ExpansionTileItem.withBorder`.
+    Similarly:
+      - `ExpansionTileWithoutBorderItem` => `ExpansionTileItem.withoutBorder`
+      - `ExpansionTileLeafItem` => `ExpansionTileItem.leaf`
+* Fix:
+  - Title and subtitle overflow fix [#44](https://github.com/congthanhng/Expansion-Tile-Group/pull/44)
+* Update examples
+* Update README with shorter and easier to read
+
 ## 1.2.5
 * New feature:
   - Hide subtitle on view expanded [#45](https://github.com/congthanhng/Expansion-Tile-Group/discussions/45)

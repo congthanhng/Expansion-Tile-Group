@@ -40,6 +40,7 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
     bool? isEnableExpanded,
     bool? isDefaultVerticalPadding,
     bool? isHideSubtitleOnExpanded,
+    Widget? trailingIcon,
   }) : super(
             key: key,
             title: title,
@@ -78,5 +79,6 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
             isHasTrailing: isHasTrailing,
             isEnableExpanded: isEnableExpanded,
             isDefaultVerticalPadding: isDefaultVerticalPadding,
-            isHideSubtitleOnExpanded: isHideSubtitleOnExpanded ?? false);
+            isHideSubtitleOnExpanded: isHideSubtitleOnExpanded,
+            trailingIcon: trailingIcon);
 }

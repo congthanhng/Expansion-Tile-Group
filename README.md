@@ -19,7 +19,7 @@ A Flutter widget that can manage group of custom ExpansionTile items.
 ![Image][ExpandedAll]
 ![Image][ExpandedAndCollapsedAll]
 ## Contents
-
+Check out from live example [See Example](https://congthanhng.github.io/ExpansionTileGroupExample/)
 - [Features](#features)
 - [Introduce](#introduce)
 - [Install](#install)
@@ -34,6 +34,7 @@ A Flutter widget that can manage group of custom ExpansionTile items.
   - [Force behavior](#force-behavior)
   - [Remove completely default vertical title padding](#remove-completely-default-vertical-title-padding)
   - [Hide Subtitle on Expanded view](#hide_subtitle_on_expanded_view)
+  - [Change Trailing Icon with keeping default rotate animation](#change_trailing_icon_with_keeping_default_rotate_animation)
 - [Parameters](#parameters)
   - [ExpansionTileGroup](#expansiontilegroup)
   - [ExpansionTileItem](#expansiontileitem)
@@ -57,6 +58,9 @@ A Flutter widget that can manage group of custom ExpansionTile items.
 * Can easily custom or add decoration into an `ExpansionTileItem` with `Border`, `BorderRadius`, `Shadow`, or `BoxDecoration`.
 * Can remove completely the `trailing`, included: area, arrow icon. So that the `title` can be extended the width. Just using `isHasTrailing`.
 * Can force behavior of an expansion item until a condition is successful. [More detail][ForceBehavior]
+* Can remove completely default vertical title padding of ExpansionTile.
+* Can Hide subtitle on Expanded view.
+* Can change default Trailing Icon with keeping default rotate animation.
 
 ## Introduce
 
@@ -317,6 +321,9 @@ Now you can remove completely default vertical title padding by setting `isDefau
 ### Hide Subtitle on Expanded view
 Now you can hide the subtitle whenever the view is expanded by setting `isHideSubtitleOnExpanded` is `true`
 
+### Change Trailing Icon with keeping default rotate animation
+Now you can change default trailing icon by calling `trailingIcon`, it is retrieve a `Widget`
+
 
 ## Parameters
 
@@ -367,6 +374,7 @@ Now you can hide the subtitle whenever the view is expanded by setting `isHideSu
 | `isEnableExpanded`           | Force item expand or NOT                                                                                                                                                                         |
 | `isDefaultVerticalPadding`   | Remove completely default vertical title padding                                                                                                                                                 |
 | `isHideSubtitleOnExpanded`   | Hide Subtitle when view is expanded                                                                                                                                                              |
+| `trailingIcon`               | Change default trailing icon with keeping rotate animation                                                                                                                                       |
 
 ## Troubleshooting
 

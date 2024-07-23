@@ -1,8 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExpansionTileBorderItem extends ExpansionTileItem {
-  ExpansionTileBorderItem({
+class ExpansionTileLeafItem extends ExpansionTileItem {
+  ExpansionTileLeafItem({
     Key? key,
     required Widget title,
     required List<Widget> children,
@@ -25,29 +25,32 @@ class ExpansionTileBorderItem extends ExpansionTileItem {
     Widget? leading,
     Color? backgroundColor,
     Decoration? decoration,
-    BorderRadius? borderRadius,
     BoxBorder? border,
     ThemeData? themeData,
     List<BoxShadow>? boxShadow,
     Clip? clipBehavior,
     Color? collapsedBorderColor,
     Color? expendedBorderColor,
-    bool? isHasTopBorder,
-    bool? isHasBottomBorder,
-    bool? isHasLeftBorder,
-    bool? isHasRightBorder,
     bool? isHasTrailing,
     bool? isEnableExpanded,
     bool? isDefaultVerticalPadding,
     bool? isHideSubtitleOnExpanded,
     Widget? trailingIcon,
+    double? leafRadius,
+    bool isReverseLeaf = false,
   }) : super(
             key: key,
             title: title,
             children: children,
             decoration: decoration,
             border: border,
-            borderRadius: borderRadius ?? BorderRadius.circular(8),
+            borderRadius: isReverseLeaf
+                ? BorderRadius.only(
+                    bottomRight: Radius.circular(leafRadius ?? 20),
+                    topLeft: Radius.circular(leafRadius ?? 20))
+                : BorderRadius.only(
+                    bottomLeft: Radius.circular(leafRadius ?? 20),
+                    topRight: Radius.circular(leafRadius ?? 20)),
             backgroundColor: backgroundColor,
             childrenPadding: childrenPadding ??
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -72,10 +75,10 @@ class ExpansionTileBorderItem extends ExpansionTileItem {
             clipBehavior: clipBehavior,
             collapsedBorderColor: collapsedBorderColor ?? Colors.grey,
             expendedBorderColor: expendedBorderColor ?? Colors.blue,
-            isHasBottomBorder: isHasBottomBorder = true,
-            isHasLeftBorder: isHasLeftBorder = true,
-            isHasRightBorder: isHasRightBorder = true,
-            isHasTopBorder: isHasTopBorder = true,
+            isHasBottomBorder: true,
+            isHasLeftBorder: true,
+            isHasRightBorder: true,
+            isHasTopBorder: true,
             isHasTrailing: isHasTrailing ?? true,
             isEnableExpanded: isEnableExpanded ?? true,
             isDefaultVerticalPadding: isDefaultVerticalPadding,

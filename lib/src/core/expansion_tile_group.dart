@@ -97,7 +97,7 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
       case ToggleType.expandAll:
         _onExpandAll(index, isExpanded, defaultState);
         break;
-      case ToggleType.expandAllAndCollapseAll:
+      case ToggleType.expandAllOrCollapseAll:
         _onExpandAllAndCollapseALl(index, isExpanded, defaultState);
         break;
       case ToggleType.none:
