@@ -1,3 +1,6 @@
+## 1.2.7
+* Update documentation
+
 ## 1.2.6
 * New Feature:
   - Added trailing builder [#41](https://github.com/congthanhng/Expansion-Tile-Group/pull/41)

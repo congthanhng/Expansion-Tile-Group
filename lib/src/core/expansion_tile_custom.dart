@@ -1,9 +1,4 @@
 // Originally based on ExpansionTile from Flutter.
-//
-// Copyright 2014 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
 
 const Duration _kExpand = Duration(milliseconds: 200);
@@ -292,16 +287,12 @@ class ExpansionTileCustom extends StatefulWidget {
 
   /// If non-null, the corners of this box are rounded by this [BorderRadius].
   ///
-  /// Applies only to boxes with rectangular shapes; ignored if [shape] is not
-  /// [BoxShape.rectangle].
+  /// Applies only to boxes with rectangular shapes; ignored if shape is not
+  /// BoxShape.rectangle.
   ///
-  /// {@macro flutter.painting.BoxDecoration.clip}
   final BorderRadius? borderRadius;
 
-  /// A border to draw above the background [color], [gradient], or [image].
-  ///
-  /// Follows the [shape] and [borderRadius].
-  ///
+
   /// Use [Border] objects to describe borders that do not depend on the reading
   /// direction.
   ///
@@ -341,7 +332,7 @@ class ExpansionTileCustom extends StatefulWidget {
   ///
   /// See also:
   ///
-  /// * [ThemeData.of], which returns the nearest [ThemeData].
+  /// * ThemeData.of, which returns the nearest [ThemeData].
   final Color? expendedBorderColor;
 
   final bool isHasTopBorder;

@@ -1,12 +1,19 @@
 name: expansion_tile_group
-description: A Flutter widget that can manage group of custom ExpansionTile items.
+description: Overcome the limitations of the standard ExpansionTile widget by incorporating highly customizable widgets that fully extend its functionality. And more awesome features.
 homepage: https://github.com/congthanhng/Expansion-Tile-Group
 repository: https://github.com/congthanhng/Expansion-Tile-Group
 issue_tracker: https://github.com/congthanhng/Expansion-Tile-Group/issues
-#funding:
-#  - https://www.buymeacoffee.com/congthanhng
+funding:
+  - https://www.buymeacoffee.com/congthanhng
+documentation: https://pub.dev/documentation/expansion_tile_group
+topics:
+  - expansion
+  - expansion-tile
+  - ui
+  - widget
+  - expansion-tile-group
 
-version: 1.2.6
+version: 1.2.7
 environment:
   sdk: '>=2.18.0 <4.0.0'
   flutter: ">=1.17.0"

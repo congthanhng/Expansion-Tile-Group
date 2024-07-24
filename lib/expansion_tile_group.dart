@@ -1,3 +1,10 @@
+/// This package overcomes the limitations of the standard ExpansionTile widget by incorporating highly customizable widgets that fully `extends` its functionality.
+/// These widgets can be seamlessly grouped and their interactions easily managed, offering you unparalleled control and flexibility.
+/// {@category Get started}
+/// {@category Upgrading}
+/// {@category Item features}
+/// {@category Group features}
+/// {@category Troubleshooting}
 library expansion_tile_group;
 
 export 'package:expansion_tile_group/src/core/expansion_tile_group.dart';

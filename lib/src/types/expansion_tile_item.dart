@@ -1,4 +1,3 @@
-// Originally based on ExpansionTile from Flutter.
 
 import 'package:expansion_tile_group/src/core/expansion_tile_custom.dart';
 import 'package:flutter/material.dart';
@@ -208,6 +207,8 @@ class ExpansionTileItem extends StatelessWidget {
   /// true. When the tile starts collapsing, this function is called with
   /// the value false.
   final ValueChanged<bool>? onExpansionChanged;
+
+  /// Specifies if the item is expanded or not.
   final GlobalKey<ExpansionTileCustomState>? expansionKey;
 
   /// Specifies if the list tile is initially expanded (true) or collapsed (false, the default).
@@ -385,16 +386,11 @@ class ExpansionTileItem extends StatelessWidget {
 
   /// If non-null, the corners of this box are rounded by this [BorderRadius].
   ///
-  /// Applies only to boxes with rectangular shapes; ignored if [shape] is not
-  /// [BoxShape.rectangle].
+  /// Applies only to boxes with rectangular shapes; ignored if shape is not
+  /// BoxShape.rectangle.
   ///
-  /// {@macro flutter.painting.BoxDecoration.clip}
   final BorderRadius? borderRadius;
 
-  /// A border to draw above the background [color], [gradient], or [image].
-  ///
-  /// Follows the [shape] and [borderRadius].
-  ///
   /// Use [Border] objects to describe borders that do not depend on the reading
   /// direction.
   ///
@@ -434,7 +430,7 @@ class ExpansionTileItem extends StatelessWidget {
   ///
   /// See also:
   ///
-  /// * [ThemeData.of], which returns the nearest [ThemeData].
+  /// * ThemeData.of, which returns the nearest [ThemeData].
   final Color? expendedBorderColor;
 
   final bool? isHasTopBorder;

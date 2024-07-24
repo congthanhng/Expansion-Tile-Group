@@ -1,0 +1,24 @@
+dartdoc:
+  showUndocumentedCategories: true
+  categories:
+    "Get started":
+      markdown: doc/get-started.md
+      name: Get started
+    "Upgrading":
+      markdown: doc/upgrading.md
+      name: Upgrading
+    "Item features":
+      markdown: doc/item-features.md
+      name: Item features
+    "Group features":
+      markdown: doc/group-features.md
+      name: Group features
+    "Troubleshooting":
+      markdown: doc/troubleshooting.md
+      name: Troubleshooting
+  categoryOrder:
+    - "Get started"
+    - "Upgrading"
+    - "Item features"
+    - "Group features"
+    - "Troubleshooting"
