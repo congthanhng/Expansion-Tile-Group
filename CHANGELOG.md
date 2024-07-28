@@ -1,4 +1,4 @@
-## 1.2.7
+## 1.2.8
 * Update documentation
 
 ## 1.2.6
