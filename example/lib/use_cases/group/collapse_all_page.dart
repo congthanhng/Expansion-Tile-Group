@@ -13,15 +13,21 @@ class CollapseAllPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Text('Collapse all items in group when one expanding is tapped',
-                  style: TextStyle(fontSize: 12, color: Colors.grey[700])),
-              const SizedBox(
-                height: 8,
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 990),
+              child: Column(
+                children: [
+                  Text(
+                      'Collapse all items in group when one expanding is tapped',
+                      style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  _buildContent(context),
+                ],
               ),
-              _buildContent(context),
-            ],
+            ),
           ),
         ),
       ),

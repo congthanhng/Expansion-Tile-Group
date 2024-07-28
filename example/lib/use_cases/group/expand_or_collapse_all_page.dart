@@ -11,18 +11,22 @@ class ExpandAndCollapseAllPage extends StatelessWidget {
         title: const Text('Expand all And Collapse All item'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Text(
-                  'Toggle all items in group when one is tapped',
-                  style: TextStyle(fontSize: 12, color: Colors.grey[700])),
-              const SizedBox(
-                height: 8,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Text('Toggle all items in group when one is tapped',
+                      style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  _buildContent(context),
+                ],
               ),
-              _buildContent(context),
-            ],
+            ),
           ),
         ),
       ),

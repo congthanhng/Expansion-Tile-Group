@@ -16,7 +16,10 @@ class _InteractionViewState extends State<InteractionView> {
 
   final listIcon = <Widget>[
     const Icon(Icons.keyboard_arrow_down_outlined),
-    const Text('Hello',style: TextStyle(color: Colors.red),),
+    const Text(
+      'Hello',
+      style: TextStyle(color: Colors.red),
+    ),
     const Icon(Icons.access_time),
     const Icon(Icons.accessibility_sharp),
     const Icon(Icons.account_circle_outlined),
@@ -73,11 +76,12 @@ class _InteractionViewState extends State<InteractionView> {
               });
             },
           )),
-
       _buildRow(context,
           title: 'Hide subtitle on expanded view',
           button: ElevatedButton.icon(
-            icon: Icon(isHideSubtitle ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+            icon: Icon(isHideSubtitle
+                ? Icons.visibility_outlined
+                : Icons.visibility_off_outlined),
             label: Text(isHideSubtitle ? 'Show' : 'Hide'),
             onPressed: () {
               setState(() {
@@ -85,7 +89,6 @@ class _InteractionViewState extends State<InteractionView> {
               });
             },
           )),
-
       _buildRow(context,
           title: 'Remove completely trailing',
           button: ElevatedButton.icon(
@@ -108,7 +111,6 @@ class _InteractionViewState extends State<InteractionView> {
               });
             },
           )),
-
       _buildRow(context,
           title: 'Change Trailing Icon and keep rotate animation',
           button: ElevatedButton.icon(

@@ -13,21 +13,26 @@ class AllCustomItemsPage extends StatelessWidget {
         title: const Text('Custom Item Page'),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            _buildInteractSection(context),
-            _buildSection(
-              context,
-              title: 'All already supported types:',
-              body: _buildPrimaryItem(context),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _buildInteractSection(context),
+                _buildSection(
+                  context,
+                  title: 'All already supported types:',
+                  body: _buildPrimaryItem(context),
+                ),
+                _buildSection(
+                  context,
+                  title: 'More other custom',
+                  body: _buildCustomItem(context),
+                ),
+              ],
             ),
-            _buildSection(
-              context,
-              title: 'More other custom',
-              body: _buildCustomItem(context),
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -37,8 +42,9 @@ class AllCustomItemsPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileItem(
           title: const Text('ExpansionTileItem'),
           children: [
@@ -51,8 +57,9 @@ class AllCustomItemsPage extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileItem.withBorder(
           title: const Text('ExpansionTileItem.withBorder'),
           children: [
@@ -65,7 +72,9 @@ class AllCustomItemsPage extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 8,),
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileBorderItem(
           initiallyExpanded: true,
           title: const Text('ExpansionTileBorderItem'),
@@ -75,8 +84,9 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileLeafItem(
           initiallyExpanded: false,
           title: const Text('ExpansionTileLeafItem'),
@@ -86,11 +96,13 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileItem.leaf(
           initiallyExpanded: false,
-          title: const Text('ExpansionTileItem.leaf with isReverseLeaf == true'),
+          title:
+              const Text('ExpansionTileItem.leaf with isReverseLeaf == true'),
           expendedBorderColor: Colors.green,
           isReverseLeaf: true,
           children: const [
@@ -98,8 +110,9 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         const ExpansionTileWithoutBorderItem(
           initiallyExpanded: false,
           title: Text('ExpansionTileWithoutBorderItem'),
@@ -109,8 +122,9 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         const ExpansionTileItem.withoutBorder(
           initiallyExpanded: false,
           title: Text('ExpansionTileItem.withoutBorder'),
@@ -130,15 +144,20 @@ class AllCustomItemsPage extends StatelessWidget {
       children: [
         ExpansionTileItem.withBorder(
           expendedBorderColor: Colors.grey,
-          title: const Text('This title is very very long long long long long long long long long '),
-          subtitle: const Text('This subtitle is also very very long long long long long long long long long with red color', style: TextStyle(color: Colors.red),),
+          title: const Text(
+              'This title is very very long long long long long long long long long '),
+          subtitle: const Text(
+            'This subtitle is also very very long long long long long long long long long with red color',
+            style: TextStyle(color: Colors.red),
+          ),
           children: const [
             Text(
                 '''Null am eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileItem(
           title: const Text(
               'Item without TrailingIcon, but has Expanded border and Title border radius'),
@@ -157,8 +176,9 @@ class AllCustomItemsPage extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         const ExpansionTileItem(
           title: Text('Item without expanded Top border'),
           isHasBottomBorder: true,
@@ -171,8 +191,9 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileItem(
           initiallyExpanded: false,
           title: const Text(
@@ -202,8 +223,9 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileItem(
           initiallyExpanded: false,
           title: const Text('Item with custom border side radius'),
@@ -233,8 +255,9 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         ExpansionTileItem(
           initiallyExpanded: true,
           title: const Text('Item with default state is expand'),
@@ -255,8 +278,9 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         const ExpansionTileItem(
           initiallyExpanded: false,
           title: Text('ExpansionTile 9'),
@@ -275,8 +299,9 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 8,),
-
+        const SizedBox(
+          height: 8,
+        ),
         const ExpansionTileItem(
           initiallyExpanded: false,
           title: Text('Item without default vertical padding'),
@@ -296,13 +321,14 @@ class AllCustomItemsPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const SizedBox(height: 32,),
-
+        const SizedBox(
+          height: 32,
+        ),
       ],
     );
   }
 
-  Widget _buildInteractSection(BuildContext context){
+  Widget _buildInteractSection(BuildContext context) {
     return _buildSection(
       context,
       title: 'Try yourself with features',

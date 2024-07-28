@@ -11,18 +11,23 @@ class ExpandAlwaysCurrentPage extends StatelessWidget {
         title: const Text('Expand Always Current'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Text(
-                  'Always Expand only current item in group without collapsing when tapping again',
-                  style: TextStyle(fontSize: 12, color: Colors.grey[700])),
-              const SizedBox(
-                height: 8,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Text(
+                      'Always Expand only current item in group without collapsing when tapping again',
+                      style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  _buildContent(context),
+                ],
               ),
-              _buildContent(context),
-            ],
+            ),
           ),
         ),
       ),

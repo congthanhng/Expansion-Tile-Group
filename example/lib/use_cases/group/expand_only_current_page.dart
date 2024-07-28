@@ -11,18 +11,23 @@ class ExpandOnlyCurrentPage extends StatelessWidget {
         title: const Text('Expand only current'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Expand only current item in group',
-                  style: TextStyle(fontSize: 12, color: Colors.grey[700])),
-              const SizedBox(
-                height: 8,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Expand only current item in group',
+                      style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  _buildContent(context),
+                ],
               ),
-              _buildContent(context),
-            ],
+            ),
           ),
         ),
       ),

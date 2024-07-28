@@ -29,22 +29,28 @@ class _ListenGroupItemChangedPageState
         title: const Text('Item in group changed'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Text('Listen changed of any item in group',
-                  style: TextStyle(fontSize: 12, color: Colors.grey[700])),
-              const SizedBox(
-                height: 8,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Text('Listen changed of any item in group',
+                      style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Text(currentNoti,
+                      style:
+                          const TextStyle(fontSize: 16, color: Colors.black)),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  _buildContent(context)
+                ],
               ),
-              Text(currentNoti,
-                  style: const TextStyle(fontSize: 16, color: Colors.black)),
-              const SizedBox(
-                height: 8,
-              ),
-              _buildContent(context)
-            ],
+            ),
           ),
         ),
       ),

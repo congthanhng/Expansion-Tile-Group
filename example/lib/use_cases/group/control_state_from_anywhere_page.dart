@@ -14,50 +14,55 @@ class ControlStatePage extends StatelessWidget {
         title: const Text('Expand From Anywhere Page'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Text('Control expand/collapse state of an item from anywhere',
-                  style: TextStyle(fontSize: 12, color: Colors.grey[700])),
-              const SizedBox(
-                height: 8,
-              ),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
                 children: [
-                  MaterialButton(
-                    onPressed: () {
-                      key0.currentState?.toggle();
-                    },
-                    color: Colors.lightBlue,
-                    child: const Text('Toggle item 0'),
+                  Text('Control expand/collapse state of an item from anywhere',
+                      style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                  const SizedBox(
+                    height: 8,
                   ),
-                  MaterialButton(
-                    onPressed: () {
-                      key1.currentState?.collapse();
-                    },
-                    color: Colors.lightBlue,
-                    child: const Text('collapse item 1 if expanding'),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      MaterialButton(
+                        onPressed: () {
+                          key0.currentState?.toggle();
+                        },
+                        color: Colors.lightBlue,
+                        child: const Text('Toggle item 0'),
+                      ),
+                      MaterialButton(
+                        onPressed: () {
+                          key1.currentState?.collapse();
+                        },
+                        color: Colors.lightBlue,
+                        child: const Text('collapse item 1 if expanding'),
+                      ),
+                      MaterialButton(
+                        onPressed: () {
+                          key3.currentState?.expand();
+                        },
+                        color: Colors.lightBlue,
+                        child: const Text('expand item 2 if collapsing'),
+                      ),
+                    ],
                   ),
-                  MaterialButton(
-                    onPressed: () {
-                      key3.currentState?.expand();
-                    },
-                    color: Colors.lightBlue,
-                    child: const Text('expand item 2 if collapsing'),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  _buildContent(context),
+                  const SizedBox(
+                    height: 8,
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              _buildContent(context),
-              const SizedBox(
-                height: 8,
-              ),
-            ],
+            ),
           ),
         ),
       ),

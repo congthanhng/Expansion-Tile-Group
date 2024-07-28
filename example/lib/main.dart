@@ -74,23 +74,28 @@ class HomePage extends StatelessWidget {
         title: const Text('Expansion Tile Group Demo'),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            _buildItemSection(context),
-            _buildGroupSection(context),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _buildItemSection(context),
+                _buildGroupSection(context),
 
-            // _buildButton(
-            //   context,
-            //   title: 'Ignore behavior until a task completed',
-            //   routeName: RouteNamed.ignoreBehavior,
-            // ),
-            // _buildButton(
-            //   context,
-            //   title: 'Hide Subtitle on Expanded',
-            //   routeName: RouteNamed.hideSubtitle,
-            // ),
-          ],
+                // _buildButton(
+                //   context,
+                //   title: 'Ignore behavior until a task completed',
+                //   routeName: RouteNamed.ignoreBehavior,
+                // ),
+                // _buildButton(
+                //   context,
+                //   title: 'Hide Subtitle on Expanded',
+                //   routeName: RouteNamed.hideSubtitle,
+                // ),
+              ],
+            ),
+          ),
         ),
       ),
     );
