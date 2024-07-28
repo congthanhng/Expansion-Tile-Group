@@ -292,7 +292,6 @@ class ExpansionTileCustom extends StatefulWidget {
   ///
   final BorderRadius? borderRadius;
 
-
   /// Use [Border] objects to describe borders that do not depend on the reading
   /// direction.
   ///
