@@ -1,3 +1,14 @@
+## 1.3.0
+* New Feature:
+  - Add new item type: `ExpansionTileCard` also be called `ExpansionTileItem.card` inspired by [expansion_tile_card](https://pub.dev/packages/expansion_tile_card)
+* BREAKING CHANGE:
+  - Rename: `ExpansionTileCustom` to `ExpansionTileCore`
+  - Rename: `ExpansionTileBorderItem` to `ExpansionTileOutlined`
+  - Rename: `ExpansionTileWithoutBorderItem` to `ExpansionTileFlat`
+  - Rename: `ExpansionTileLeafItem` to `ExpansionTileLeaf`
+  - Rename: `ExpansionTileItem.withBorder` to `ExpansionTileItem.outlined`
+  - Rename: `ExpansionTileItem.withoutBorder` to `ExpansionTileItem.flat`
+
 ## 1.2.8
 * Update documentation
 
@@ -5,11 +16,10 @@
 * New Feature:
   - Added trailing builder [#41](https://github.com/congthanhng/Expansion-Tile-Group/pull/41)
   - New Item Type: `ExpansionTileLeafItem`
-  - Now you can call variant type item easily:
-    For Example: Instead of calling `ExpansionTileBorderItem`, now can call `ExpansionTileItem.withBorder`.
-    Similarly:
-      - `ExpansionTileWithoutBorderItem` => `ExpansionTileItem.withoutBorder`
-      - `ExpansionTileLeafItem` => `ExpansionTileItem.leaf`
+  - New way to call variants of `ExpansionTileItem`:
+    + `ExpansionTileItem.withBorder` similar with `ExpansionTileBorderItem`
+    + `ExpansionTileItem.withoutBorder` similar with `ExpansionTileWithoutBorderItem`
+    + `ExpansionTileItem.leaf` similar with `ExpansionTileLeafItem`
 * Fix:
   - Title and subtitle overflow fix [#44](https://github.com/congthanhng/Expansion-Tile-Group/pull/44)
 * Update examples

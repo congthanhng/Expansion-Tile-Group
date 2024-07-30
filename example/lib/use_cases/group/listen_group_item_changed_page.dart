@@ -11,7 +11,7 @@ class ListenGroupItemChangedPage extends StatefulWidget {
 
 class _ListenGroupItemChangedPageState
     extends State<ListenGroupItemChangedPage> {
-  final GlobalKey<ExpansionTileCustomState> key0 = GlobalKey();
+  final GlobalKey<ExpansionTileCoreState> key0 = GlobalKey();
 
   int currentItem = 0;
 

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class ControlStatePage extends StatelessWidget {
   ControlStatePage({Key? key}) : super(key: key);
-  final GlobalKey<ExpansionTileCustomState> key0 = GlobalKey();
-  final GlobalKey<ExpansionTileCustomState> key1 = GlobalKey();
-  final GlobalKey<ExpansionTileCustomState> key3 = GlobalKey();
+  final GlobalKey<ExpansionTileCoreState> key0 = GlobalKey();
+  final GlobalKey<ExpansionTileCoreState> key1 = GlobalKey();
+  final GlobalKey<ExpansionTileCoreState> key3 = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,7 @@ class ControlStatePage extends StatelessWidget {
       spaceBetweenItem: 8,
       onExpansionItemChanged: (index, isExpanded) {},
       children: [
-        ExpansionTileItem.withBorder(
+        ExpansionTileItem.outlined(
           expansionKey: key0,
           title: const Text('ExpansionTile 0'),
           children: [
@@ -127,7 +127,7 @@ class ControlStatePage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const ExpansionTileItem.withoutBorder(
+        const ExpansionTileItem.flat(
           initiallyExpanded: false,
           title: Text('ExpansionTile 5'),
           expendedBorderColor: Colors.green,

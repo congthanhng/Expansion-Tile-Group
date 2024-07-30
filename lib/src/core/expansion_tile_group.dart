@@ -21,7 +21,7 @@ class ExpansionTileGroup extends StatefulWidget {
 }
 
 class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
-  late final List<GlobalKey<ExpansionTileCustomState>> expansionTileKeys;
+  late final List<GlobalKey<ExpansionTileCoreState>> expansionTileKeys;
   late final List<ExpansionTileItem> expansionChildren;
 
   bool _isGroupTransforming = false;

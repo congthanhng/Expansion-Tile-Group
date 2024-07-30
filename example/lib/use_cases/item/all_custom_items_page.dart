@@ -60,7 +60,7 @@ class AllCustomItemsPage extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        ExpansionTileItem.withBorder(
+        ExpansionTileItem.outlined(
           title: const Text('ExpansionTileItem.withBorder'),
           children: [
             Material(
@@ -125,7 +125,7 @@ class AllCustomItemsPage extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        const ExpansionTileItem.withoutBorder(
+        const ExpansionTileItem.flat(
           initiallyExpanded: false,
           title: Text('ExpansionTileItem.withoutBorder'),
           expendedBorderColor: Colors.green,
@@ -142,7 +142,7 @@ class AllCustomItemsPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ExpansionTileItem.withBorder(
+        ExpansionTileItem.outlined(
           expendedBorderColor: Colors.grey,
           title: const Text(
               'This title is very very long long long long long long long long long '),

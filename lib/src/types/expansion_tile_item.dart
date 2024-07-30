@@ -1,4 +1,4 @@
-import 'package:expansion_tile_group/src/core/expansion_tile_custom.dart';
+import 'package:expansion_tile_group/src/core/expansion_tile_core.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionTileItem extends StatelessWidget {
@@ -43,7 +43,7 @@ class ExpansionTileItem extends StatelessWidget {
     this.trailingIcon,
   });
 
-  const ExpansionTileItem.withoutBorder({
+  const ExpansionTileItem.flat({
     super.key,
     required this.title,
     required this.children,
@@ -87,7 +87,7 @@ class ExpansionTileItem extends StatelessWidget {
             const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         expandedAlignment = expandedAlignment ?? Alignment.topLeft;
 
-  ExpansionTileItem.withBorder({
+  ExpansionTileItem.outlined({
     super.key,
     required this.title,
     required this.children,
@@ -208,7 +208,7 @@ class ExpansionTileItem extends StatelessWidget {
   final ValueChanged<bool>? onExpansionChanged;
 
   /// Specifies if the item is expanded or not.
-  final GlobalKey<ExpansionTileCustomState>? expansionKey;
+  final GlobalKey<ExpansionTileCoreState>? expansionKey;
 
   /// Specifies if the list tile is initially expanded (true) or collapsed (false, the default).
   final bool initiallyExpanded;
@@ -460,7 +460,7 @@ class ExpansionTileItem extends StatelessWidget {
     Widget? title,
     List<Widget>? children,
     ValueChanged<bool>? onExpansionChanged,
-    GlobalKey<ExpansionTileCustomState>? expansionKey,
+    GlobalKey<ExpansionTileCoreState>? expansionKey,
     bool? initiallyExpanded,
     EdgeInsetsGeometry? tilePadding,
     Alignment? expandedAlignment,
@@ -547,7 +547,7 @@ class ExpansionTileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: themeData ?? Theme.of(context).copyWith(),
-      child: ExpansionTileCustom(
+      child: ExpansionTileCore(
         key: expansionKey,
         onExpansionChanged: onExpansionChanged,
         initiallyExpanded: initiallyExpanded,

@@ -41,7 +41,7 @@ class _InteractionViewState extends State<InteractionView> {
         ),
         const Text('Check result below',
             style: TextStyle(fontSize: 16, color: Colors.black)),
-        ExpansionTileItem.withBorder(
+        ExpansionTileItem.outlined(
           expandedAlignment: Alignment.topLeft,
           isEnableExpanded: isEnableExpanded,
           isHideSubtitleOnExpanded: isHideSubtitle,
