@@ -1,7 +1,7 @@
 ## 1.3.0
 * New Feature:
   - Add new item type: `ExpansionTileCard` also be called `ExpansionTileItem.card` inspired by [expansion_tile_card](https://pub.dev/packages/expansion_tile_card)
-* BREAKING CHANGE:
+* *BREAKING CHANGE:*
   - Rename: `ExpansionTileCustom` to `ExpansionTileCore`
   - Rename: `ExpansionTileBorderItem` to `ExpansionTileOutlined`
   - Rename: `ExpansionTileWithoutBorderItem` to `ExpansionTileFlat`
@@ -29,7 +29,7 @@
 * New feature:
   - Hide subtitle on view expanded [#45](https://github.com/congthanhng/Expansion-Tile-Group/discussions/45)
 * Update examples
-* BREAKING CHANGE:
+* *BREAKING CHANGE:*
   - Rename: `ToggleType.expandAllAndCollapseAll` to `ToggleType.expandAllOrCollapseAll`
 
 ## 1.2.4
@@ -48,7 +48,7 @@
 
 ## 1.2.0
 * Update new flutter SDK version to 3.7 and fix warning from analyze
-* BREAKING CHANGE:
+* *BREAKING CHANGE:*
   - `theme.textTheme.subtitle1` is deprecated. Use `titleMedium` instead
 
 ## 1.1.9
@@ -85,7 +85,7 @@
 ## 1.0.1
 * Updated Readme
 * Temporary remove funding
-* BREAKING CHANGE: 
+* *BREAKING CHANGE:*
   - Fix spell: `expandAllAndCollapseALl` to `expandAllAndCollapseAll`
   
 ## 1.0.0
