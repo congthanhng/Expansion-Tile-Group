@@ -22,14 +22,14 @@ class ExpansionGroupExample extends StatelessWidget {
              Text('Title of expansion tile item 1'),
            ],
          ),
-         const ExpansionTileBorderItem(
+         const ExpansionTileOutlined(
            title: Text('ExpansionTile item 2'),
            expendedBorderColor: Colors.blue,
            children: [
              Text('Title of expansion tile item 2'),
            ],
          ),
-         const ExpansionTileWithoutBorderItem(
+         const ExpansionTileFlat(
            title: Text('ExpansionTile item 3'),
            expendedBorderColor: Colors.blue,
            children: [
@@ -61,20 +61,20 @@ class ExpansionGroupExample extends StatelessWidget {
 
 There are many types of `toggleType`, it support almost common case you will be met:
 
-| `toggleType` type         | Description                                                                                  |
-|---------------------------|----------------------------------------------------------------------------------------------|
-| `none`                    | It's default. Do nothing if an item changed behavior                                         |
-| `expandOnlyCurrent`       | When an item in group is expanded, would collapse all the others                             |
-| `collapseAll`             | Collapse all items if any item in group is collapsed                                         |
-| `expandAll`               | Expanded all items if any item in group is expanded                                          |
-| `expandAllAndCollapseAll` | Expanded/Collapsed all items if any item in group is Expanded/Collapsed                      |
-| `expandAlwaysCurrent`     | Expand tapped item and collapse all others, but not collapse the expanded one when tap again |
+| `toggleType` type        | Description                                                                                  |
+|--------------------------|----------------------------------------------------------------------------------------------|
+| `none`                   | It's default. Do nothing if an item changed behavior                                         |
+| `expandOnlyCurrent`      | When an item in group is expanded, would collapse all the others                             |
+| `collapseAll`            | Collapse all items if any item in group is collapsed                                         |
+| `expandAll`              | Expanded all items if any item in group is expanded                                          |
+| `expandAllOrCollapseAll` | Expanded/Collapsed all items if any item in group is Expanded/Collapsed                      |
+| `expandAlwaysCurrent`    | Expand tapped item and collapse all others, but not collapse the expanded one when tap again |
 
 
-|                                                                    |                                                                               |
-|--------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| **ToggleType.expandOnlyCurrent**   <br/> ![Image][ExpandedCurrent] | **ToggleType.collapseAll**          <br/>![Image][CollapseAll]                |
-| **ToggleType.expandAll** <br/>![Image][ExpandedAll]                | **ToggleType.expandAllAndCollapseAll** <br/>![Image][ExpandedAndCollapsedAll] |
+|                                                                    |                                                                              |
+|--------------------------------------------------------------------|------------------------------------------------------------------------------|
+| **ToggleType.expandOnlyCurrent**   <br/> ![Image][ExpandedCurrent] | **ToggleType.collapseAll**          <br/>![Image][CollapseAll]               |
+| **ToggleType.expandAll** <br/>![Image][ExpandedAll]                | **ToggleType.expandAllOrCollapseAll** <br/>![Image][ExpandedAndCollapsedAll] |
 
 ## Listen the changed of any item in the group
 
@@ -87,10 +87,10 @@ class ExpansionGroupExample extends StatelessWidget {
  Widget build(BuildContext context) {
    return ExpansionTileGroup(
        onExpansionItemChanged: (index, isExpanded) {
-         //index is position of item in the group,
-         //isExpanded present current behavior:
-         //- true is expanding,
-         //- false is collapsing
+         //index: the position of item that just changed state,
+         //isExpanded: present current behavior:
+         //- true: the item is expanding,
+         //- false: the item is collapsing
        },
        children: []
    );

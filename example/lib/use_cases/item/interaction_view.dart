@@ -13,6 +13,7 @@ class _InteractionViewState extends State<InteractionView> {
   bool isHideSubtitle = false;
   bool isHasTrailing = true;
   bool isDefaultVerticalPadding = true;
+  final GlobalKey<ExpansionTileCoreState> key0 = GlobalKey();
 
   final listIcon = <Widget>[
     const Icon(Icons.keyboard_arrow_down_outlined),
@@ -39,9 +40,11 @@ class _InteractionViewState extends State<InteractionView> {
         const SizedBox(
           height: 16,
         ),
-        const Text('Check result below',
-            style: TextStyle(fontSize: 16, color: Colors.black)),
-        ExpansionTileItem.withBorder(
+        const Text('Check all result below',
+            style: TextStyle(
+                fontSize: 16, color: Colors.red, fontWeight: FontWeight.w600)),
+        ExpansionTileItem.outlined(
+          expansionKey: key0,
           expandedAlignment: Alignment.topLeft,
           isEnableExpanded: isEnableExpanded,
           isHideSubtitleOnExpanded: isHideSubtitle,
@@ -49,7 +52,7 @@ class _InteractionViewState extends State<InteractionView> {
           isDefaultVerticalPadding: isDefaultVerticalPadding,
           trailingIcon: listIcon[currentIcon % listIcon.length],
           expendedBorderColor: Colors.grey,
-          title: const Text('ExpansionTileItem.withBorder'),
+          title: const Text('ExpansionTileItem Results'),
           subtitle: const Text(
             'Subtitle',
             style: TextStyle(color: Colors.red),
@@ -65,63 +68,99 @@ class _InteractionViewState extends State<InteractionView> {
 
   Widget _buildActions(BuildContext context) {
     return Column(children: [
+      const Divider(),
       _buildRow(context,
-          title: 'Lock expanded state',
+          title: 'Lock expanded state so that you can NOT expand anymore',
           button: ElevatedButton.icon(
             icon: Icon(isEnableExpanded ? Icons.lock_outline : Icons.lock_open),
-            label: Text(isEnableExpanded ? 'Lock' : 'Unlock'),
+            label: Text(isEnableExpanded ? 'Do Lock' : 'Do Unlock'),
             onPressed: () {
               setState(() {
                 isEnableExpanded = !isEnableExpanded;
               });
             },
           )),
+      const Divider(),
       _buildRow(context,
-          title: 'Hide subtitle on expanded view',
+          title: 'Hide the subtitle whenever you expand the view',
           button: ElevatedButton.icon(
             icon: Icon(isHideSubtitle
                 ? Icons.visibility_outlined
                 : Icons.visibility_off_outlined),
-            label: Text(isHideSubtitle ? 'Show' : 'Hide'),
+            label: Text(isHideSubtitle ? 'Do Show' : 'Do Hide'),
             onPressed: () {
               setState(() {
                 isHideSubtitle = !isHideSubtitle;
               });
             },
           )),
+      const Divider(),
       _buildRow(context,
-          title: 'Remove completely trailing',
+          title: 'Remove completely trailing not like ExpansionTile',
           button: ElevatedButton.icon(
             icon: Icon(isHasTrailing ? Icons.remove : Icons.add),
-            label: Text(isHasTrailing ? 'Remove trailing' : 'Has trailing'),
+            label: Text(isHasTrailing ? 'Remove trailing' : 'Add trailing'),
             onPressed: () {
               setState(() {
                 isHasTrailing = !isHasTrailing;
               });
             },
           )),
+      const Divider(),
       _buildRow(context,
           title: 'Remove completely default vertical padding of ExpansionTile',
           button: ElevatedButton.icon(
             icon: Icon(isDefaultVerticalPadding ? Icons.remove : Icons.add),
-            label: Text(isDefaultVerticalPadding ? 'Remove Default' : 'Add'),
+            label: Text(isDefaultVerticalPadding
+                ? 'Remove Default Padding'
+                : 'Add Default Padding'),
             onPressed: () {
               setState(() {
                 isDefaultVerticalPadding = !isDefaultVerticalPadding;
               });
             },
           )),
+      const Divider(),
       _buildRow(context,
-          title: 'Change Trailing Icon and keep rotate animation',
+          title: 'Change Trailing Icon with keeping rotate animation',
           button: ElevatedButton.icon(
             icon: listIcon[currentIcon % listIcon.length],
-            label: const Text('Change'),
+            iconAlignment: IconAlignment.end,
+            label: const Text('Change icon'),
             onPressed: () {
               setState(() {
                 currentIcon = currentIcon + 1;
               });
             },
           )),
+      const Divider(),
+      Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          MaterialButton(
+            onPressed: () {
+              key0.currentState?.toggle();
+            },
+            color: Colors.lightBlue,
+            child: const Text('Toggle item'),
+          ),
+          MaterialButton(
+            onPressed: () {
+              key0.currentState?.collapse();
+            },
+            color: Colors.lightBlue,
+            child: const Text('collapse item'),
+          ),
+          MaterialButton(
+            onPressed: () {
+              key0.currentState?.expand();
+            },
+            color: Colors.lightBlue,
+            child: const Text('expand item'),
+          ),
+        ],
+      ),
     ]);
   }
 

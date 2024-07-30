@@ -9,7 +9,7 @@ const Duration _kExpand = Duration(milliseconds: 200);
 /// This widget is typically used with [ListView] to create an
 /// "expand / collapse" list entry. When used with scrolling widgets like
 /// [ListView], a unique [PageStorageKey] must be specified to enable the
-/// [ExpansionTileCustom] to save and restore its expanded state when it is scrolled
+/// [ExpansionTileCore] to save and restore its expanded state when it is scrolled
 /// in and out of view.
 ///
 /// This class overrides the [ListTileThemeData.iconColor] and [ListTileThemeData.textColor]
@@ -33,8 +33,8 @@ const Duration _kExpand = Duration(milliseconds: 200);
 ///    expansion tile represents a sublist.
 ///  * The "Expand and collapse" section of
 ///    <https://material.io/components/lists#types>
-class ExpansionTileCustom extends StatefulWidget {
-  const ExpansionTileCustom({
+class ExpansionTileCore extends StatefulWidget {
+  const ExpansionTileCore({
     Key? key,
     this.leading,
     required this.title,
@@ -358,10 +358,10 @@ class ExpansionTileCustom extends StatefulWidget {
   final Widget? trailingIcon;
 
   @override
-  State<ExpansionTileCustom> createState() => ExpansionTileCustomState();
+  State<ExpansionTileCore> createState() => ExpansionTileCoreState();
 }
 
-class ExpansionTileCustomState extends State<ExpansionTileCustom>
+class ExpansionTileCoreState extends State<ExpansionTileCore>
     with SingleTickerProviderStateMixin {
   static final Animatable<double> _easeOutTween =
       CurveTween(curve: Curves.easeOut);

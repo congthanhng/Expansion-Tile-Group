@@ -9,11 +9,11 @@ By default, `ExpansionTileItem` will look exactly standard [ExpansionTile][Expan
 
 Also, we have supported you some kinds of `ExpansionTileItem` that help you easier define desirable UIs.
 
-`ExpansionTileBorderItem` , `ExpansionTileWithoutBorderItem`, `ExpansionTileLeafItem`
+`ExpansionTileOutlined` , `ExpansionTileFlat`, `ExpansionTileLeaf`, `ExpansionTileCard`
 
-To call them in the app, there are 2 ways:
-- Call directly: `ExpansionTileBorderItem` , `ExpansionTileWithoutBorderItem`, `ExpansionTileLeafItem`.
-- Call from `ExpansionTileItem`: `ExpansionTileItem.withBorder`, `ExpansionTileItem.withoutBorder`, `ExpansionTileItem.leaf`.
+To use them, there are 2 ways:
+- Call directly: `ExpansionTileOutlined` , `ExpansionTileFlat`, `ExpansionTileLeaf`, `ExpansionTileCard`.
+- Call from `ExpansionTileItem`: `ExpansionTileItem.outlined`, `ExpansionTileItem.flat`, `ExpansionTileItem.leaf`, `ExpansionTileItem.card`.
 
 For Example:
 
@@ -21,16 +21,13 @@ For Example:
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExampleExpandFromAnywherePage extends StatelessWidget {
+class ExampleExpandFromAnywhere extends StatelessWidget {
  ExampleExpandFromAnywherePage({Key? key}) : super(key: key);
  
  @override
  Widget build(BuildContext context) {
    return Scaffold(
-     appBar: AppBar(
-       title: const Text('Expand From Anywhere Page'),
-     ),
-     body: ExpansionTileBorderItem(
+     body: ExpansionTileItem.outlined(
        title: const Text('ExpansionTile 0'),
        children: [
          const Text('body content of expansion')
@@ -46,9 +43,11 @@ More customizes of `ExpansionTileItem` you can check out the demo below, pay you
 ![Custom expansion](https://user-images.githubusercontent.com/15138747/207923692-ebb70b23-7067-4fdf-af5c-09f3c1a537be.gif)
 
 ## Easy control behaviors of an ExpansionTileItem from anywhere
-You can expand/collapse any `ExpansionTileItem` at anywhere in the app.
+You can expand/collapse an `ExpansionTileItem` from anywhere in the app.
 
-First you need create a `GlobalKey<ExpansionTileCustomState>` look like this:
+First you need create a `GlobalKey<ExpansionTileCoreState>`. 
+
+For example:
 
 ```dart
 import 'package:expansion_tile_group/expansion_tile_group.dart';
@@ -57,12 +56,12 @@ import 'package:flutter/material.dart';
 class ExampleExpandFromAnywherePage extends StatelessWidget {
  ExampleExpandFromAnywherePage({Key? key}) : super(key: key);
 
- final GlobalKey<ExpansionTileCustomState> itemKey = GlobalKey();
+ final GlobalKey<ExpansionTileCoreState> itemKey = GlobalKey();
 
 }
 ```
 
-After that you set this `GlobalKey<ExpansionTileCustomState>` into an `ExpansionTileItem` (or extends of this class) via `expansionKey` argument:
+Then you set this `itemKey` into any type of `ExpansionTileItem` that you want to control the behaviors:
 
 ```dart
 import 'package:expansion_tile_group/expansion_tile_group.dart';
@@ -71,7 +70,7 @@ import 'package:flutter/material.dart';
 class ExampleExpandFromAnywherePage extends StatelessWidget {
  ExampleExpandFromAnywherePage({Key? key}) : super(key: key);
 
- final GlobalKey<ExpansionTileCustomState> itemKey = GlobalKey();
+ final GlobalKey<ExpansionTileCoreState> itemKey = GlobalKey();
 
  @override
  Widget build(BuildContext context) {
@@ -79,7 +78,7 @@ class ExampleExpandFromAnywherePage extends StatelessWidget {
      appBar: AppBar(
        title: const Text('Expand From Anywhere Page'),
      ),
-     body: ExpansionTileBorderItem(
+     body: ExpansionTileItem(
        title: const Text('ExpansionTile 0'),
        expansionKey: itemKey,
        children: [
@@ -91,19 +90,19 @@ class ExampleExpandFromAnywherePage extends StatelessWidget {
 }
 ```
 
-Now if you want to expand or collapse this `ExpansionTileItem`, just call like this.
+Now if you want to expand or collapse this `ExpansionTileItem`, just call:
 
-For expand:
+To expand:
 ```dart
 itemKey.currentState?.expand()
 ```
 
-For collapse:
+To collapse:
 ```dart
 itemKey.currentState?.collapse()
 ```
 
-For Toggle:
+To Toggle:
 ```dart
 itemKey.currentState?.toggle()
 ```
@@ -111,17 +110,17 @@ itemKey.currentState?.toggle()
 ![Control behavior anywhere](https://user-images.githubusercontent.com/15138747/207922434-83d06656-2c35-4e03-8b7e-40643fc2357b.gif)
 
 ## Remove completely trailing
-The standard [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) widget doesn't have anyway to remove completely the `trailing` (the arrow icon is removed but the area is NOT), so that in some case, the `title` is not extended the full width.
+The standard [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) widget does NOT have anyway to remove completely the `trailing` (the arrow icon is removed but the area is NOT), so that in some case, the `title` is not extended the full width.
 
-With this package, just set `isHasTrailing` is `false`, the `trailing` will be removed completely (that includes bound area, arrow icon).
+With our package, just set `isHasTrailing` is `false`, the `trailing` will be removed completely (that includes bound area, arrow icon).
 
 ## Force behavior
-You can force the behavior of an `ExpansionTileItem` to expand or NOT.
-It's very helpful when you want to prohibit expansion until a task is completed.
-Just setting it with `isEnableExpanded` parameter.
+You can prevent `ExpansionTileItem` to expand by adding `isEnableExpanded` is `false`.
+It is very helpful when you want to complete some tasks before expand the item.
 
-Notice: When you wrap items with `ExpansionTileGroup`, `isEnableExpanded` will be not worked perfectly, because all the children in `ExpansionTileGroup` are automatically created a `key`,
-so it will not change the value of `isEnableExpanded` when you rebuild the page.
+Notice: When you wrap items with `ExpansionTileGroup` to use group feature, the `isEnableExpanded` will be not worked perfectly.
+The reason for that is the children in this group are always automatically created a new `key` for the group can manage the behaviors of them,
+As the result, whenever you rebuild the widget, it will not change the value of `isEnableExpanded`.
 
 ## Remove completely default vertical title padding
 Now you can remove completely default vertical title padding by setting `isDefaultVerticalPadding` is `false`
@@ -172,6 +171,17 @@ Now you can change default trailing icon by calling `trailingIcon`, it is retrie
 | `isHideSubtitleOnExpanded`   | Hide Subtitle when view is expanded                                                                                                                                                              |
 | `trailingIcon`               | Change default trailing icon with keeping rotate animation                                                                                                                                       |
 
+## Additional ExpansionTileLeaf parameters
+| Parameter       | Description                                                                |
+|-----------------|----------------------------------------------------------------------------|
+| `leafRadius`    | The border radius of leaf. Default is 20                                   |
+| `isReverseLeaf` | Reverse current leaf shape. Default shape is `Bottom-Left` and `Top-Right` |
+| `isOutlined`    | Decide the leaf is outlined shape. Default is `true`                       |
+
+## Additional ExpansionTileCard parameters
+| Parameter   | Description                                                                                        |
+|-------------|----------------------------------------------------------------------------------------------------|
+| `elevation` | The z-coordinate at which to place this card. This controls the size of the shadow below the card. |
 
 [ExpansionTile]: https://api.flutter.dev/flutter/material/ExpansionTile-class.html
 [ItemTypes]: https://user-images.githubusercontent.com/15138747/208438578-d4bd3321-67cc-4844-b381-c8f29e367baa.gif
