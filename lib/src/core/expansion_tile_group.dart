@@ -9,7 +9,7 @@ class ExpansionTileGroup extends StatefulWidget {
       this.onExpansionItemChanged,
       this.spaceBetweenItem = 0.0})
       : assert(spaceBetweenItem >= 0.0,
-            'Error: Please set the spaceBetweenItem of ExpansionTileGroup must be >= 0'),
+            '[Error] ExpansionTileGroup: The spaceBetweenItem must be >= 0'),
         super(key: key);
   final List<ExpansionTileItem> children;
   final ToggleType toggleType;

@@ -27,13 +27,18 @@ class ExpansionTileLeafItem extends ExpansionTileItem {
     super.themeData,
     super.boxShadow,
     super.clipBehavior,
-    super.collapsedBorderColor,
-    super.expendedBorderColor,
     super.trailingIcon,
-    Alignment? expandedAlignment,
-    EdgeInsetsGeometry? childrenPadding,
+    super.expandedAlignment,
+    super.childrenPadding,
+    super.isHasTrailing,
+    super.isDefaultVerticalPadding,
+    super.isEnableExpanded,
+    super.isHideSubtitleOnExpanded,
+    bool isOutlined = false,
     double? leafRadius,
     bool isReverseLeaf = false,
+    Color? collapsedBorderColor,
+    Color? expendedBorderColor,
   }) : super(
           borderRadius: isReverseLeaf
               ? BorderRadius.only(
@@ -42,12 +47,11 @@ class ExpansionTileLeafItem extends ExpansionTileItem {
               : BorderRadius.only(
                   bottomLeft: Radius.circular(leafRadius ?? 20),
                   topRight: Radius.circular(leafRadius ?? 20)),
-          childrenPadding: childrenPadding ??
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          expandedAlignment: expandedAlignment ?? Alignment.topLeft,
-          isHasBottomBorder: true,
-          isHasLeftBorder: true,
-          isHasRightBorder: true,
-          isHasTopBorder: true,
+          collapsedBorderColor: collapsedBorderColor ?? Colors.grey,
+          expendedBorderColor: expendedBorderColor ?? Colors.blue,
+          isHasBottomBorder: isOutlined ? false : true,
+          isHasLeftBorder: isOutlined ? false : true,
+          isHasRightBorder: isOutlined ? false : true,
+          isHasTopBorder: isOutlined ? false : true,
         );
 }

@@ -29,12 +29,12 @@ class _MyAppState extends State<MyApp> {
             return MaterialPageRoute(builder: (context) => const HomePage());
           case RouteNamed.allCustomItems:
             return MaterialPageRoute(
-                builder: (context) => const AllCustomItemsPage());
+                builder: (context) => const ItemFeaturesPage());
           case RouteNamed.controlState:
             return MaterialPageRoute(builder: (context) => ControlStatePage());
           case RouteNamed.listenGroupItemChanged:
             return MaterialPageRoute(
-                builder: (context) => const ListenGroupItemChangedPage());
+                builder: (context) => const ListenChangedItemPage());
           case RouteNamed.expandOnlyCurrent:
             return MaterialPageRoute(
                 builder: (context) => const ExpandOnlyCurrentPage());
@@ -47,15 +47,9 @@ class _MyAppState extends State<MyApp> {
           case RouteNamed.expandOrCollapseAll:
             return MaterialPageRoute(
                 builder: (context) => const ExpandAndCollapseAllPage());
-          case RouteNamed.ignoreBehavior:
-            return MaterialPageRoute(
-                builder: (context) => const IgnoreBehaviorPage());
           case RouteNamed.expandAlwaysCurrent:
             return MaterialPageRoute(
                 builder: (context) => const ExpandAlwaysCurrentPage());
-          case RouteNamed.hideSubtitle:
-            return MaterialPageRoute(
-                builder: (context) => const HideSubtitleOnExpandedPage());
           default:
             return MaterialPageRoute(builder: (context) => const HomePage());
         }
@@ -82,17 +76,6 @@ class HomePage extends StatelessWidget {
               children: [
                 _buildItemSection(context),
                 _buildGroupSection(context),
-
-                // _buildButton(
-                //   context,
-                //   title: 'Ignore behavior until a task completed',
-                //   routeName: RouteNamed.ignoreBehavior,
-                // ),
-                // _buildButton(
-                //   context,
-                //   title: 'Hide Subtitle on Expanded',
-                //   routeName: RouteNamed.hideSubtitle,
-                // ),
               ],
             ),
           ),
@@ -104,7 +87,7 @@ class HomePage extends StatelessWidget {
   Widget _buildItemSection(BuildContext context) {
     return _buildSection(
       context,
-      title: 'Powerful Custom Items',
+      title: 'Item Features',
       description: 'Features can be explored are:\n'
           '- Show all custom types\n'
           '- Hide subtitle on expanded view\n'
@@ -123,43 +106,50 @@ class HomePage extends StatelessWidget {
   Widget _buildGroupSection(BuildContext context) {
     return _buildSection(
       context,
-      title: 'Group Items Management & Behaviors',
+      title: 'Group features',
       body: Column(
         children: [
+          const Divider(),
           _buildRow(
             context,
-            title: 'expandOnlyCurrent:',
+            title: 'ToggleType: expandOnlyCurrent',
             // subtitle: 'Expand only current item in group',
             routeName: RouteNamed.expandOnlyCurrent,
           ),
+          const Divider(),
           _buildRow(
             context,
-            title: 'expandAlwaysCurrent:',
+            title: 'ToggleType: expandAlwaysCurrent',
             routeName: RouteNamed.expandAlwaysCurrent,
           ),
+          const Divider(),
           _buildRow(
             context,
-            title: 'expandAll:',
+            title: 'ToggleType: expandAll',
             routeName: RouteNamed.expandAll,
           ),
+          const Divider(),
           _buildRow(
             context,
-            title: 'collapseAll:',
+            title: 'ToggleType: collapseAll',
             routeName: RouteNamed.collapseAll,
           ),
+          const Divider(),
           _buildRow(
             context,
-            title: 'expandAllOrCollapseAll:',
+            title: 'ToggleType: expandAllOrCollapseAll',
             routeName: RouteNamed.expandOrCollapseAll,
           ),
+          const Divider(),
           _buildRow(
             context,
-            title: 'Listen changed of any item in group:',
+            title: 'Listen changed of any item in group',
             routeName: RouteNamed.listenGroupItemChanged,
           ),
+          const Divider(),
           _buildRow(
             context,
-            title: 'Control expand/collapse state of an item from anywhere:',
+            title: 'Control expand/collapse state of an item from anywhere',
             routeName: RouteNamed.controlState,
           ),
         ],
@@ -181,9 +171,9 @@ class HomePage extends StatelessWidget {
         children: [
           Text(title,
               style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-              )),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.red)),
           if (description != null)
             Text(description,
                 style: TextStyle(fontSize: 16, color: Colors.grey[700])),

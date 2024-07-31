@@ -10,7 +10,7 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
     super.expansionKey,
     super.initiallyExpanded = false,
     super.tilePadding,
-    Alignment? expandedAlignment,
+    super.expandedAlignment,
     super.collapsedIconColor,
     super.expandedCrossAxisAlignment,
     super.iconColor,
@@ -20,13 +20,12 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
     super.controlAffinity,
     super.collapsedTextColor,
     super.collapsedBackgroundColor,
-    EdgeInsetsGeometry? childrenPadding,
+    super.childrenPadding,
     super.trailing,
     super.leading,
     super.backgroundColor,
     super.decoration,
     super.borderRadius,
-    BoxBorder? border,
     super.themeData,
     super.boxShadow,
     super.clipBehavior,
@@ -41,10 +40,8 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
     super.isDefaultVerticalPadding,
     super.isHideSubtitleOnExpanded,
     super.trailingIcon,
+    BoxBorder? border,
   }) : super(
           border: border ?? const Border(),
-          childrenPadding: childrenPadding ??
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          expandedAlignment: expandedAlignment ?? Alignment.topLeft,
         );
 }

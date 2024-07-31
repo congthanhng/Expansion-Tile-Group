@@ -79,13 +79,10 @@ class ExpansionTileItem extends StatelessWidget {
     this.isEnableExpanded,
     this.isDefaultVerticalPadding,
     this.isHideSubtitleOnExpanded,
+    this.childrenPadding,
+    this.expandedAlignment,
     BoxBorder? border,
-    EdgeInsetsGeometry? childrenPadding,
-    Alignment? expandedAlignment,
-  })  : border = border ?? const Border(),
-        childrenPadding = childrenPadding ??
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        expandedAlignment = expandedAlignment ?? Alignment.topLeft;
+  }) : border = border ?? const Border();
 
   ExpansionTileItem.outlined({
     super.key,
@@ -115,25 +112,20 @@ class ExpansionTileItem extends StatelessWidget {
     this.trailingIcon,
     this.border,
     this.isHideSubtitleOnExpanded,
-    EdgeInsetsGeometry? childrenPadding,
-    Alignment? expandedAlignment,
+    this.childrenPadding,
+    this.expandedAlignment,
+    this.isHasTrailing,
+    this.isEnableExpanded,
     BorderRadius? borderRadius,
     Color? collapsedBorderColor,
     Color? expendedBorderColor,
-    bool? isHasTrailing,
-    bool? isEnableExpanded,
   })  : borderRadius = borderRadius ?? BorderRadius.circular(8),
-        childrenPadding = childrenPadding ??
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        expandedAlignment = expandedAlignment ?? Alignment.topLeft,
         collapsedBorderColor = collapsedBorderColor ?? Colors.grey,
         expendedBorderColor = expendedBorderColor ?? Colors.blue,
         isHasBottomBorder = true,
         isHasLeftBorder = true,
         isHasRightBorder = true,
-        isHasTopBorder = true,
-        isHasTrailing = isHasTrailing ?? true,
-        isEnableExpanded = isEnableExpanded ?? true;
+        isHasTopBorder = true;
 
   ExpansionTileItem.leaf({
     super.key,
@@ -163,12 +155,12 @@ class ExpansionTileItem extends StatelessWidget {
     this.trailingIcon,
     this.border,
     this.isHideSubtitleOnExpanded,
-    EdgeInsetsGeometry? childrenPadding,
-    Alignment? expandedAlignment,
+    this.childrenPadding,
+    this.expandedAlignment,
+    this.isHasTrailing,
+    this.isEnableExpanded,
     Color? collapsedBorderColor,
     Color? expendedBorderColor,
-    bool? isHasTrailing,
-    bool? isEnableExpanded,
     double? leafRadius,
     bool isReverseLeaf = false,
   })  : borderRadius = isReverseLeaf
@@ -178,17 +170,12 @@ class ExpansionTileItem extends StatelessWidget {
             : BorderRadius.only(
                 bottomLeft: Radius.circular(leafRadius ?? 20),
                 topRight: Radius.circular(leafRadius ?? 20)),
-        childrenPadding = childrenPadding ??
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        expandedAlignment = expandedAlignment ?? Alignment.topLeft,
         collapsedBorderColor = collapsedBorderColor ?? Colors.grey,
         expendedBorderColor = expendedBorderColor ?? Colors.blue,
         isHasBottomBorder = true,
         isHasLeftBorder = true,
         isHasRightBorder = true,
-        isHasTopBorder = true,
-        isHasTrailing = isHasTrailing ?? true,
-        isEnableExpanded = isEnableExpanded ?? true;
+        isHasTopBorder = true;
 
   /// The primary content of the list item.
   ///
