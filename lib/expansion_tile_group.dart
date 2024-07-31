@@ -14,3 +14,4 @@ export 'package:expansion_tile_group/src/types/expansion_tile_outlined.dart';
 export 'package:expansion_tile_group/src/types/expansion_tile_item.dart';
 export 'package:expansion_tile_group/src/types/expansion_tile_leaf.dart';
 export 'package:expansion_tile_group/src/types/expansion_tile_flat.dart';
+export 'package:expansion_tile_group/src/types/expansion_tile_card.dart';

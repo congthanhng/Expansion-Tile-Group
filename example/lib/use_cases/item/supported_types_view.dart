@@ -10,21 +10,36 @@ class SupportedTypesView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
-          height: 8,
+          height: 16,
         ),
         ExpansionTileItem(
           title: const Text('ExpansionTileItem'),
           children: _buildDefaultChildren(context),
         ),
         const SizedBox(
-          height: 8,
+          height: 16,
+        ),
+        ExpansionTileCard(
+          title: const Text('ExpansionTileCard'),
+          children: _buildDefaultChildren(context),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        ExpansionTileItem.card(
+          title: const Text('ExpansionTileItem.card'),
+          elevation: 5,
+          children: _buildDefaultChildren(context),
+        ),
+        const SizedBox(
+          height: 16,
         ),
         ExpansionTileItem.outlined(
           title: const Text('ExpansionTileItem.outlined'),
           children: _buildDefaultChildren(context),
         ),
         const SizedBox(
-          height: 8,
+          height: 16,
         ),
         ExpansionTileBorderItem(
           initiallyExpanded: true,
@@ -33,7 +48,7 @@ class SupportedTypesView extends StatelessWidget {
           children: _buildDefaultChildren(context),
         ),
         const SizedBox(
-          height: 8,
+          height: 16,
         ),
         ExpansionTileLeafItem(
           initiallyExpanded: false,
@@ -42,7 +57,7 @@ class SupportedTypesView extends StatelessWidget {
           children: _buildDefaultChildren(context),
         ),
         const SizedBox(
-          height: 8,
+          height: 16,
         ),
         ExpansionTileItem.leaf(
           initiallyExpanded: false,
@@ -53,7 +68,7 @@ class SupportedTypesView extends StatelessWidget {
           children: _buildDefaultChildren(context),
         ),
         const SizedBox(
-          height: 8,
+          height: 16,
         ),
         ExpansionTileWithoutBorderItem(
           initiallyExpanded: false,
@@ -62,7 +77,7 @@ class SupportedTypesView extends StatelessWidget {
           children: _buildDefaultChildren(context),
         ),
         const SizedBox(
-          height: 8,
+          height: 16,
         ),
         ExpansionTileItem.flat(
           initiallyExpanded: false,

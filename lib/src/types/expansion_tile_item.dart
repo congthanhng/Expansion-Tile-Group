@@ -1,6 +1,8 @@
 import 'package:expansion_tile_group/src/core/expansion_tile_core.dart';
 import 'package:flutter/material.dart';
 
+import 'expansion_tile_card.dart';
+
 class ExpansionTileItem extends StatelessWidget {
   const ExpansionTileItem({
     super.key,
@@ -176,6 +178,83 @@ class ExpansionTileItem extends StatelessWidget {
         isHasLeftBorder = true,
         isHasRightBorder = true,
         isHasTopBorder = true;
+
+  factory ExpansionTileItem.card(
+          {Key? key,
+          required Widget title,
+          required List<Widget> children,
+          ValueChanged<bool>? onExpansionChanged,
+          GlobalKey<ExpansionTileCoreState>? expansionKey,
+          bool? initiallyExpanded,
+          EdgeInsetsGeometry? tilePadding,
+          Alignment? expandedAlignment,
+          Color? collapsedIconColor,
+          CrossAxisAlignment? expandedCrossAxisAlignment,
+          Color? iconColor,
+          Color? textColor,
+          Widget? subtitle,
+          bool? maintainState,
+          ListTileControlAffinity? controlAffinity,
+          Color? collapsedTextColor,
+          Color? collapsedBackgroundColor,
+          EdgeInsetsGeometry? childrenPadding,
+          Widget? trailing,
+          Widget? leading,
+          Color? backgroundColor,
+          Decoration? decoration,
+          BorderRadius? borderRadius,
+          BoxBorder? border,
+          Clip? clipBehavior,
+          ThemeData? themeData,
+          List<BoxShadow>? boxShadow,
+          Color? expendedBorderColor,
+          Color? collapsedBorderColor,
+          bool? isHasTopBorder,
+          bool? isHasBottomBorder,
+          bool? isHasLeftBorder,
+          bool? isHasRightBorder,
+          bool? isHasTrailing,
+          bool? isEnableExpanded,
+          bool? isDefaultVerticalPadding,
+          bool? isHideSubtitleOnExpanded,
+          Widget? trailingIcon,
+          double? elevation}) =>
+      ExpansionTileCard(
+          elevation: elevation,
+          key: key,
+          title: title,
+          expansionKey: expansionKey,
+          onExpansionChanged: onExpansionChanged,
+          backgroundColor: backgroundColor,
+          leading: leading,
+          trailing: trailing,
+          childrenPadding: childrenPadding,
+          collapsedBackgroundColor: collapsedBackgroundColor,
+          collapsedTextColor: collapsedTextColor,
+          controlAffinity: controlAffinity,
+          maintainState: maintainState ?? false,
+          subtitle: subtitle,
+          textColor: textColor,
+          initiallyExpanded: initiallyExpanded ?? false,
+          tilePadding: tilePadding,
+          iconColor: iconColor,
+          expandedCrossAxisAlignment: expandedCrossAxisAlignment,
+          expandedAlignment: expandedAlignment,
+          collapsedIconColor: collapsedIconColor,
+          decoration: decoration,
+          borderRadius: borderRadius,
+          border: border,
+          themeData: themeData,
+          clipBehavior: clipBehavior,
+          boxShadow: boxShadow,
+          collapsedBorderColor: collapsedBorderColor,
+          expendedBorderColor: expendedBorderColor,
+          isHasTrailing: isHasTrailing,
+          isEnableExpanded: isEnableExpanded,
+          isDefaultVerticalPadding: isDefaultVerticalPadding,
+          isHideSubtitleOnExpanded: isHideSubtitleOnExpanded,
+          trailingIcon: trailingIcon,
+          children: children);
 
   /// The primary content of the list item.
   ///
