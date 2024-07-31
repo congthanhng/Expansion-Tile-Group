@@ -20,7 +20,7 @@ class SupportedTypesView extends StatelessWidget {
           height: 8,
         ),
         ExpansionTileItem.outlined(
-          title: const Text('ExpansionTileItem.withBorder'),
+          title: const Text('ExpansionTileItem.outlined'),
           children: _buildDefaultChildren(context),
         ),
         const SizedBox(
@@ -28,7 +28,7 @@ class SupportedTypesView extends StatelessWidget {
         ),
         ExpansionTileBorderItem(
           initiallyExpanded: true,
-          title: const Text('ExpansionTileBorderItem'),
+          title: const Text('ExpansionTileOutlined'),
           expendedBorderColor: Colors.red,
           children: _buildDefaultChildren(context),
         ),
@@ -37,7 +37,7 @@ class SupportedTypesView extends StatelessWidget {
         ),
         ExpansionTileLeafItem(
           initiallyExpanded: false,
-          title: const Text('ExpansionTileLeafItem'),
+          title: const Text('ExpansionTileLeaf'),
           expendedBorderColor: Colors.blue,
           children: _buildDefaultChildren(context),
         ),
@@ -57,7 +57,7 @@ class SupportedTypesView extends StatelessWidget {
         ),
         ExpansionTileWithoutBorderItem(
           initiallyExpanded: false,
-          title: const Text('ExpansionTileWithoutBorderItem'),
+          title: const Text('ExpansionTileFlat'),
           expendedBorderColor: Colors.green,
           children: _buildDefaultChildren(context),
         ),
@@ -66,7 +66,7 @@ class SupportedTypesView extends StatelessWidget {
         ),
         ExpansionTileItem.flat(
           initiallyExpanded: false,
-          title: const Text('ExpansionTileItem.withoutBorder'),
+          title: const Text('ExpansionTileItem.flat'),
           expendedBorderColor: Colors.green,
           children: _buildDefaultChildren(context),
         ),

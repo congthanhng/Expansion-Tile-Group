@@ -49,7 +49,7 @@ class _InteractionViewState extends State<InteractionView> {
           isDefaultVerticalPadding: isDefaultVerticalPadding,
           trailingIcon: listIcon[currentIcon % listIcon.length],
           expendedBorderColor: Colors.grey,
-          title: const Text('ExpansionTileItem.withBorder'),
+          title: const Text('ExpansionTileItem Results'),
           subtitle: const Text(
             'Subtitle',
             style: TextStyle(color: Colors.red),
