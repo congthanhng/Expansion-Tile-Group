@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'example_action_card.dart';
 import 'example_action_drop.dart';
+import 'example_action_progress.dart';
 import 'example_action_stetch.dart';
 
 class FantasyPage extends StatelessWidget {
@@ -36,6 +37,10 @@ class FantasyPage extends StatelessWidget {
                 height: 24,
               ),
               ExampleActionStretch(),
+              const SizedBox(
+                height: 24,
+              ),
+              const ExampleActionProgress(),
               const SizedBox(
                 height: 24,
               ),
