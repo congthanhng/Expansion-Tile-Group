@@ -14,6 +14,7 @@ These widgets can be seamlessly grouped and their interactions easily managed, o
 
 ## Overview
 ![fantasy_demo_gif](https://github.com/user-attachments/assets/d98f6736-a67e-41d3-bab9-fcab6a56570c)
+
 ![Image][ItemTypes] ![Image][SpecialItemBehaviors]
 ![Image][ExpandedCurrent] ![Image][CollapseAll]
 ![Image][ExpandedAll] ![Image][ExpandedAndCollapsedAll]
