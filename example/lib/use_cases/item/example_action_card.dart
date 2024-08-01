@@ -1,8 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExpansionCard extends StatelessWidget {
-  const ExpansionCard({super.key});
+class ExampleActionCard extends StatelessWidget {
+  const ExampleActionCard({super.key});
 
   @override
   Widget build(BuildContext context) {

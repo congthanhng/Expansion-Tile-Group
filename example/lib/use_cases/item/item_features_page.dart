@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'interaction_view.dart';
-import 'more_custom_view.dart';
+import 'more_example_view.dart';
 import 'supported_types_view.dart';
 
 class ItemFeaturesPage extends StatelessWidget {
