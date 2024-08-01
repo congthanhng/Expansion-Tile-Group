@@ -15,7 +15,6 @@ class _InteractionViewState extends State<InteractionView> {
   bool isDefaultVerticalPadding = true;
   final GlobalKey<ExpansionTileCoreState> key0 = GlobalKey();
 
-
   final listIcon = <Widget>[
     const Icon(Icons.keyboard_arrow_down_outlined),
     const Text(
@@ -42,7 +41,8 @@ class _InteractionViewState extends State<InteractionView> {
           height: 16,
         ),
         const Text('Check all result below',
-            style: TextStyle(fontSize: 16, color: Colors.red, fontWeight: FontWeight.w600)),
+            style: TextStyle(
+                fontSize: 16, color: Colors.red, fontWeight: FontWeight.w600)),
         ExpansionTileItem.outlined(
           expansionKey: key0,
           expandedAlignment: Alignment.topLeft,
