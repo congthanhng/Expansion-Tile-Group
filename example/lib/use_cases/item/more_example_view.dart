@@ -1,8 +1,9 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
+import 'package:expansion_tile_group_example/use_cases/item/example_action_stetch.dart';
 import 'package:flutter/material.dart';
 
 import 'example_action_card.dart';
-import 'example_hide_action_card.dart';
+import 'example_action_drop.dart';
 
 class MoreCustomView extends StatelessWidget {
   const MoreCustomView({super.key});
@@ -19,7 +20,11 @@ class MoreCustomView extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const ExampleHideActionCard(),
+        ExampleActionDrop(),
+        const SizedBox(
+          height: 16,
+        ),
+        ExampleActionStretch(),
         const SizedBox(
           height: 16,
         ),

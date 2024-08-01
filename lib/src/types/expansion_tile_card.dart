@@ -52,7 +52,7 @@ class ExpansionTileCard extends ExpansionTileItem {
     return Card(
       margin: EdgeInsets.zero,
       elevation: elevation,
-      clipBehavior: Clip.hardEdge,
+      clipBehavior: Clip.antiAlias,
       child: Theme(
         data: themeData ?? Theme.of(context).copyWith(),
         child: ExpansionTileCore(

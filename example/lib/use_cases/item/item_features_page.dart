@@ -11,7 +11,7 @@ class ItemFeaturesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Custom Item Page'),
+        title: const Text('Item Features Page'),
       ),
       body: SingleChildScrollView(
         child: Center(

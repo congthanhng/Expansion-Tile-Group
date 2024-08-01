@@ -1,15 +1,10 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExampleHideActionCard extends StatefulWidget {
-  const ExampleHideActionCard({super.key});
-
-  @override
-  State<ExampleHideActionCard> createState() => _ExampleHideActionCardState();
-}
-
-class _ExampleHideActionCardState extends State<ExampleHideActionCard> {
+class ExampleActionDrop extends StatelessWidget {
   final GlobalKey<ExpansionTileCoreState> key0 = GlobalKey();
+
+  ExampleActionDrop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +16,18 @@ class _ExampleHideActionCardState extends State<ExampleHideActionCard> {
           key0.currentState?.collapse();
         }
       },
-      onTap: () {},
-      child: IgnorePointer(
-        child: ExpansionTileCard(
-          expansionKey: key0,
-          elevation: 2,
-          textColor: Colors.green,
-          isHasTrailing: false,
-          title: _buildTitle(context),
-          childrenPadding: EdgeInsets.zero,
-          initiallyExpanded: false,
-          children: [_buildChildren(context)],
-        ),
+      onTap: () {
+        key0.currentState?.toggle();
+      },
+      child: ExpansionTileCard(
+        expansionKey: key0,
+        elevation: 3,
+        textColor: Colors.green,
+        isHasTrailing: false,
+        title: _buildTitle(context),
+        childrenPadding: EdgeInsets.zero,
+        initiallyExpanded: false,
+        children: [_buildChildren(context)],
       ),
     );
   }
@@ -129,10 +124,6 @@ class _ExampleHideActionCardState extends State<ExampleHideActionCard> {
       color: Colors.black87,
       child: Column(
         children: [
-          const Divider(
-            thickness: 1.0,
-            height: 1.0,
-          ),
           ButtonBar(
             alignment: MainAxisAlignment.spaceAround,
             buttonHeight: 52.0,
