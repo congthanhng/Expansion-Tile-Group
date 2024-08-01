@@ -171,6 +171,17 @@ Now you can change default trailing icon by calling `trailingIcon`, it is retrie
 | `isHideSubtitleOnExpanded`   | Hide Subtitle when view is expanded                                                                                                                                                              |
 | `trailingIcon`               | Change default trailing icon with keeping rotate animation                                                                                                                                       |
 
+## Additional ExpansionTileLeaf parameters
+| Parameter       | Description                                                                |
+|-----------------|----------------------------------------------------------------------------|
+| `leafRadius`    | The border radius of leaf. Default is 20                                   |
+| `isReverseLeaf` | Reverse current leaf shape. Default shape is `Bottom-Left` and `Top-Right` |
+| `isOutlined`    | Decide the leaf is outlined shape. Default is `true`                       |
+
+## Additional ExpansionTileCard parameters
+| Parameter   | Description                                                                                        |
+|-------------|----------------------------------------------------------------------------------------------------|
+| `elevation` | The z-coordinate at which to place this card. This controls the size of the shadow below the card. |
 
 [ExpansionTile]: https://api.flutter.dev/flutter/material/ExpansionTile-class.html
 [ItemTypes]: https://user-images.githubusercontent.com/15138747/208438578-d4bd3321-67cc-4844-b381-c8f29e367baa.gif

@@ -164,6 +164,7 @@ class ExpansionTileItem extends StatelessWidget {
     Color? expendedBorderColor,
     double? leafRadius,
     bool isReverseLeaf = false,
+    bool isOutlined = false,
   })  : borderRadius = isReverseLeaf
             ? BorderRadius.only(
                 bottomRight: Radius.circular(leafRadius ?? 20),
@@ -173,10 +174,10 @@ class ExpansionTileItem extends StatelessWidget {
                 topRight: Radius.circular(leafRadius ?? 20)),
         collapsedBorderColor = collapsedBorderColor ?? Colors.grey,
         expendedBorderColor = expendedBorderColor ?? Colors.blue,
-        isHasBottomBorder = true,
-        isHasLeftBorder = true,
-        isHasRightBorder = true,
-        isHasTopBorder = true;
+        isHasBottomBorder = isOutlined ? false : true,
+        isHasLeftBorder = isOutlined ? false : true,
+        isHasRightBorder = isOutlined ? false : true,
+        isHasTopBorder = isOutlined ? false : true;
 
   factory ExpansionTileItem.card(
           {Key? key,
