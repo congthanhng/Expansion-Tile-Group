@@ -189,7 +189,7 @@ class ExampleActionStretch extends StatelessWidget {
         //         color: item.profitColor,
         //         fontSize: 16,
         //         fontWeight: FontWeight.w600)),
-        leading: Image.network(
+        leading: Image.asset(
           item.imgUrl,
           width: 32,
           height: 32,
@@ -205,31 +205,31 @@ final listData = <DataItem>[
       subtitle: 'Bitcoin',
       price: '\$64215.10',
       changedPrice: 12.3,
-      imgUrl: 'https://www.gate.io/images/coin_icon/64/btc.png'),
+      imgUrl: 'assets/image/btc.png'),
   DataItem(
       title: 'ETH',
       subtitle: 'Ethereum',
       price: '\$3154.35',
       changedPrice: -6.3,
-      imgUrl: 'https://www.gate.io/images/coin_icon/64/eth.png'),
+      imgUrl: 'assets/image/eth.png'),
   DataItem(
       title: 'SOL',
       subtitle: 'Solana',
       price: '\$164.54',
       changedPrice: -2.3,
-      imgUrl: 'https://www.gate.io/images/coin_icon/64/sol.png'),
+      imgUrl: 'assets/image/sol.png'),
   DataItem(
       title: 'DOGE',
       subtitle: 'DogeCoin',
       price: '\$0.1161',
       changedPrice: -2.3,
-      imgUrl: 'https://www.gate.io/images/coin_icon/64/doge.png'),
+      imgUrl: 'assets/image/doge.png'),
   DataItem(
       title: 'BNB',
       subtitle: 'Binance',
       price: '\$564.7',
       changedPrice: 150.3,
-      imgUrl: 'https://www.gate.io/images/coin_icon/64/bnb.png'),
+      imgUrl: 'assets/image/bnb.png'),
 ];
 
 class DataItem {
