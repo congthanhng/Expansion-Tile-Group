@@ -13,15 +13,16 @@ These widgets can be seamlessly grouped and their interactions easily managed, o
 <a href="https://github.com/congthanhng/Expansion-Tile-Group/actions/workflows/dart.yml" target="_blank"><img src="https://github.com/congthanhng/Expansion-Tile-Group/actions/workflows/dart.yml/badge.svg" ></a>
 
 ## Overview
+
+Check out [Example](https://congthanhng.github.io/ExpansionTileGroupExample/) Or our [Documentation](https://pub.dev/documentation/expansion_tile_group/)
+
 ![fantasy_demo_gif](https://github.com/user-attachments/assets/d98f6736-a67e-41d3-bab9-fcab6a56570c)
 
 ![Image][ItemTypes] ![Image][SpecialItemBehaviors]
 ![Image][ExpandedCurrent] ![Image][CollapseAll]
 ![Image][ExpandedAll] ![Image][ExpandedAndCollapsedAll]
 
-Check out [Example](https://congthanhng.github.io/ExpansionTileGroupExample/)
-
-Or our [Documentation](https://pub.dev/documentation/expansion_tile_group/)
+Check out [Example](https://congthanhng.github.io/ExpansionTileGroupExample/) Or our [Documentation](https://pub.dev/documentation/expansion_tile_group/)
 
 ## Features
 
