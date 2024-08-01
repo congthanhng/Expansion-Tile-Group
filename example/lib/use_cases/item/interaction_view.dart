@@ -13,6 +13,8 @@ class _InteractionViewState extends State<InteractionView> {
   bool isHideSubtitle = false;
   bool isHasTrailing = true;
   bool isDefaultVerticalPadding = true;
+  final GlobalKey<ExpansionTileCoreState> key0 = GlobalKey();
+
 
   final listIcon = <Widget>[
     const Icon(Icons.keyboard_arrow_down_outlined),
@@ -42,6 +44,7 @@ class _InteractionViewState extends State<InteractionView> {
         const Text('Check all result below',
             style: TextStyle(fontSize: 16, color: Colors.red, fontWeight: FontWeight.w600)),
         ExpansionTileItem.outlined(
+          expansionKey: key0,
           expandedAlignment: Alignment.topLeft,
           isEnableExpanded: isEnableExpanded,
           isHideSubtitleOnExpanded: isHideSubtitle,
@@ -130,6 +133,34 @@ class _InteractionViewState extends State<InteractionView> {
               });
             },
           )),
+      const Divider(),
+      Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          MaterialButton(
+            onPressed: () {
+              key0.currentState?.toggle();
+            },
+            color: Colors.lightBlue,
+            child: const Text('Toggle item'),
+          ),
+          MaterialButton(
+            onPressed: () {
+              key0.currentState?.collapse();
+            },
+            color: Colors.lightBlue,
+            child: const Text('collapse item'),
+          ),
+          MaterialButton(
+            onPressed: () {
+              key0.currentState?.expand();
+            },
+            color: Colors.lightBlue,
+            child: const Text('expand item'),
+          ),
+        ],
+      ),
     ]);
   }
 

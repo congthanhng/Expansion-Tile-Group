@@ -1,7 +1,6 @@
 class RouteNamed {
   static const String homePage = '/';
   static const String allCustomItems = '/all_custom_items';
-  static const String controlState = '/control_state';
   static const String listenGroupItemChanged = '/listen_group_item_changed';
   static const String expandOnlyCurrent = '/expand_only_current';
   static const String expandAlwaysCurrent = '/expand_always_current';

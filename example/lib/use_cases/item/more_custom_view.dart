@@ -1,6 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
+import 'expansion_card.dart';
+
 class MoreCustomView extends StatelessWidget {
   const MoreCustomView({super.key});
 
@@ -9,7 +11,9 @@ class MoreCustomView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 16,),
+        const SizedBox(
+          height: 16,
+        ),
         ExpansionTileItem(
             title: const Text('Item without expanded Top border'),
             isHasBottomBorder: true,
@@ -157,6 +161,10 @@ class MoreCustomView extends StatelessWidget {
             collapsedTextColor: Colors.yellow,
             trailingIcon: const Icon(Icons.access_time),
             children: _buildDefaultChildren(context)),
+        const SizedBox(
+          height: 16,
+        ),
+        const ExpansionCard(),
         const SizedBox(
           height: 32,
         ),

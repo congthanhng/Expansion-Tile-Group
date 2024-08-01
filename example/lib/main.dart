@@ -30,8 +30,6 @@ class _MyAppState extends State<MyApp> {
           case RouteNamed.allCustomItems:
             return MaterialPageRoute(
                 builder: (context) => const ItemFeaturesPage());
-          case RouteNamed.controlState:
-            return MaterialPageRoute(builder: (context) => ControlStatePage());
           case RouteNamed.listenGroupItemChanged:
             return MaterialPageRoute(
                 builder: (context) => const ListenChangedItemPage());
@@ -145,12 +143,6 @@ class HomePage extends StatelessWidget {
             context,
             title: 'Listen changed of any item in group',
             routeName: RouteNamed.listenGroupItemChanged,
-          ),
-          const Divider(),
-          _buildRow(
-            context,
-            title: 'Control expand/collapse state of an item from anywhere',
-            routeName: RouteNamed.controlState,
           ),
         ],
       ),
