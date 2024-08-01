@@ -32,7 +32,7 @@ class ItemFeaturesPage extends StatelessWidget {
                 ),
                 _buildSection(
                   context,
-                  title: 'More other custom',
+                  title: 'More Examples',
                   body: const MoreCustomView(),
                 ),
               ],
@@ -56,10 +56,10 @@ class ItemFeaturesPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-              )),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.red[700])),
           if (description != null)
             Text(description,
                 style: TextStyle(fontSize: 16, color: Colors.grey[700])),

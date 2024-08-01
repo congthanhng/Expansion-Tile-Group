@@ -14,25 +14,29 @@ class MoreCustomView extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
+        const ExpansionCard(),
+        const SizedBox(
+          height: 16,
+        ),
         ExpansionTileItem(
             title: const Text('Item without expanded Top border'),
             isHasBottomBorder: true,
             isHasRightBorder: true,
             isHasTopBorder: false,
             isHasLeftBorder: true,
-            initiallyExpanded: true,
+            initiallyExpanded: false,
             expendedBorderColor: Colors.red,
             children: _buildDefaultChildren(context)),
         const SizedBox(
           height: 16,
         ),
         ExpansionTileItem.outlined(
-            initiallyExpanded: true,
+            initiallyExpanded: false,
             expendedBorderColor: Colors.grey,
             title: const Text(
-                'This title is very very long long long long long long long long long '),
+                'This title is very very long long long long long long long long long long long long long long long long long'),
             subtitle: const Text(
-              'This subtitle is also very very long long long long long long long long long with red color',
+              'This subtitle is also very very long long long long long long long long long long long long long long long long long with red color',
               style: TextStyle(color: Colors.red),
             ),
             children: _buildDefaultChildren(context)),
@@ -40,7 +44,7 @@ class MoreCustomView extends StatelessWidget {
           height: 16,
         ),
         ExpansionTileItem(
-            initiallyExpanded: true,
+            initiallyExpanded: false,
             title: const Text(
                 'Item without TrailingIcon, but has Expanded border and Title border radius'),
             expendedBorderColor: Colors.blue,
@@ -83,7 +87,7 @@ class MoreCustomView extends StatelessWidget {
           height: 16,
         ),
         ExpansionTileItem(
-            initiallyExpanded: true,
+            initiallyExpanded: false,
             title: const Text('Item with custom border side radius'),
             backgroundColor: Colors.red,
             collapsedBackgroundColor: Colors.yellow,
@@ -111,7 +115,7 @@ class MoreCustomView extends StatelessWidget {
           height: 16,
         ),
         ExpansionTileItem(
-            initiallyExpanded: true,
+            initiallyExpanded: false,
             title: const Text('Item with default state is expand'),
             backgroundColor: Colors.greenAccent,
             isHasTopBorder: true,
@@ -130,7 +134,7 @@ class MoreCustomView extends StatelessWidget {
           height: 16,
         ),
         ExpansionTileItem(
-            initiallyExpanded: true,
+            initiallyExpanded: false,
             title: const Text('ExpansionTile 9'),
             isHasTopBorder: false,
             isHasBottomBorder: false,
@@ -147,7 +151,7 @@ class MoreCustomView extends StatelessWidget {
           height: 16,
         ),
         ExpansionTileItem(
-            initiallyExpanded: true,
+            initiallyExpanded: false,
             title: const Text('Item without default vertical padding'),
             isHasTopBorder: false,
             isHasBottomBorder: false,
@@ -164,7 +168,6 @@ class MoreCustomView extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const ExpansionCard(),
         const SizedBox(
           height: 32,
         ),

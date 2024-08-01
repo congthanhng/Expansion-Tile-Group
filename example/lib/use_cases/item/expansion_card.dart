@@ -19,7 +19,7 @@ class ExpansionCard extends StatelessWidget {
       title: const Text('Tap me!'),
       subtitle: const Text('I expand, too!'),
       childrenPadding: EdgeInsets.zero,
-      // collapsedTextColor: Colors.green,
+      initiallyExpanded: false,
       children: _buildChildren(context),
     );
   }
