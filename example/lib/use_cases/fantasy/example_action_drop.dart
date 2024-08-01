@@ -9,6 +9,7 @@ class ExampleActionDrop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      borderRadius: BorderRadius.circular(12.0),
       onHover: (value) {
         if (value) {
           key0.currentState?.expand();

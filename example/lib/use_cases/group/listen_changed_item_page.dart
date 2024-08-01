@@ -35,16 +35,14 @@ class _ListenChangedItemPageState extends State<ListenChangedItemPage> {
               child: Column(
                 children: [
                   Text('Listen changed of any item in group',
-                      style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 16, color: Colors.grey[700])),
                   const SizedBox(
-                    height: 8,
+                    height: 24,
                   ),
                   Text(currentNoti,
                       style:
                           const TextStyle(fontSize: 16, color: Colors.black)),
-                  const SizedBox(
-                    height: 8,
-                  ),
                   _buildContent(context)
                 ],
               ),
@@ -56,61 +54,67 @@ class _ListenChangedItemPageState extends State<ListenChangedItemPage> {
   }
 
   Widget _buildContent(BuildContext context) {
-    return ExpansionTileGroup(
-      toggleType: ToggleType.none,
-      spaceBetweenItem: 8,
-      onExpansionItemChanged: (index, isExpanded) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          behavior: SnackBarBehavior.floating,
-          margin: EdgeInsets.only(
-              bottom: MediaQuery.of(context).size.height - 150,
-              left: 20,
-              right: 20),
-          content: Text(
-              'ExpansionTile $index is ${isExpanded ? 'expanded' : 'collapsed'}'),
-        ));
-        currentItem = index;
-        isCurrentExpanded = isExpanded;
-      },
-      children: [
-        ExpansionTileOutlined(
-          title: const Text('ExpansionTile 0'),
-          // childrenPadding: EdgeInsets.zero,
+    return Card(
+      elevation: 3,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: ExpansionTileGroup(
+          toggleType: ToggleType.none,
+          spaceBetweenItem: 8,
+          onExpansionItemChanged: (index, isExpanded) {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              behavior: SnackBarBehavior.floating,
+              margin: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).size.height - 150,
+                  left: 20,
+                  right: 20),
+              content: Text(
+                  'ExpansionTile $index is ${isExpanded ? 'expanded' : 'collapsed'}'),
+            ));
+            currentItem = index;
+            isCurrentExpanded = isExpanded;
+          },
           children: [
-            Material(
-              child: InkWell(
-                onTap: () {},
-                child: const Text(
-                    ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-              ),
+            ExpansionTileOutlined(
+              title: const Text('ExpansionTile 0'),
+              // childrenPadding: EdgeInsets.zero,
+              children: [
+                Material(
+                  child: InkWell(
+                    onTap: () {},
+                    child: const Text(
+                        ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
+                  ),
+                ),
+              ],
+            ),
+            ExpansionTileOutlined(
+              title: const Text('ExpansionTile 1'),
+              expendedBorderColor: Colors.red,
+              children: const [
+                Text(
+                    '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
+              ],
+            ),
+            ExpansionTileOutlined(
+              title: const Text('ExpansionTile 2'),
+              expendedBorderColor: Colors.green,
+              children: const [
+                Text(
+                    '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
+              ],
+            ),
+            ExpansionTileOutlined(
+              title: const Text('ExpansionTile 3'),
+              expendedBorderColor: Colors.blue,
+              children: const [
+                Text(
+                    '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
+              ],
             ),
           ],
         ),
-        ExpansionTileOutlined(
-          title: const Text('ExpansionTile 1'),
-          expendedBorderColor: Colors.red,
-          children: const [
-            Text(
-                '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-          ],
-        ),
-        ExpansionTileOutlined(
-          title: const Text('ExpansionTile 2'),
-          expendedBorderColor: Colors.green,
-          children: const [
-            Text(
-                '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-          ],
-        ),
-        ExpansionTileOutlined(
-          title: const Text('ExpansionTile 3'),
-          expendedBorderColor: Colors.blue,
-          children: const [
-            Text(
-                '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-          ],
-        ),
-      ],
+      ),
     );
   }
 }

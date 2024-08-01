@@ -7,7 +7,7 @@ class ExampleActionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTileCard(
-      elevation: 2,
+      elevation: 3,
       textColor: Colors.green,
       leading: const CircleAvatar(
         backgroundColor: Colors.lightGreen,

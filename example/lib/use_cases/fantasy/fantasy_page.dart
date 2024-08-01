@@ -23,28 +23,31 @@ class FantasyPage extends StatelessWidget {
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 720),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 24,
-              ),
-              const ExampleActionCard(),
-              const SizedBox(
-                height: 24,
-              ),
-              ExampleActionDrop(),
-              const SizedBox(
-                height: 24,
-              ),
-              ExampleActionStretch(),
-              const SizedBox(
-                height: 24,
-              ),
-              const ExampleActionProgress(),
-              const SizedBox(
-                height: 24,
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 24,
+                ),
+                const ExampleActionCard(),
+                const SizedBox(
+                  height: 24,
+                ),
+                ExampleActionDrop(),
+                const SizedBox(
+                  height: 24,
+                ),
+                ExampleActionStretch(),
+                const SizedBox(
+                  height: 24,
+                ),
+                const ExampleActionProgress(),
+                const SizedBox(
+                  height: 24,
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -168,26 +168,25 @@ class HomePage extends StatelessWidget {
 
   Widget _buildSection(BuildContext context,
       {required String title, String? description, required Widget body}) {
-    return Container(
-      margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.green)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title,
-              style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.red)),
-          if (description != null)
-            Text(description,
-                style: TextStyle(fontSize: 16, color: Colors.grey[700])),
-          body
-        ],
+    return Card(
+      elevation: 3,
+      margin: const EdgeInsets.all(12),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title,
+                style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.red)),
+            if (description != null)
+              Text(description,
+                  style: TextStyle(fontSize: 16, color: Colors.grey[700])),
+            body
+          ],
+        ),
       ),
     );
   }
