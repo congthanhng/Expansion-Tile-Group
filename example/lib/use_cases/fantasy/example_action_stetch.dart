@@ -143,6 +143,7 @@ class ExampleActionStretch extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
+              flex: 1,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -164,6 +165,7 @@ class ExampleActionStretch extends StatelessWidget {
               ),
             ),
             Expanded(
+              flex: 1,
               child: Text(
                 item.price,
                 style: const TextStyle(
@@ -172,13 +174,21 @@ class ExampleActionStretch extends StatelessWidget {
                     fontWeight: FontWeight.w400),
               ),
             ),
+            Expanded(
+              child: Text('${item.profit}%',
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                      color: item.profitColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600)),
+            )
           ],
         ),
-        trailing: Text('${item.profit}%',
-            style: TextStyle(
-                color: item.profitColor,
-                fontSize: 16,
-                fontWeight: FontWeight.w600)),
+        // trailing: Text('${item.profit}%',
+        //     style: TextStyle(
+        //         color: item.profitColor,
+        //         fontSize: 16,
+        //         fontWeight: FontWeight.w600)),
         leading: Image.network(
           item.imgUrl,
           width: 32,
@@ -218,7 +228,7 @@ final listData = <DataItem>[
       title: 'BNB',
       subtitle: 'Binance',
       price: '\$564.7',
-      changedPrice: 11.3,
+      changedPrice: 150.3,
       imgUrl: 'https://www.gate.io/images/coin_icon/64/bnb.png'),
 ];
 

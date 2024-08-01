@@ -1,4 +1,5 @@
 import 'package:expansion_tile_group_example/route_named.dart';
+import 'package:expansion_tile_group_example/use_cases/fantasy/fantasy_page.dart';
 import 'package:flutter/material.dart';
 
 import 'use_cases/use_cases.dart';
@@ -48,6 +49,8 @@ class _MyAppState extends State<MyApp> {
           case RouteNamed.expandAlwaysCurrent:
             return MaterialPageRoute(
                 builder: (context) => const ExpandAlwaysCurrentPage());
+          case RouteNamed.fantasyPage:
+            return MaterialPageRoute(builder: (context) => const FantasyPage());
           default:
             return MaterialPageRoute(builder: (context) => const HomePage());
         }
@@ -72,12 +75,25 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                _buildFantasySection(context),
                 _buildItemSection(context),
                 _buildGroupSection(context),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildFantasySection(BuildContext context) {
+    return _buildSection(
+      context,
+      title: 'Fantasy Items',
+      body: _buildButton(
+        context,
+        title: 'Check out',
+        routeName: RouteNamed.fantasyPage,
       ),
     );
   }
