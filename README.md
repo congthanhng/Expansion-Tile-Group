@@ -24,6 +24,8 @@ Check out [Example](https://congthanhng.github.io/ExpansionTileGroupExample/) Or
 
 Check out [Example](https://congthanhng.github.io/ExpansionTileGroupExample/) Or our [Documentation](https://pub.dev/documentation/expansion_tile_group/)
 
+Migrate with [CHANGE LOG](https://pub.dev/packages/expansion_tile_group/changelog)
+
 ## Features
 
 Item features: 
