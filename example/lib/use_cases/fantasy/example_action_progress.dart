@@ -49,11 +49,6 @@ class _ExampleActionProgressState extends State<ExampleActionProgress> {
   }
 
   Widget _buildChildren(BuildContext context) {
-    final ButtonStyle flatButtonStyle = TextButton.styleFrom(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(4.0)),
-      ),
-    );
     return Container(
       padding: const EdgeInsets.all(16.0),
       color: Colors.green,
