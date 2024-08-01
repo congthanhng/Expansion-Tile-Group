@@ -1,8 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
-  const ExpansionTileWithoutBorderItem({
+class ExpansionTileFlat extends ExpansionTileItem {
+  const ExpansionTileFlat({
     super.key,
     required super.title,
     required super.children,
@@ -31,17 +31,15 @@ class ExpansionTileWithoutBorderItem extends ExpansionTileItem {
     super.clipBehavior,
     super.collapsedBorderColor,
     super.expendedBorderColor,
-    super.isHasTopBorder,
-    super.isHasBottomBorder,
-    super.isHasLeftBorder,
-    super.isHasRightBorder,
     super.isHasTrailing,
     super.isEnableExpanded,
     super.isDefaultVerticalPadding,
     super.isHideSubtitleOnExpanded,
     super.trailingIcon,
-    BoxBorder? border,
   }) : super(
-          border: border ?? const Border(),
-        );
+            border: const Border(),
+            isHasRightBorder: false,
+            isHasLeftBorder: false,
+            isHasTopBorder: false,
+            isHasBottomBorder: false);
 }

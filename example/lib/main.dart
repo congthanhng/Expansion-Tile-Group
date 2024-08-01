@@ -92,7 +92,8 @@ class HomePage extends StatelessWidget {
           '- Remove completely default vertical title padding of ExpansionTile\n'
           '- Remove completely trailing of ExpansionTile\n'
           '- Force behavior to ignore until a task completed\n'
-          '- Trailing icon now can be changed with keeping rotate animation\n',
+          '- Trailing icon now can be changed with keeping rotate animation\n'
+          '- Change state of an ExpansionTileItem from anywhere\n',
       body: _buildButton(
         context,
         title: 'See Demo',

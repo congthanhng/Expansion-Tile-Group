@@ -73,7 +73,7 @@ class _ListenChangedItemPageState extends State<ListenChangedItemPage> {
         isCurrentExpanded = isExpanded;
       },
       children: [
-        ExpansionTileBorderItem(
+        ExpansionTileOutlined(
           title: const Text('ExpansionTile 0'),
           // childrenPadding: EdgeInsets.zero,
           children: [
@@ -86,7 +86,7 @@ class _ListenChangedItemPageState extends State<ListenChangedItemPage> {
             ),
           ],
         ),
-        ExpansionTileBorderItem(
+        ExpansionTileOutlined(
           title: const Text('ExpansionTile 1'),
           expendedBorderColor: Colors.red,
           children: const [
@@ -94,7 +94,7 @@ class _ListenChangedItemPageState extends State<ListenChangedItemPage> {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        ExpansionTileBorderItem(
+        ExpansionTileOutlined(
           title: const Text('ExpansionTile 2'),
           expendedBorderColor: Colors.green,
           children: const [
@@ -102,7 +102,7 @@ class _ListenChangedItemPageState extends State<ListenChangedItemPage> {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        ExpansionTileBorderItem(
+        ExpansionTileOutlined(
           title: const Text('ExpansionTile 3'),
           expendedBorderColor: Colors.blue,
           children: const [

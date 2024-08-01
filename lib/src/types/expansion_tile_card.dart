@@ -35,16 +35,14 @@ class ExpansionTileCard extends ExpansionTileItem {
     super.isDefaultVerticalPadding,
     super.isHideSubtitleOnExpanded,
     super.trailingIcon,
-    BoxBorder? border,
-    BorderRadius? borderRadius,
     this.elevation,
   }) : super(
-          border: border ?? const Border(),
+          border: const Border(),
           isHasBottomBorder: false,
           isHasTopBorder: false,
           isHasRightBorder: false,
           isHasLeftBorder: false,
-          borderRadius: borderRadius ?? BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12),
         );
 
   final double? elevation;

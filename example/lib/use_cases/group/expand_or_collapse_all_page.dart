@@ -51,7 +51,7 @@ class ExpandAndCollapseAllPage extends StatelessWidget {
             ),
           ],
         ),
-        ExpansionTileBorderItem(
+        ExpansionTileOutlined(
           initiallyExpanded: true,
           title: const Text('ExpansionTile 1'),
           expendedBorderColor: Colors.red,
@@ -60,7 +60,7 @@ class ExpandAndCollapseAllPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        ExpansionTileLeafItem(
+        ExpansionTileLeaf(
           initiallyExpanded: false,
           title: const Text('ExpansionTile 2'),
           expendedBorderColor: Colors.blue,
@@ -79,7 +79,7 @@ class ExpandAndCollapseAllPage extends StatelessWidget {
                 '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
           ],
         ),
-        const ExpansionTileWithoutBorderItem(
+        const ExpansionTileFlat(
           initiallyExpanded: false,
           title: Text('ExpansionTile 4'),
           expendedBorderColor: Colors.green,

@@ -1,8 +1,8 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExpansionTileLeafItem extends ExpansionTileItem {
-  ExpansionTileLeafItem({
+class ExpansionTileLeaf extends ExpansionTileItem {
+  ExpansionTileLeaf({
     super.key,
     required super.title,
     required super.children,

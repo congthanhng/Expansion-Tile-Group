@@ -41,7 +41,7 @@ class SupportedTypesView extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        ExpansionTileBorderItem(
+        ExpansionTileOutlined(
           initiallyExpanded: true,
           title: const Text('ExpansionTileOutlined'),
           expendedBorderColor: Colors.red,
@@ -50,7 +50,7 @@ class SupportedTypesView extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        ExpansionTileLeafItem(
+        ExpansionTileLeaf(
           initiallyExpanded: false,
           title: const Text('ExpansionTileLeaf'),
           expendedBorderColor: Colors.blue,
@@ -70,10 +70,13 @@ class SupportedTypesView extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        ExpansionTileWithoutBorderItem(
+        ExpansionTileFlat(
           initiallyExpanded: false,
+          // backgroundColor: Colors.green,
+          borderRadius: BorderRadius.circular(8),
+          collapsedBackgroundColor: Colors.green,
           title: const Text('ExpansionTileFlat'),
-          expendedBorderColor: Colors.green,
+          expendedBorderColor: Colors.yellow,
           children: _buildDefaultChildren(context),
         ),
         const SizedBox(
