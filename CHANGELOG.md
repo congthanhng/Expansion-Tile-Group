@@ -9,6 +9,14 @@
   - Rename: `ExpansionTileLeafItem` to `ExpansionTileLeaf`
   - Rename: `ExpansionTileItem.withBorder` to `ExpansionTileItem.outlined`
   - Rename: `ExpansionTileItem.withoutBorder` to `ExpansionTileItem.flat`
+* Update example
+  - Add Fantasy samples
+    + Action Card Card
+    + Action Drop Card
+    + Action Progress Card
+    + Action Stretch Card
+
+Check out [Example Demo](https://congthanhng.github.io/ExpansionTileGroupExample/)
 
 ## 1.2.8
 * Update documentation
