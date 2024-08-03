@@ -1,4 +1,5 @@
-## 1.3.0
+## 2.0.0
+* BIG UPDATE!!
 * New Feature:
   - Add new item type: `ExpansionTileCard` also be called `ExpansionTileItem.card` inspired by [expansion_tile_card](https://pub.dev/packages/expansion_tile_card)
 * *BREAKING CHANGE:*
