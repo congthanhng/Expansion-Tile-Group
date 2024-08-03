@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'example_action_card.dart';
 import 'example_action_drop.dart';
 import 'example_action_progress.dart';
-import 'example_action_stetch.dart';
+import 'example_action_stretch.dart';
 
 class FantasyPage extends StatelessWidget {
   const FantasyPage({super.key});
