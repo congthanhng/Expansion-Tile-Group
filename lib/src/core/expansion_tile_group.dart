@@ -6,14 +6,14 @@ class ExpansionTileGroup extends StatefulWidget {
       {Key? key,
       required this.children,
       this.toggleType = ToggleType.none,
-      this.onExpansionItemChanged,
+      this.onItemChanged,
       this.spaceBetweenItem = 0.0})
       : assert(spaceBetweenItem >= 0.0,
             '[Error] ExpansionTileGroup: The spaceBetweenItem must be >= 0'),
         super(key: key);
   final List<ExpansionTileItem> children;
   final ToggleType toggleType;
-  final Function(int, bool)? onExpansionItemChanged;
+  final Function(int, bool)? onItemChanged;
   final double spaceBetweenItem;
 
   @override
@@ -37,7 +37,7 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
             onExpansionChanged: (isExpanded) {
               if (!_isGroupTransforming) {
                 _updateExpandedForAccordions(index, isExpanded, false);
-                widget.onExpansionItemChanged?.call(index, isExpanded);
+                widget.onItemChanged?.call(index, isExpanded);
               }
             }));
     super.initState();
@@ -56,7 +56,7 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
             onExpansionChanged: (isExpanded) {
               if (!_isGroupTransforming) {
                 _updateExpandedForAccordions(index, isExpanded, false);
-                widget.onExpansionItemChanged?.call(index, isExpanded);
+                widget.onItemChanged?.call(index, isExpanded);
               }
             })));
     super.didUpdateWidget(oldWidget);

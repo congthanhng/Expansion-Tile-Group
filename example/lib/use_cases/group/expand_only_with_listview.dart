@@ -1,30 +1,26 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class CollapseAllPage extends StatelessWidget {
-  const CollapseAllPage({Key? key}) : super(key: key);
+class ExpandOnlyWithListView extends StatelessWidget {
+  const ExpandOnlyWithListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Collapse all item'),
+        title: const Text('Expand only with listview'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 990),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Collapse all items in group when one expanding is tapped',
-                    style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-                    textAlign: TextAlign.center,
-                  ),
                   const SizedBox(
-                    height: 24,
+                    height: 16,
                   ),
                   _buildContent(context),
                 ],
@@ -42,7 +38,7 @@ class CollapseAllPage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: ExpansionTileGroup(
-          toggleType: ToggleType.collapseAll,
+          toggleType: ToggleType.expandOnlyCurrent,
           spaceBetweenItem: 8,
           onItemChanged: (index, isExpanded) {},
           children: [

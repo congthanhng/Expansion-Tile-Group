@@ -61,7 +61,7 @@ class _ListenChangedItemPageState extends State<ListenChangedItemPage> {
         child: ExpansionTileGroup(
           toggleType: ToggleType.none,
           spaceBetweenItem: 8,
-          onExpansionItemChanged: (index, isExpanded) {
+          onItemChanged: (index, isExpanded) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               behavior: SnackBarBehavior.floating,
               margin: EdgeInsets.only(

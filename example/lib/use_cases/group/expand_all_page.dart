@@ -43,7 +43,7 @@ class ExpandAllPage extends StatelessWidget {
         child: ExpansionTileGroup(
           toggleType: ToggleType.expandAll,
           spaceBetweenItem: 8,
-          onExpansionItemChanged: (index, isExpanded) {},
+          onItemChanged: (index, isExpanded) {},
           children: [
             ExpansionTileItem.outlined(
               title: const Text('ExpansionTile 0'),
