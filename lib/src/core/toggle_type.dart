@@ -4,5 +4,5 @@ enum ToggleType {
   expandAlwaysCurrent,
   collapseAll,
   expandAll,
-  none,
+  none;
 }
