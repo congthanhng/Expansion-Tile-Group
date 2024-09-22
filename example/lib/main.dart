@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
           case RouteNamed.expandAlwaysCurrent:
             return MaterialPageRoute(
                 builder: (context) => const ExpandAlwaysCurrentPage());
-            case RouteNamed.customGroupWithController:
+          case RouteNamed.customGroupWithController:
             return MaterialPageRoute(
                 builder: (context) => const CustomGroupWithController());
           case RouteNamed.fantasyPage:
@@ -165,9 +165,11 @@ class HomePage extends StatelessWidget {
             title: 'Listen changed of any item in group',
             routeName: RouteNamed.listenGroupItemChanged,
           ),
-
           const Divider(),
-          const Text('CUSTOM GROUP', style: TextStyle(color:Colors.red, fontWeight: FontWeight.bold),),
+          const Text(
+            'CUSTOM GROUP',
+            style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+          ),
           _buildRow(
             context,
             title: 'Custom Group with controller',

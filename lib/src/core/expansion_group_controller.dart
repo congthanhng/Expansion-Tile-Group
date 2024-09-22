@@ -4,16 +4,15 @@ import 'expansion_tile_core.dart';
 import 'toggle_type.dart';
 
 class ExpansionGroupController with ChangeNotifier {
-  ExpansionGroupController(
-      {this.toggleType = ToggleType.none,
-      required this.length,
-      this.initialIndex = 0}) {
+  ExpansionGroupController({
+    this.toggleType = ToggleType.none,
+    required this.length,
+  }) {
     _generateKeys();
   }
 
   final ToggleType toggleType;
   final int length;
-  final int initialIndex;
 
   final _keysMap = <int, GlobalKey<ExpansionTileCoreState>>{};
   final _keysMapReverse = <GlobalKey<ExpansionTileCoreState>, int>{};

@@ -15,7 +15,7 @@ class _CustomGroupWithControllerState extends State<CustomGroupWithController> {
   @override
   void initState() {
     controller = ExpansionGroupController(
-        length: 6, initialIndex: 0, toggleType: ToggleType.expandAllOrCollapseAll);
+        length: 6, toggleType: ToggleType.expandAllOrCollapseAll);
 
     controller.addItemChangedListener(
       (index, isExpanded) {
@@ -26,10 +26,17 @@ class _CustomGroupWithControllerState extends State<CustomGroupWithController> {
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('By Using Controller, you can customize your items and behaviors anywhere'),
+        title: const Text(
+            'By Using Controller, you can customize your items and behaviors anywhere'),
       ),
       body: SingleChildScrollView(
         child: Center(

@@ -29,20 +29,20 @@ Migrate with [CHANGE LOG](https://pub.dev/packages/expansion_tile_group/changelo
 ## Features
 
 Item features: 
-* `ExpansionTileItem` fully `extends` standard [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) functionality.
-* Supported many commonly type of `ExpansionTileItem` UIs: `ExpansionTileOutlined`, `ExpansionTileFlat`, `ExpansionTileLeaf`, `ExpansionTileCard`.
-* Can easily control behaviors of an `ExpansionTileItem` from anywhere.
+* `ExpansionTileItem` fully `extends` standard of [ExpansionTile](https://api.flutter.dev/flutter/material/ExpansionTile-class.html) functionality.
+* Supported many commonly types of `ExpansionTileItem` UIs: `ExpansionTileOutlined`, `ExpansionTileFlat`, `ExpansionTileLeaf`, `ExpansionTileCard`.
+* Can easily control behaviors of an `ExpansionTileItem` from anywhere (expand or collapse from anywhere).
 * Can easily custom or add decoration into an `ExpansionTileItem` with `Border`, `BorderRadius`, `Shadow`, or `BoxDecoration` and more.
-* Can lock to extend behavior of an `ExpansionTileItem` until a task is completed.
-* Can remove completely the `trailing`, included: area, arrow icon. With that the `title` can be extended the width.
-* Can remove completely default vertical title padding of ExpansionTile.
-* Can hide the subtitle of an `ExpansionTileItem` whenever extend the view.
-* Can change the default Trailing Icon with keeping default rotate animation.
+* Can prevent an `ExpansionTileItem` expand until a task is completed.
+* Can remove completely the `trailing` included: area, arrow icon that `ExpansionTile` can NOT. With that the `title` can be extended the fully width.
+* Can remove completely default title's vertical padding of an `ExpansionTile`.
+* Can hide the subtitle of an `ExpansionTileItem` whenever it expanded.
+* Can change the default Trailing Icon to a custom widget with keeping default rotate animation.
 
 Group features:
 * Can group `ExpansionTileItem`s together and manage them.
-* Can manage interactions of items in group with supported types: `ExpandOnlyCurrent`, `ExpandAll`, `CollapseAll`, `ExpandAllOrCollapseAll`, `expandAlwaysCurrent`.
-* Can listen to any changed behavior of any item in the group.
+* Supporting type's behaviors of interactions of items in group: `ExpandOnlyCurrent`, `ExpandAll`, `CollapseAll`, `ExpandAllOrCollapseAll`, `expandAlwaysCurrent`.
+* Can listen to behaviors' changed of items in the group.
 * Can add the space between items in the group.
 
 ## Documentation
