@@ -1,7 +1,7 @@
-import 'package:expansion_tile_group/src/core/expansion_tile_core.dart';
+import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-import 'expansion_tile_card.dart';
+import '../core/expansion_group_controller.dart';
 
 class ExpansionTileItem extends StatelessWidget {
   const ExpansionTileItem({
@@ -43,7 +43,10 @@ class ExpansionTileItem extends StatelessWidget {
     this.isDefaultVerticalPadding,
     this.isHideSubtitleOnExpanded,
     this.trailingIcon,
-  });
+    this.controller,
+    this.index,
+  }) : assert((controller == null) == (index == null),
+            'index and controller must be null or not null at the same time');
 
   const ExpansionTileItem.flat({
     super.key,
@@ -79,13 +82,15 @@ class ExpansionTileItem extends StatelessWidget {
     this.isHideSubtitleOnExpanded,
     this.childrenPadding,
     this.expandedAlignment,
+    this.controller,
+    this.index,
   })  : border = const Border(),
         isHasBottomBorder = false,
         isHasLeftBorder = false,
         isHasRightBorder = false,
         isHasTopBorder = false;
 
-  ExpansionTileItem.outlined({
+  const ExpansionTileItem.outlined({
     super.key,
     required this.title,
     required this.children,
@@ -117,13 +122,12 @@ class ExpansionTileItem extends StatelessWidget {
     this.expandedAlignment,
     this.isHasTrailing,
     this.isEnableExpanded,
-    BorderRadius? borderRadius,
-    Color? collapsedBorderColor,
-    Color? expendedBorderColor,
-  })  : borderRadius = borderRadius ?? BorderRadius.circular(8),
-        collapsedBorderColor = collapsedBorderColor ?? Colors.grey,
-        expendedBorderColor = expendedBorderColor ?? Colors.blue,
-        isHasBottomBorder = true,
+    this.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    this.collapsedBorderColor = Colors.grey,
+    this.expendedBorderColor = Colors.blue,
+    this.controller,
+    this.index,
+  })  : isHasBottomBorder = true,
         isHasLeftBorder = true,
         isHasRightBorder = true,
         isHasTopBorder = true;
@@ -160,6 +164,8 @@ class ExpansionTileItem extends StatelessWidget {
     this.expandedAlignment,
     this.isHasTrailing,
     this.isEnableExpanded,
+    this.controller,
+    this.index,
     Color? collapsedBorderColor,
     Color? expendedBorderColor,
     double? leafRadius,
@@ -179,44 +185,47 @@ class ExpansionTileItem extends StatelessWidget {
         isHasRightBorder = isOutlined ? false : true,
         isHasTopBorder = isOutlined ? false : true;
 
-  factory ExpansionTileItem.card(
-          {Key? key,
-          required Widget title,
-          required List<Widget> children,
-          ValueChanged<bool>? onExpansionChanged,
-          GlobalKey<ExpansionTileCoreState>? expansionKey,
-          bool? initiallyExpanded,
-          EdgeInsetsGeometry? tilePadding,
-          Alignment? expandedAlignment,
-          Color? collapsedIconColor,
-          CrossAxisAlignment? expandedCrossAxisAlignment,
-          Color? iconColor,
-          Color? textColor,
-          Widget? subtitle,
-          bool? maintainState,
-          ListTileControlAffinity? controlAffinity,
-          Color? collapsedTextColor,
-          Color? collapsedBackgroundColor,
-          EdgeInsetsGeometry? childrenPadding,
-          Widget? trailing,
-          Widget? leading,
-          Color? backgroundColor,
-          Decoration? decoration,
-          Clip? clipBehavior,
-          ThemeData? themeData,
-          List<BoxShadow>? boxShadow,
-          Color? expendedBorderColor,
-          Color? collapsedBorderColor,
-          bool? isHasTopBorder,
-          bool? isHasBottomBorder,
-          bool? isHasLeftBorder,
-          bool? isHasRightBorder,
-          bool? isHasTrailing,
-          bool? isEnableExpanded,
-          bool? isDefaultVerticalPadding,
-          bool? isHideSubtitleOnExpanded,
-          Widget? trailingIcon,
-          double? elevation}) =>
+  factory ExpansionTileItem.card({
+    Key? key,
+    required Widget title,
+    required List<Widget> children,
+    ValueChanged<bool>? onExpansionChanged,
+    GlobalKey<ExpansionTileCoreState>? expansionKey,
+    bool? initiallyExpanded,
+    EdgeInsetsGeometry? tilePadding,
+    Alignment? expandedAlignment,
+    Color? collapsedIconColor,
+    CrossAxisAlignment? expandedCrossAxisAlignment,
+    Color? iconColor,
+    Color? textColor,
+    Widget? subtitle,
+    bool? maintainState,
+    ListTileControlAffinity? controlAffinity,
+    Color? collapsedTextColor,
+    Color? collapsedBackgroundColor,
+    EdgeInsetsGeometry? childrenPadding,
+    Widget? trailing,
+    Widget? leading,
+    Color? backgroundColor,
+    Decoration? decoration,
+    Clip? clipBehavior,
+    ThemeData? themeData,
+    List<BoxShadow>? boxShadow,
+    Color? expendedBorderColor,
+    Color? collapsedBorderColor,
+    bool? isHasTopBorder,
+    bool? isHasBottomBorder,
+    bool? isHasLeftBorder,
+    bool? isHasRightBorder,
+    bool? isHasTrailing,
+    bool? isEnableExpanded,
+    bool? isDefaultVerticalPadding,
+    bool? isHideSubtitleOnExpanded,
+    Widget? trailingIcon,
+    double? elevation,
+    ExpansionGroupController? controller,
+    int? index,
+  }) =>
       ExpansionTileCard(
           elevation: elevation,
           key: key,
@@ -250,6 +259,8 @@ class ExpansionTileItem extends StatelessWidget {
           isDefaultVerticalPadding: isDefaultVerticalPadding,
           isHideSubtitleOnExpanded: isHideSubtitleOnExpanded,
           trailingIcon: trailingIcon,
+          controller: controller,
+          index: index,
           children: children);
 
   /// The primary content of the list item.
@@ -517,6 +528,10 @@ class ExpansionTileItem extends StatelessWidget {
   ///This property used to override the default trailing icon.
   final Widget? trailingIcon;
 
+  final ExpansionGroupController? controller;
+
+  final int? index;
+
   ExpansionTileItem copyWith({
     Key? key,
     Widget? title,
@@ -607,11 +622,20 @@ class ExpansionTileItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: Using Controller
+    //TODO: control state of a item by using controller
     return Theme(
       data: themeData ?? Theme.of(context).copyWith(),
       child: ExpansionTileCore(
-        key: expansionKey,
-        onExpansionChanged: onExpansionChanged,
+        key: controller != null && index != null
+            ? controller?.key(index!)
+            : expansionKey,
+        onExpansionChanged: (value) {
+          if (controller != null && index != null) {
+            controller?.onItemChanged(index!, value);
+          }
+          onExpansionChanged?.call(value);
+        },
         initiallyExpanded: initiallyExpanded,
         tilePadding: tilePadding,
         expandedAlignment: expandedAlignment ?? Alignment.topLeft,

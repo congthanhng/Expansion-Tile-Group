@@ -36,6 +36,8 @@ class ExpansionTileFlat extends ExpansionTileItem {
     super.isDefaultVerticalPadding,
     super.isHideSubtitleOnExpanded,
     super.trailingIcon,
+    super.controller,
+    super.index,
   }) : super(
             border: const Border(),
             isHasRightBorder: false,

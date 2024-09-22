@@ -12,7 +12,7 @@ class ExpansionTileGroup extends StatefulWidget {
       : assert(spaceBetweenItem >= 0.0,
             '[Error] ExpansionTileGroup: The spaceBetweenItem must be >= 0'),
         super(key: key);
-  final List<Widget> children;
+  final List<ExpansionTileItem> children;
   final ToggleType toggleType;
   final Function(int, bool)? onItemChanged;
   final double spaceBetweenItem;
@@ -23,7 +23,7 @@ class ExpansionTileGroup extends StatefulWidget {
 
 class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
   final keysMap = <int, GlobalKey<ExpansionTileCoreState>>{};
-  final modifiedChildren = <Widget>[];
+  final modifiedChildren = <ExpansionTileItem>[];
 
   bool _isTransforming = false;
 
@@ -40,10 +40,8 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     }
     widget.children.forEachIndexed(
       (index, e) {
-        if (e is ExpansionTileItem) {
-          final entry = MapEntry(index, e.expansionKey ?? GlobalKey());
-          keysMap[entry.key] = entry.value;
-        }
+        final entry = MapEntry(index, e.expansionKey ?? GlobalKey());
+        keysMap[entry.key] = entry.value;
       },
     );
   }
@@ -54,16 +52,14 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     }
     final modifies = widget.children.mapIndexed(
       (index, e) {
-        if (e is ExpansionTileItem) {
-          return e.copyWith(
-              expansionKey: keysMap[index] ?? GlobalKey(),
-              onExpansionChanged: (isExpanded) {
-                if (!_isTransforming) {
-                  _handleBehaviors(index, isExpanded, false);
-                  widget.onItemChanged?.call(index, isExpanded);
-                }
-              });
-        }
+        return e.copyWith(
+            expansionKey: keysMap[index] ?? GlobalKey(),
+            onExpansionChanged: (isExpanded) {
+              if (!_isTransforming) {
+                _handleBehaviors(index, isExpanded, false);
+                widget.onItemChanged?.call(index, isExpanded);
+              }
+            });
         return e;
       },
     ).toList();
@@ -128,7 +124,8 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     _isTransforming = false;
   }
 
-  void _onExpandAlwaysCurrent(int index, bool isExpanded, bool isDefaultExpand) {
+  void _onExpandAlwaysCurrent(
+      int index, bool isExpanded, bool isDefaultExpand) {
     _isTransforming = true;
     keysMap[index]?.currentState?.expand();
     for (int i = 0; i < keysMap.length; i++) {
@@ -163,8 +160,7 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     _isTransforming = false;
   }
 
-  void _onExpandAllOrCollapseAll(
-      int index, bool isExpanded, bool keepState) {
+  void _onExpandAllOrCollapseAll(int index, bool isExpanded, bool keepState) {
     _isTransforming = true;
     if (isExpanded) {
       for (int i = 0; i < keysMap.length; i++) {

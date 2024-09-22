@@ -1,8 +1,28 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-class ExpandOnlyWithListView extends StatelessWidget {
+class ExpandOnlyWithListView extends StatefulWidget {
   const ExpandOnlyWithListView({Key? key}) : super(key: key);
+
+  @override
+  State<ExpandOnlyWithListView> createState() => _ExpandOnlyWithListViewState();
+}
+
+class _ExpandOnlyWithListViewState extends State<ExpandOnlyWithListView> {
+  late final ExpansionGroupController controller;
+
+  @override
+  void initState() {
+    controller = ExpansionGroupController(
+        length: 101, initialIndex: 0, toggleType: ToggleType.collapseAll);
+
+    controller.addItemChangedListener(
+      (index, isExpanded) {
+        debugPrint('index: $index, isExpanded: $isExpanded');
+      },
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,69 +57,44 @@ class ExpandOnlyWithListView extends StatelessWidget {
       elevation: 3,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: ExpansionTileGroup(
-          toggleType: ToggleType.expandOnlyCurrent,
-          spaceBetweenItem: 8,
-          onItemChanged: (index, isExpanded) {},
+        child: Column(
           children: [
-            ExpansionTileItem.outlined(
-              title: const Text('ExpansionTile 0'),
-              children: [
-                Material(
-                  child: InkWell(
-                    onTap: () {},
-                    child: const Text(
-                        ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-                  ),
-                ),
-              ],
-            ),
-            ExpansionTileOutlined(
-              initiallyExpanded: true,
-              title: const Text('ExpansionTile 1'),
-              expendedBorderColor: Colors.red,
-              children: const [
-                Text(
-                    '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-              ],
-            ),
-            ExpansionTileLeaf(
-              initiallyExpanded: false,
-              title: const Text('ExpansionTile 2'),
-              expendedBorderColor: Colors.blue,
-              children: const [
-                Text(
-                    '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-              ],
-            ),
-            ExpansionTileItem.leaf(
-              initiallyExpanded: false,
-              title: const Text('ExpansionTile 3'),
-              expendedBorderColor: Colors.green,
-              isReverseLeaf: true,
-              children: const [
-                Text(
-                    '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-              ],
-            ),
-            const ExpansionTileFlat(
-              initiallyExpanded: false,
-              title: Text('ExpansionTile 4'),
-              expendedBorderColor: Colors.green,
-              children: [
-                Text(
-                    '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-              ],
-            ),
-            const ExpansionTileItem.flat(
-              initiallyExpanded: false,
-              title: Text('ExpansionTile 5'),
-              expendedBorderColor: Colors.green,
-              children: [
-                Text(
-                    '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
-              ],
-            ),
+            ListView.separated(
+                separatorBuilder: (context, index) => const SizedBox(
+                      height: 8,
+                    ),
+                shrinkWrap: true,
+                itemBuilder: (context, index) => ExpansionTileOutlined(
+                        controller: controller,
+                        index: index,
+                        title: Text('HELLLO $index'),
+                        children: [
+                          Material(
+                            child: InkWell(
+                              onTap: () {},
+                              child: const Text(
+                                  ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
+                            ),
+                          ),
+                        ]),
+                itemCount: 100),
+            Container(
+              color: Colors.red,
+              width: 250,
+              child: ExpansionTileFlat(
+                  controller: controller,
+                  index: 100,
+                  title: const Text('HELLLO 101'),
+                  children: [
+                    Material(
+                      child: InkWell(
+                        onTap: () {},
+                        child: const Text(
+                            ''' Nullam eleifend ultrices tortor, sit amet gravida sapien cursus vitae. Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
+                      ),
+                    ),
+                  ]),
+            )
           ],
         ),
       ),

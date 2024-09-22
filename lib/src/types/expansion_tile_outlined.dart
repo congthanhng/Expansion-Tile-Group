@@ -2,7 +2,7 @@ import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionTileOutlined extends ExpansionTileItem {
-  ExpansionTileOutlined({
+  const ExpansionTileOutlined({
     super.key,
     required super.title,
     required super.children,
@@ -34,13 +34,12 @@ class ExpansionTileOutlined extends ExpansionTileItem {
     super.trailingIcon,
     super.childrenPadding,
     super.expandedAlignment,
-    BorderRadius? borderRadius,
-    Color? collapsedBorderColor,
-    Color? expendedBorderColor,
+    super.borderRadius = const BorderRadius.all(Radius.circular(8)),
+    super.collapsedBorderColor = Colors.grey,
+    super.expendedBorderColor = Colors.blue,
+    super.controller,
+    super.index,
   }) : super(
-          borderRadius: borderRadius ?? BorderRadius.circular(8),
-          collapsedBorderColor: collapsedBorderColor ?? Colors.grey,
-          expendedBorderColor: expendedBorderColor ?? Colors.blue,
           isHasBottomBorder: true,
           isHasLeftBorder: true,
           isHasRightBorder: true,
