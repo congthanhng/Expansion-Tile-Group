@@ -60,7 +60,6 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
                 widget.onItemChanged?.call(index, isExpanded);
               }
             });
-        return e;
       },
     ).toList();
 

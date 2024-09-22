@@ -54,11 +54,11 @@ class ExpandOnlyCurrentPage extends StatelessWidget {
                 ),
               ],
             ),
-            ExpansionTileOutlined(
+            const ExpansionTileOutlined(
               initiallyExpanded: true,
-              title: const Text('ExpansionTile 1'),
+              title: Text('ExpansionTile 1'),
               expendedBorderColor: Colors.red,
-              children: const [
+              children: [
                 Text(
                     '''Duis rutrum convallis erat et ultrices. Morbi a luctus ligula, at varius ligula. Nam mollis sapien ac nunc hendrerit consequat. Cras posuere metus felis, at pellentesque sem ornare id. Praesent ut nunc aliquam, dictum felis eu, congue metus. Nunc vitae elit eros. In eu dui pharetra, varius metus a, efficitur eros.'''),
               ],

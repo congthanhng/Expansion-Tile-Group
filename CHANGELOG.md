@@ -1,3 +1,10 @@
+## 2.1.0
+* New Feature:
+  - Add new way to implement *group* feature: ExpansionGroupController
+* Update
+  - Example with new feature
+  - Optimize code and improve performance
+
 ## 2.0.0
 * BIG UPDATE!!
 * New Feature:

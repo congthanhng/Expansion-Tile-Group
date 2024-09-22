@@ -7,12 +7,12 @@
 /// {@category Troubleshooting}
 library expansion_tile_group;
 
+export 'package:expansion_tile_group/src/core/expansion_group_controller.dart';
 export 'package:expansion_tile_group/src/core/expansion_tile_core.dart';
 export 'package:expansion_tile_group/src/core/expansion_tile_group.dart';
 export 'package:expansion_tile_group/src/core/toggle_type.dart';
-export 'package:expansion_tile_group/src/core/expansion_group_controller.dart';
-export 'package:expansion_tile_group/src/types/expansion_tile_outlined.dart';
+export 'package:expansion_tile_group/src/types/expansion_tile_card.dart';
+export 'package:expansion_tile_group/src/types/expansion_tile_flat.dart';
 export 'package:expansion_tile_group/src/types/expansion_tile_item.dart';
 export 'package:expansion_tile_group/src/types/expansion_tile_leaf.dart';
-export 'package:expansion_tile_group/src/types/expansion_tile_flat.dart';
-export 'package:expansion_tile_group/src/types/expansion_tile_card.dart';
+export 'package:expansion_tile_group/src/types/expansion_tile_outlined.dart';

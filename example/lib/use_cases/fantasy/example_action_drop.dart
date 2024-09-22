@@ -125,10 +125,8 @@ class ExampleActionDrop extends StatelessWidget {
       color: Colors.black87,
       child: Column(
         children: [
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceAround,
-            buttonHeight: 52.0,
-            buttonMinWidth: 90.0,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               TextButton(
                 style: flatButtonStyle,

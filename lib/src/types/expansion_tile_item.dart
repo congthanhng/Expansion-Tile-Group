@@ -1,8 +1,6 @@
 import 'package:expansion_tile_group/expansion_tile_group.dart';
 import 'package:flutter/material.dart';
 
-import '../core/expansion_group_controller.dart';
-
 class ExpansionTileItem extends StatelessWidget {
   const ExpansionTileItem({
     super.key,
