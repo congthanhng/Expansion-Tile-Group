@@ -34,6 +34,7 @@ class ExpansionTileCard extends ExpansionTileItem {
     super.isEnableExpanded,
     super.isDefaultVerticalPadding,
     super.isHideSubtitleOnExpanded,
+    super.isOnlyTrailingDoToggle,
     super.trailingIcon,
     this.elevation = 3.0,
     super.controller,

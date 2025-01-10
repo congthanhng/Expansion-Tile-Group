@@ -13,6 +13,7 @@ class _InteractionViewState extends State<InteractionView> {
   bool isHideSubtitle = false;
   bool isHasTrailing = true;
   bool isDefaultVerticalPadding = true;
+  bool isOnlyTrailingDoToggle = false;
   final GlobalKey<ExpansionTileCoreState> key0 = GlobalKey();
 
   final listIcon = <Widget>[
@@ -45,13 +46,13 @@ class _InteractionViewState extends State<InteractionView> {
                 fontSize: 16, color: Colors.red, fontWeight: FontWeight.w600)),
         ExpansionTileItem.outlined(
           expansionKey: key0,
-          expandedAlignment: Alignment.topLeft,
           isEnableExpanded: isEnableExpanded,
           isHideSubtitleOnExpanded: isHideSubtitle,
           isHasTrailing: isHasTrailing,
           isDefaultVerticalPadding: isDefaultVerticalPadding,
           trailingIcon: listIcon[currentIcon % listIcon.length],
           expendedBorderColor: Colors.grey,
+          isOnlyTrailingDoToggle: isOnlyTrailingDoToggle,
           title: const Text('ExpansionTileItem Results'),
           subtitle: const Text(
             'Subtitle',
@@ -70,63 +71,69 @@ class _InteractionViewState extends State<InteractionView> {
     return Column(children: [
       const Divider(),
       _buildRow(context,
-          title: 'Lock expanded state so that you can NOT expand anymore',
-          button: ElevatedButton.icon(
-            icon: Icon(isEnableExpanded ? Icons.lock_outline : Icons.lock_open),
-            label: Text(isEnableExpanded ? 'Do Lock' : 'Do Unlock'),
-            onPressed: () {
+          title: 'Do I need to enable expanded state?',
+          button: Checkbox(
+            value: isEnableExpanded,
+            onChanged: (value) {
               setState(() {
-                isEnableExpanded = !isEnableExpanded;
+                isEnableExpanded = value ?? false;
               });
             },
           )),
       const Divider(),
       _buildRow(context,
-          title: 'Hide the subtitle whenever you expand the view',
-          button: ElevatedButton.icon(
-            icon: Icon(isHideSubtitle
-                ? Icons.visibility_outlined
-                : Icons.visibility_off_outlined),
-            label: Text(isHideSubtitle ? 'Do Show' : 'Do Hide'),
-            onPressed: () {
+          title: 'Do I need to hide the subtitle whenever I expanded the view?',
+          button: Checkbox(
+            value: isHideSubtitle,
+            onChanged: (value) {
               setState(() {
-                isHideSubtitle = !isHideSubtitle;
+                isHideSubtitle = value ?? false;
               });
             },
           )),
       const Divider(),
       _buildRow(context,
-          title: 'Remove completely trailing not like ExpansionTile',
-          button: ElevatedButton.icon(
-            icon: Icon(isHasTrailing ? Icons.remove : Icons.add),
-            label: Text(isHasTrailing ? 'Remove trailing' : 'Add trailing'),
-            onPressed: () {
+          title:
+              'Do I need to use ExpansionTile default trailing or remove completely it?',
+          button: Checkbox(
+            value: isHasTrailing,
+            onChanged: (value) {
               setState(() {
-                isHasTrailing = !isHasTrailing;
+                isHasTrailing = value ?? false;
               });
             },
           )),
       const Divider(),
       _buildRow(context,
-          title: 'Remove completely default vertical padding of ExpansionTile',
-          button: ElevatedButton.icon(
-            icon: Icon(isDefaultVerticalPadding ? Icons.remove : Icons.add),
-            label: Text(isDefaultVerticalPadding
-                ? 'Remove Default Padding'
-                : 'Add Default Padding'),
-            onPressed: () {
+          title:
+              'Do I need to use ExpansionTile default vertical padding or remove it?',
+          button: Checkbox(
+            value: isDefaultVerticalPadding,
+            onChanged: (value) {
               setState(() {
-                isDefaultVerticalPadding = !isDefaultVerticalPadding;
+                isDefaultVerticalPadding = value ?? false;
               });
             },
           )),
       const Divider(),
       _buildRow(context,
-          title: 'Change Trailing Icon with keeping rotate animation',
+          title: 'Do I need to use just the trailing to toggle the state?',
+          button: Checkbox(
+            value: isOnlyTrailingDoToggle,
+            onChanged: (value) {
+              setState(() {
+                isOnlyTrailingDoToggle = value ?? false;
+              });
+            },
+          )),
+      const Divider(),
+      _buildRow(context,
+          title:
+              'Do I need to change trailing icon with keeping rotate animation?',
           button: ElevatedButton.icon(
             icon: listIcon[currentIcon % listIcon.length],
             iconAlignment: IconAlignment.end,
-            label: const Text('Change icon'),
+            label: const Text('Tap to change'),
             onPressed: () {
               setState(() {
                 currentIcon = currentIcon + 1;
