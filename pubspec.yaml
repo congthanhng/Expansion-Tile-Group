@@ -9,11 +9,11 @@ documentation: https://pub.dev/documentation/expansion_tile_group
 topics:
   - expansion
   - expansion-tile
-  - ui
+  - view-more
   - widget
   - expansion-tile-group
 
-version: 2.1.0
+version: 2.2.0
 environment:
   sdk: '>=2.18.0 <4.0.0'
   flutter: ">=1.17.0"

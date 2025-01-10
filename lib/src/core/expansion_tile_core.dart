@@ -70,6 +70,7 @@ class ExpansionTileCore extends StatefulWidget {
     this.isEnableExpanded = true,
     this.isDefaultVerticalPadding = true,
     this.isHideSubtitleOnExpanded = false,
+    this.isOnlyTrailingDoToggle = false,
     this.trailingIcon,
   })  : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
@@ -357,6 +358,9 @@ class ExpansionTileCore extends StatefulWidget {
   ///This property used to override the default trailing icon.
   final Widget? trailingIcon;
 
+  ///The title does NOT toggle the expansion state, but the trailing icon does
+  final bool isOnlyTrailingDoToggle;
+
   @override
   State<ExpansionTileCore> createState() => ExpansionTileCoreState();
 }
@@ -504,7 +508,8 @@ class ExpansionTileCoreState extends State<ExpansionTileCore>
         ListTileControlAffinity.trailing) {
       return null;
     }
-    return _buildIcon(context);
+    if (!widget.isOnlyTrailingDoToggle) return _buildIcon(context);
+    return GestureDetector(onTap: _handleTap, child: _buildIcon(context));
   }
 
   Widget _buildChildren(BuildContext context, Widget? child) {
@@ -546,65 +551,7 @@ class ExpansionTileCoreState extends State<ExpansionTileCore>
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        widget.isDefaultVerticalPadding
-            ? ListTileTheme.merge(
-                iconColor: _iconColor.value ?? expansionTileTheme.iconColor,
-                textColor: _headerColor.value,
-                child: InkWell(
-                  borderRadius: widget.borderRadius,
-                  onTap: _handleTap,
-                  child: ListTile(
-                    dense: widget.isDefaultVerticalPadding ? null : true,
-                    visualDensity: widget.isDefaultVerticalPadding
-                        ? null
-                        : const VisualDensity(horizontal: 0, vertical: -4),
-                    contentPadding:
-                        widget.tilePadding ?? expansionTileTheme.tilePadding,
-                    leading: widget.leading ?? _buildLeadingIcon(context),
-                    title: widget.title,
-                    subtitle: isHideSubtitle ? null : widget.subtitle,
-                    trailing: widget.isHasTrailing == true
-                        ? widget.trailing ?? _buildTrailingIcon(context)
-                        : null,
-                  ),
-                ),
-              )
-            : IconTheme.merge(
-                data: IconThemeData(
-                    color: _iconColor.value ?? expansionTileTheme.iconColor),
-                child: InkWell(
-                  borderRadius: widget.borderRadius,
-                  onTap: _handleTap,
-                  child: Row(
-                    children: [
-                      widget.leading ??
-                          _buildLeadingIcon(context) ??
-                          const SizedBox.shrink(),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: widget.tilePadding ??
-                                  expansionTileTheme.tilePadding ??
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: DefaultTextStyle(
-                                  style: TextStyle(color: _headerColor.value),
-                                  child: widget.title),
-                            ),
-                            if (!isHideSubtitle)
-                              widget.subtitle ?? const SizedBox.shrink(),
-                          ],
-                        ),
-                      ),
-                      widget.isHasTrailing == true
-                          ? widget.trailing ??
-                              _buildTrailingIcon(context) ??
-                              const SizedBox.shrink()
-                          : const SizedBox.shrink(),
-                    ],
-                  ),
-                )),
+        _buildMainTitle(context),
         ClipRect(
           child: Align(
             alignment: widget.expandedAlignment ??
@@ -616,6 +563,72 @@ class ExpansionTileCoreState extends State<ExpansionTileCore>
         ),
       ],
     );
+  }
+
+  Widget _buildMainTitle(BuildContext context) {
+    final ExpansionTileThemeData expansionTileTheme =
+        ExpansionTileTheme.of(context);
+    if (widget.isDefaultVerticalPadding) {
+      return ListTileTheme.merge(
+        iconColor: _iconColor.value ?? expansionTileTheme.iconColor,
+        textColor: _headerColor.value,
+        child: InkWell(
+          borderRadius: widget.borderRadius,
+          onTap: widget.isOnlyTrailingDoToggle ? null : _handleTap,
+          child: ListTile(
+            dense: widget.isDefaultVerticalPadding ? null : true,
+            visualDensity: widget.isDefaultVerticalPadding
+                ? null
+                : const VisualDensity(horizontal: 0, vertical: -4),
+            contentPadding:
+                widget.tilePadding ?? expansionTileTheme.tilePadding,
+            leading: widget.leading ?? _buildLeadingIcon(context),
+            title: widget.title,
+            subtitle: isHideSubtitle ? null : widget.subtitle,
+            trailing: widget.isHasTrailing == true
+                ? widget.trailing ?? _buildTrailingIcon(context)
+                : null,
+          ),
+        ),
+      );
+    }
+
+    return IconTheme.merge(
+        data: IconThemeData(
+            color: _iconColor.value ?? expansionTileTheme.iconColor),
+        child: InkWell(
+          borderRadius: widget.borderRadius,
+          onTap: widget.isOnlyTrailingDoToggle ? null : _handleTap,
+          child: Row(
+            children: [
+              widget.leading ??
+                  _buildLeadingIcon(context) ??
+                  const SizedBox.shrink(),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: widget.tilePadding ??
+                          expansionTileTheme.tilePadding ??
+                          const EdgeInsets.symmetric(horizontal: 8),
+                      child: DefaultTextStyle(
+                          style: TextStyle(color: _headerColor.value),
+                          child: widget.title),
+                    ),
+                    if (!isHideSubtitle)
+                      widget.subtitle ?? const SizedBox.shrink(),
+                  ],
+                ),
+              ),
+              widget.isHasTrailing == true
+                  ? widget.trailing ??
+                      _buildTrailingIcon(context) ??
+                      const SizedBox.shrink()
+                  : const SizedBox.shrink(),
+            ],
+          ),
+        ));
   }
 
   @override

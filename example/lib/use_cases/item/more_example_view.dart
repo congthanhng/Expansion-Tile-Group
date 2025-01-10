@@ -162,6 +162,32 @@ class MoreCustomView extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
+        ExpansionTileItem(
+            initiallyExpanded: false,
+            title: const Text(
+                'Title does not toggle the expansion state, but trail icon does #42'),
+            backgroundColor: Colors.red,
+            collapsedBackgroundColor: Colors.yellow,
+            textColor: Colors.white,
+            collapsedBorderColor: Colors.pink,
+            expendedBorderColor: Colors.blue,
+            iconColor: Colors.greenAccent,
+            collapsedIconColor: Colors.green,
+            isHasLeftBorder: true,
+            isHasTopBorder: true,
+            isHasRightBorder: true,
+            isHasBottomBorder: true,
+            borderRadius: BorderRadius.circular(8),
+            isOnlyTrailingDoToggle: true,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            children: _buildDefaultChildren(context)),
         const SizedBox(
           height: 32,
         ),

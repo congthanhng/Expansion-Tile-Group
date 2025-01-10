@@ -35,6 +35,7 @@ class ExpansionTileFlat extends ExpansionTileItem {
     super.isEnableExpanded,
     super.isDefaultVerticalPadding,
     super.isHideSubtitleOnExpanded,
+    super.isOnlyTrailingDoToggle,
     super.trailingIcon,
     super.controller,
     super.index,

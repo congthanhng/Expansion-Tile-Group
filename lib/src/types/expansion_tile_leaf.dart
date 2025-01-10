@@ -34,6 +34,7 @@ class ExpansionTileLeaf extends ExpansionTileItem {
     super.isDefaultVerticalPadding,
     super.isEnableExpanded,
     super.isHideSubtitleOnExpanded,
+    super.isOnlyTrailingDoToggle,
     super.controller,
     super.index,
     bool isOutlined = false,

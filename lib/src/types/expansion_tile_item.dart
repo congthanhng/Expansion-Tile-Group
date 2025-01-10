@@ -41,6 +41,7 @@ class ExpansionTileItem extends StatelessWidget {
     this.isDefaultVerticalPadding,
     this.isHideSubtitleOnExpanded,
     this.trailingIcon,
+    this.isOnlyTrailingDoToggle,
     this.controller,
     this.index,
   }) : assert((controller == null) == (index == null),
@@ -78,6 +79,7 @@ class ExpansionTileItem extends StatelessWidget {
     this.isEnableExpanded,
     this.isDefaultVerticalPadding,
     this.isHideSubtitleOnExpanded,
+    this.isOnlyTrailingDoToggle,
     this.childrenPadding,
     this.expandedAlignment,
     this.controller,
@@ -120,6 +122,7 @@ class ExpansionTileItem extends StatelessWidget {
     this.expandedAlignment,
     this.isHasTrailing,
     this.isEnableExpanded,
+    this.isOnlyTrailingDoToggle,
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
     this.collapsedBorderColor = Colors.grey,
     this.expendedBorderColor = Colors.blue,
@@ -162,6 +165,7 @@ class ExpansionTileItem extends StatelessWidget {
     this.expandedAlignment,
     this.isHasTrailing,
     this.isEnableExpanded,
+    this.isOnlyTrailingDoToggle,
     this.controller,
     this.index,
     Color? collapsedBorderColor,
@@ -219,6 +223,7 @@ class ExpansionTileItem extends StatelessWidget {
     bool? isEnableExpanded,
     bool? isDefaultVerticalPadding,
     bool? isHideSubtitleOnExpanded,
+    bool? isOnlyTrailingDoToggle,
     Widget? trailingIcon,
     double? elevation,
     ExpansionGroupController? controller,
@@ -256,6 +261,7 @@ class ExpansionTileItem extends StatelessWidget {
           isEnableExpanded: isEnableExpanded,
           isDefaultVerticalPadding: isDefaultVerticalPadding,
           isHideSubtitleOnExpanded: isHideSubtitleOnExpanded,
+          isOnlyTrailingDoToggle: isOnlyTrailingDoToggle,
           trailingIcon: trailingIcon,
           controller: controller,
           index: index,
@@ -526,6 +532,8 @@ class ExpansionTileItem extends StatelessWidget {
   ///This property used to override the default trailing icon.
   final Widget? trailingIcon;
 
+  final bool? isOnlyTrailingDoToggle;
+
   final ExpansionGroupController? controller;
 
   final int? index;
@@ -669,6 +677,7 @@ class ExpansionTileItem extends StatelessWidget {
         isDefaultVerticalPadding: isDefaultVerticalPadding ?? true,
         isHideSubtitleOnExpanded: isHideSubtitleOnExpanded ?? false,
         trailingIcon: trailingIcon,
+        isOnlyTrailingDoToggle: isOnlyTrailingDoToggle ?? false,
         children: children ?? [],
       ),
     );
