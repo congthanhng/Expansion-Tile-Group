@@ -34,6 +34,7 @@ class ExpansionTileOutlined extends ExpansionTileItem {
     super.trailingIcon,
     super.childrenPadding,
     super.expandedAlignment,
+    super.isOnlyTrailingDoToggle,
     super.borderRadius = const BorderRadius.all(Radius.circular(8)),
     super.collapsedBorderColor = Colors.grey,
     super.expendedBorderColor = Colors.blue,

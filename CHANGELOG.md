@@ -1,3 +1,9 @@
+## 2.2.0
+* New Feature:
+  - Only trailing can toggle the state: `isOnlyTrailingDoToggle` [#42](https://github.com/congthanhng/Expansion-Tile-Group/pull/42)
+* Update
+  - Example with new feature
+
 ## 2.1.0
 * New Feature:
   - Add new way to implement *group* feature: ExpansionGroupController
