@@ -1,3 +1,8 @@
+## 2.3.0
+* Update
+  - `ExpansionTileGroup` with new parameters `keepState`.
+  - Avoid column main axis use all available space. Thanks for [#53](https://github.com/congthanhng/Expansion-Tile-Group/pull/53)
+
 ## 2.2.0
 * New Feature:
   - Only trailing can toggle the state: `isOnlyTrailingDoToggle` [#42](https://github.com/congthanhng/Expansion-Tile-Group/pull/42)

@@ -12,4 +12,5 @@ class RouteNamed {
   static const String ignoreBehavior = '/ignore_behavior';
   static const String hideSubtitle = '/hide_subtitle';
   static const String fantasyPage = '/fantasy_page';
+  static const String keepStatePage = '/keep_state_page';
 }

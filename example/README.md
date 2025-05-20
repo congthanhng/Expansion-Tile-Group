@@ -1,6 +1,6 @@
 # example
 
-A new Flutter project.
+An example Flutter project to demonstrate the `expansion_tile_group` package.
 
 ## Getting Started
 
