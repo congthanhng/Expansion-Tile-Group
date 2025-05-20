@@ -1,6 +1,6 @@
 # example
 
-A new Flutter project.
+An example Flutter project to demonstrate the `expansion_tile_group` package.
 
 ## Getting Started
 
@@ -25,3 +25,7 @@ dart pub global activate dhttpd
 dart pub global run dhttpd --path doc/api
 ```
 ## Build demo web
+flutter build web --release
+
+## Public package
+dart pub publish --dry-run

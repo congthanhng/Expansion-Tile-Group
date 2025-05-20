@@ -77,13 +77,14 @@ class ExpansionGroupExample extends StatelessWidget {
 That's it! 
 
 ### ExpansionTileGroup parameters
-| Parameter                | Description                                                  |
-|--------------------------|--------------------------------------------------------------|
-| `key`                    | Controls how one widget replaces another widget in the tree. |
-| `children`*              | The children in this group, `ExpansionTileItem`              |
-| `toggleType`             | Provide the behaviors of items in this group, it's `enum`    |
-| `spaceBetweenItem`       | The gap space between item in the group                      |
-| `onExpansionItemChanged` | Listen the changed behavior of any item in the group         |
+| Parameter                | Description                                                                            |
+|--------------------------|----------------------------------------------------------------------------------------|
+| `key`                    | Controls how one widget replaces another widget in the tree.                           |
+| `children`*              | The children in this group, `ExpansionTileItem`                                        |
+| `toggleType`             | Provide the behaviors of items in this group, it's `enum`                              |
+| `spaceBetweenItem`       | The gap space between item in the group                                                |
+| `keepState`              | Will keep the state of the expansion tile whenever the parent's node widget is rebuilt |
+| `onExpansionItemChanged` | Listen the changed behavior of any item in the group                                   |
 
 ## Let implement with Option 2: Using `ExansionGroupController`
 Why do we have option 2 while option 1 work well?

@@ -169,6 +169,7 @@ Now you can change default trailing icon by calling `trailingIcon`, it is retrie
 | `isEnableExpanded`           | Force item expand or NOT                                                                                                                                                                         |
 | `isDefaultVerticalPadding`   | Remove completely default vertical title padding                                                                                                                                                 |
 | `isHideSubtitleOnExpanded`   | Hide Subtitle when view is expanded                                                                                                                                                              |
+| `isOnlyTrailingDoToggle`     | Only trailing can toggle the state [#42](https://github.com/congthanhng/Expansion-Tile-Group/pull/42)                                                                                            |
 | `trailingIcon`               | Change default trailing icon with keeping rotate animation                                                                                                                                       |
 
 ## Additional ExpansionTileLeaf parameters

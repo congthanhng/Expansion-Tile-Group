@@ -3,19 +3,32 @@ import 'package:expansion_tile_group/src/core/utils.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionTileGroup extends StatefulWidget {
-  const ExpansionTileGroup(
-      {Key? key,
-      required this.children,
-      this.toggleType = ToggleType.none,
-      this.onItemChanged,
-      this.spaceBetweenItem = 0.0})
-      : assert(spaceBetweenItem >= 0.0,
+  const ExpansionTileGroup({
+    Key? key,
+    required this.children,
+    this.toggleType = ToggleType.none,
+    this.onItemChanged,
+    this.spaceBetweenItem = 0.0,
+    this.keepState = false,
+  })  : assert(spaceBetweenItem >= 0.0,
             '[Error] ExpansionTileGroup: The spaceBetweenItem must be >= 0'),
         super(key: key);
+
+  /// The children of this group
   final List<ExpansionTileItem> children;
+
+  /// The type of toggle
   final ToggleType toggleType;
+
+  /// The callback that is called when the state of the expansion tile is changed
   final Function(int, bool)? onItemChanged;
+
+  /// The space between each expansion tile
   final double spaceBetweenItem;
+
+  /// If `true`, will keep the state of the expansion tile whenever the parent's node widget is rebuilt
+  /// By Default, it is `false`
+  final bool keepState;
 
   @override
   State<ExpansionTileGroup> createState() => _ExpansionTileGroupState();
@@ -68,6 +81,7 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
 
   @override
   void didUpdateWidget(ExpansionTileGroup oldWidget) {
+    if (widget.keepState) return;
     _generateKey(isClear: true);
     _modifyChildren(isClear: true);
     super.didUpdateWidget(oldWidget);
@@ -76,13 +90,18 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [...modifiedChildren].separatedBy(SizedBox(
         height: widget.spaceBetweenItem,
       )),
     );
   }
 
-  void _handleBehaviors(int index, bool isExpanded, bool isDefaultExpand) {
+  void _handleBehaviors(
+    int index,
+    bool isExpanded,
+    bool isDefaultExpand,
+  ) {
     switch (widget.toggleType) {
       case ToggleType.expandOnlyCurrent:
         _onExpandOne(index, isExpanded, isDefaultExpand);
@@ -104,7 +123,11 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     }
   }
 
-  void _onExpandOne(int index, bool isExpanded, bool isDefaultExpand) {
+  void _onExpandOne(
+    int index,
+    bool isExpanded,
+    bool isDefaultExpand,
+  ) {
     _isTransforming = true;
     if (isExpanded) {
       keysMap[index]?.currentState?.expand();
@@ -124,7 +147,10 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
   }
 
   void _onExpandAlwaysCurrent(
-      int index, bool isExpanded, bool isDefaultExpand) {
+    int index,
+    bool isExpanded,
+    bool isDefaultExpand,
+  ) {
     _isTransforming = true;
     keysMap[index]?.currentState?.expand();
     for (int i = 0; i < keysMap.length; i++) {
@@ -139,7 +165,11 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     _isTransforming = false;
   }
 
-  void _onCollapseAll(int index, bool isExpanded, bool isDefaultExpand) {
+  void _onCollapseAll(
+    int index,
+    bool isExpanded,
+    bool isDefaultExpand,
+  ) {
     _isTransforming = true;
     if (!isExpanded) {
       for (int i = 0; i < keysMap.length; i++) {
@@ -149,7 +179,11 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     _isTransforming = false;
   }
 
-  void _onExpandAll(int index, bool isExpanded, bool isDefaultExpand) {
+  void _onExpandAll(
+    int index,
+    bool isExpanded,
+    bool isDefaultExpand,
+  ) {
     _isTransforming = true;
     if (isExpanded) {
       for (int i = 0; i < keysMap.length; i++) {
@@ -159,7 +193,11 @@ class _ExpansionTileGroupState extends State<ExpansionTileGroup> {
     _isTransforming = false;
   }
 
-  void _onExpandAllOrCollapseAll(int index, bool isExpanded, bool keepState) {
+  void _onExpandAllOrCollapseAll(
+    int index,
+    bool isExpanded,
+    bool keepState,
+  ) {
     _isTransforming = true;
     if (isExpanded) {
       for (int i = 0; i < keysMap.length; i++) {

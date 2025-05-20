@@ -1,6 +1,7 @@
 import 'package:expansion_tile_group_example/route_named.dart';
 import 'package:expansion_tile_group_example/use_cases/fantasy/fantasy_page.dart';
 import 'package:expansion_tile_group_example/use_cases/group/custom_group_with_controller.dart';
+import 'package:expansion_tile_group_example/use_cases/group/keep_state_page.dart';
 import 'package:flutter/material.dart';
 
 import 'use_cases/use_cases.dart';
@@ -55,6 +56,9 @@ class _MyAppState extends State<MyApp> {
                 builder: (context) => const CustomGroupWithController());
           case RouteNamed.fantasyPage:
             return MaterialPageRoute(builder: (context) => const FantasyPage());
+          case RouteNamed.keepStatePage:
+            return MaterialPageRoute(
+                builder: (context) => const KeepStatePage());
           default:
             return MaterialPageRoute(builder: (context) => const HomePage());
         }
@@ -164,6 +168,12 @@ class HomePage extends StatelessWidget {
             context,
             title: 'Listen changed of any item in group',
             routeName: RouteNamed.listenGroupItemChanged,
+          ),
+          const Divider(),
+          _buildRow(
+            context,
+            title: 'Keep state Example',
+            routeName: RouteNamed.keepStatePage,
           ),
           const Divider(),
           const Text(
