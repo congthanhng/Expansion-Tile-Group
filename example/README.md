@@ -25,3 +25,7 @@ dart pub global activate dhttpd
 dart pub global run dhttpd --path doc/api
 ```
 ## Build demo web
+flutter build web --release
+
+## Public package
+dart pub publish --dry-run
