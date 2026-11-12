@@ -1,3 +1,8 @@
+## 2.4.0
+* Update  
+  - Migrates to material_ui and cupertino_ui.
+  - Updates minimum supported SDK version to Flutter 3.44/Dart 3.12.
+
 ## 2.3.0
 * Update
   - `ExpansionTileGroup` with new parameters `keepState`.

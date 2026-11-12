@@ -2,7 +2,7 @@ import 'package:expansion_tile_group_example/route_named.dart';
 import 'package:expansion_tile_group_example/use_cases/fantasy/fantasy_page.dart';
 import 'package:expansion_tile_group_example/use_cases/group/custom_group_with_controller.dart';
 import 'package:expansion_tile_group_example/use_cases/group/keep_state_page.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'use_cases/use_cases.dart';
 
